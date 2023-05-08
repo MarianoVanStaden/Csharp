@@ -1,0 +1,381 @@
+#region Trabajo Práctico Nº4
+#region Ejercicio Nº1 06/05/2023
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Console.WriteLine("Ingrese números negativos para hacer un array, positivosp para sacar su promedio y el cero para terminar la operación");
+//            int ingreso, promedio = 0, i = 0;
+//            string cadena = "";
+//            List<int> numeros = new List<int>();
+//            ingreso = int.Parse(Console.ReadLine());
+//            while (ingreso!=0)
+//            {
+//                if (ingreso <0)
+//                {
+//                    numeros.Add(ingreso);
+//                }
+//                else
+//                {
+//                    i++;
+//                    promedio = promedio + ingreso;
+//                }
+//                ingreso = int.Parse(Console.ReadLine());
+//            }
+//            int[] arreglo = numeros.ToArray();
+//            cadena = string.Join(", ", arreglo);
+//            Console.WriteLine("Usted ingresó el número cero");
+//            Console.WriteLine($"El promedio de números positivos es: {promedio/i}");
+//            Console.WriteLine($"Los números negativos ingresados fueron: {cadena}");
+//        }
+//    }
+//}
+
+
+#endregion
+#region Ejercicio Nº2 06/05/2023
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            char dato;
+//            int may=0, min = 0;
+//            Console.WriteLine("Ingrese un carácter, con el * rompe el ciclo que contará la cantidad de ingresos de 'A' y las 'a'");
+//            dato = Console.ReadKey().KeyChar;
+//            Console.WriteLine();
+//            while (dato != '*')
+//            {
+//                if (dato == 'a') min++;
+//                else if (dato == 'A') may++;                            
+//                dato = Console.ReadKey().KeyChar;
+//                Console.WriteLine();
+//                Console.WriteLine("Ingrese otro carácter, recuerde que con el * rompe el ciclo que contará la cantidad de ingresos de 'A' y las 'a'");
+
+
+//            }
+//            Console.WriteLine($"Usted ingresó 'a':{min} cantidad de veces  y 'A':{may} cantidad de veces");
+
+
+
+//        }
+//    }
+//}
+
+#endregion
+#region Ejercicio Nº3 06/05/2023
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            string nombre, direccion;
+//            double estadoActual,estadoAnterior, consumo, importe;
+//            Console.WriteLine("Ingrese el nombre del cliente o 'ZZZ' para finalizar la operación");
+//            nombre = Console.ReadLine();
+//            while (nombre != "ZZZ")
+//            {
+//                Console.WriteLine("Ingrese su dirección:");
+//                direccion = Console.ReadLine();
+//                Console.WriteLine("Ingrese el estado actual del medidor:");
+//                estadoActual = double.Parse(Console.ReadLine());
+//                Console.WriteLine("Ingrese el estado anterior del medidor:");
+//                estadoAnterior = double.Parse(Console.ReadLine());
+//                consumo = estadoActual - estadoAnterior;
+//                if (consumo <= 100) importe = (consumo*1.5);
+//                else if (consumo > 100 || consumo < 200) importe = (consumo * 2);
+//                else importe = (consumo * 2.5);
+//                Console.WriteLine($"Nombre:{nombre} - direccion: {direccion}");
+//                Console.WriteLine($"Estado actual del medidor: {estadoActual}");
+//                Console.WriteLine($"Estado anterior del medidor: {estadoAnterior}");
+//                Console.WriteLine($"Consumo del bimestre:{consumo}");
+//                Console.WriteLine($"Importe a pagar: {importe}$");
+//                Console.WriteLine("Ingrese el nombre del cliente o 'ZZZ' para finalizar la operación");
+//                nombre = Console.ReadLine();
+//            }
+//            Console.WriteLine("La operación ha finalizado");
+
+
+
+//        }
+//    }
+//}
+#endregion
+#region Ejercicio Nº4 06/05/2023
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            double a, b, suma=0, num;
+//            int i = 0;
+//            Console.WriteLine("Ingrese el valor de A (debe ser menor que B)");
+//            a = Convert.ToDouble(Console.ReadLine());
+//            Console.WriteLine("Ingrese el valor de B (debe ser mayor que A)");
+//            b = Convert.ToDouble(Console.ReadLine());
+//            if (a < b)
+//            {
+//                do
+//                {
+//                    Console.WriteLine("Ingrese un valor distinto a cero");
+//                    num = Convert.ToDouble(Console.ReadLine());
+//                    if (num > a && num < b && num != 0)
+//                    {
+//                        suma= suma + num;
+//                        i++;
+//                    }
+//                }
+//                while (num != 0);
+//                suma = suma / i;
+//                Console.WriteLine($"El promedio entre los valores ingresados entre de A y B es {suma}");
+//        }
+//            else Console.WriteLine("El valor de A debe ser menor que el de B");
+
+
+//        }
+//    }
+
+//}
+#endregion
+#region Ejercicio Nº5 06/05/2023
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//int a = 0;
+//int b = 10;
+//for (int i = 1; i <= 3; i++)
+//{
+//    a += i; //1 - 3 - 6
+//    Console.WriteLine(a);
+//    b=b+Convert.ToInt32(Math.Pow(a,i)); // 11 - 20 - 236
+//    Console.WriteLine(b);
+//}
+//a = b - a;
+//Console.WriteLine($"FINAL DE {a}"); //230
+//////////////////////////////////////////////////////////////
+// int a = 0;
+// int sum = 0;
+// for (int j = 20; j > a; j--)
+//{              //20 19 18 17 
+//     Console.WriteLine($"VALOR DE J:{j}");
+//     sum += 2; // 2 4 6 8 10 12 14 16 18 20
+//     Console.WriteLine($"VALOR DE suma: {sum}");
+//     a += sum + 1; // 3 8 15 24
+//     Console.WriteLine($"VALOR DE a: {a}");
+//}
+/////////////////////////////////////////////////////////////////
+//            int a = 0;
+//            int sum = 0;
+//            int lim = 2;
+//            for (int k = 1; k <= lim; k++)
+//                {
+//                Console.WriteLine($"VALOR DE k: {k}");
+//                for (int l = -10; l <= -8; l++)
+
+//                {
+//                    Console.WriteLine($"VALOR DE l: {l}");
+//                    a += 1; //1 2 3 - 4 5 6
+//                    Console.WriteLine($"VALOR DE a: {a}");
+//                }
+//                sum = sum + a; // 3 - 9
+//                Console.WriteLine($"VALOR DE sum: {sum}");
+//                Console.WriteLine($"VALOR DE a final: {a}");
+//            }
+///////////////////////////////////////////////////////////////////////////////////
+
+//            }
+
+
+//    }
+
+//}
+#endregion
+#region Ejercicio Nº6 06/05/2023
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int i, n;
+//            double sum=0, num, prom;
+//            Console.WriteLine("Ingrese la cantidad de números que va a querer promediar");
+//            n = Convert.ToInt32(Console.ReadLine());
+//            for (i = 1; i <= n; i++)
+//            {
+//                Console.WriteLine("Ingrese los números (deben ser distintos a cero)");
+//                num = Convert.ToInt32(Console.ReadLine());
+//                sum = sum + num;
+//            }
+//            prom = sum / n;
+//            Console.WriteLine("El promedio es: " + prom);
+
+
+
+//        }
+//    }
+
+//}
+#endregion
+#region Ejercicio Nº7 06/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int n, num, cant;
+//            double dato, suma, promedio, aux;
+//            Console.WriteLine("Ingresar un número cuantos números va a ingresar (debe ser distinto a 0)");
+//            n = Convert.ToInt32(Console.ReadLine());
+//            if (n != 0)
+//            {
+//                cant = 0;
+//                suma = 0;
+//                for (num = 1; num <= n; num++)
+//                {
+//                    Console.WriteLine("Ingrese un número para que sea promediado");
+//                    dato = Convert.ToDouble(Console.ReadLine());
+//                    aux = Math.Round(dato);
+//                    if (dato > 0)
+//                    {
+//                        cant += 1;
+//                        suma += dato;
+//                    }
+//                    else
+//                        Console.WriteLine(dato + " No se considera para el cálculo");
+//                }
+//                promedio = suma / cant;
+//                Console.WriteLine(promedio);
+//            }
+//            else Console.WriteLine("Usted ingresó el número cero");
+
+//        }
+
+//    }
+
+//}
+#endregion
+#region Ejercicio Nº8 06/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int n, ancho, alto,t=0, si=0, no=0;
+//            int perimetro, perimetroMaximo ;
+//            Console.WriteLine("Ingresar cuantos rectángulos va a cálcular");
+//            n = int.Parse(Console.ReadLine());
+//            Console.WriteLine("Ingresar cúal es el perimetro máximo a cálcular");
+//            perimetroMaximo = int.Parse(Console.ReadLine());
+//            for (int i = 0; i < n; i++)
+//            {
+//                Console.WriteLine("Ingrese el ancho del rectángulo");
+//                ancho = Convert.ToInt32(Console.ReadLine());
+//                Console.WriteLine("Ingrese el alto del rectángulo");
+//                alto = Convert.ToInt32(Console.ReadLine());
+//                perimetro = 2*(ancho + alto);
+//                if (ancho != 0 && alto != 0) 
+//                {
+//                    t++;
+//                    if (perimetroMaximo < perimetro)
+//                {
+//                    Console.WriteLine($"Este rectangulo tiene un ancho de {ancho}, un largo de {alto} y un área de {ancho*alto}");
+//                    Console.WriteLine();
+//                    si++;
+//                }
+//                else 
+//                        Console.WriteLine("Este rectangulo no cumple con las medidas necesarias");
+//                        no++;
+//                }
+
+//                else Console.WriteLine("Ningún valor puede ser cero");
+//            }
+//            Console.WriteLine($"El {si * 100 / t}% de los rectángulos ha cumplido con lo requerido y el otro {no * 100 / t} ");
+
+
+
+//        }
+//    }
+
+//}
+#endregion
+#region Ejercicio Nº9 06/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int n,i;
+//            double total=0, parcial;
+//            Console.WriteLine("Ingrese el valor de n (n>0) para la ecuación : 1 + ½ + ¼ + ⅛ +....+ ½(n-1)");
+//            n=Convert.ToInt32(Console.ReadLine());
+//            if (n > 0)
+//            {
+//            for(i = 0; n>=i; i++)
+//            {
+//                parcial= 1/(Math.Pow(2, i));
+//                    Console.WriteLine(i);
+//                Console.WriteLine($"El parcial es: {parcial}");
+//                total = total + parcial;
+//                Console.WriteLine($"El subtotal es: {total}");
+//            }
+//            Console.WriteLine($"El total es: {total}");
+//            }
+//            else Console.WriteLine("El valor de n tiene que ser mayor que cero");
+//        }
+//    }
+
+//}
+#endregion
+#region Ejercicio Nº10 06/05/2023 
+using System;
+
+namespace GuiaNumero4
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int par, impar, valorInicial, valorFinal, restoI, restoF;
+            Console.WriteLine("Ingresar el valor inicial");
+            valorInicial = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingresar el valor final (debe ser mayor que el valor inicial");
+            valorFinal = Convert.ToInt32(Console.ReadLine());
+            if (valorInicial > valorFinal)
+            {
+                restoI = valorFinal % 2;
+                for (i = 0; n >= i; i++)
+            }
+            else Console.WriteLine("El valor final debe ser mayor que el valor inicial");
+        }
+    }
+            else Console.WriteLine("El valor de n tiene que ser mayor que cero");
+        }
+    }
+
+}
+#endregion
+#endregion
