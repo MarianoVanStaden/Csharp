@@ -350,32 +350,150 @@
 
 //}
 #endregion
-#region Ejercicio Nº10 06/05/2023 
+#region Ejercicio Nº10 09/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int par=0, impar=0, valorInicial, valorFinal, diferencia, sumaPar=0, sumaImpar=0, i;
+//            Console.WriteLine("Ingresar el valor inicial");
+//            valorInicial = Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine("Ingresar el valor final (debe ser mayor que el valor inicial)");
+//            valorFinal = Convert.ToInt32(Console.ReadLine());
+//            diferencia = Math.Abs(valorFinal - valorInicial);
+//            Console.WriteLine(diferencia.ToString());
+//            if (valorInicial < valorFinal)
+//            {
+//                Console.WriteLine("ENTRO EN EL Primero");
+//                for (i = 0; i<=diferencia; i++)
+//                {
+//                    if (((valorInicial+i)%2)==0)
+//                    {   par = valorInicial + i;
+//                        sumaPar = par + sumaPar;
+//                        Console.WriteLine($"Valor par: {par}");
+//                    }
+//                    else if (((valorInicial + i) % 2) == 1)
+//                    { 
+//                        impar = valorInicial + i;
+//                        sumaImpar = impar + sumaImpar;
+//                        Console.WriteLine($"Valor impar: {impar}");
+//                    }
+//                    else
+//                    Console.WriteLine("Salio del primer buble)");
+//                    Console.WriteLine($"Valor de suma par: {sumaPar}");
+//                    Console.WriteLine($"Valor de suma impar: {sumaImpar}");
+//                }
+//            }                     
+//            else if (valorInicial > valorFinal)
+//            {
+//                for (i = 0; i <= diferencia; i++)
+//                {
+//                    if (((valorFinal + i) % 2) == 0)
+//                    {
+//                        par = valorFinal + i;
+//                        sumaPar = par + sumaPar;
+//                        Console.WriteLine($"Valor par: {par}");
+//                    }
+//                    else if (((valorFinal + i) % 2) == 1)
+//                    {
+//                        impar = valorFinal + i;
+//                        sumaImpar = impar + sumaImpar;
+//                        Console.WriteLine($"Valor impar: {impar}");
+//                    }
+//                    else
+//                        Console.WriteLine("Salio del primer buble)");
+//                    Console.WriteLine($"Valor de suma par: {sumaPar}");
+//                    Console.WriteLine($"Valor de suma impar: {sumaImpar}");
+//                }
+//            }
+//            else Console.WriteLine("Ambos números son iguales");
+//        }
+//    }
+//}
+
+#endregion
+#region Ejercicio Nº11 09/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//            public static void Main()
+//            {
+//            int n;
+//            Console.WriteLine("Ingrese cuantos números va a ingresar");
+//            n= Convert.ToInt32(Console.ReadLine());
+
+//            int[] numeros = new int[n];
+//            for (int i = 0; i < n; i++)
+//            {
+//                Console.WriteLine($"Introduce el elemento {i+1}");
+//                numeros[i] = Convert.ToInt32(Console.ReadLine());
+//            }
+//            int max= numeros[0];
+//            int min= numeros[0];
+//            for (int i = 0; i < n; i++)
+//            {
+//                if (numeros[i] > max)
+//                {
+//                    max = numeros[i];
+//                }
+//                if (numeros[i] < max)
+//                {
+//                    min = numeros[i];
+//                }
+//            }
+//            Console.WriteLine($"El máximo es: {max}");
+//            Console.WriteLine($"El mínimo es: {min}");
+//        }
+
+//}
+//}
+
+#endregion
+#region Ejercicio Nº12 09/05/2023 
 using System;
 
 namespace GuiaNumero4
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            int par, impar, valorInicial, valorFinal, restoI, restoF;
-            Console.WriteLine("Ingresar el valor inicial");
-            valorInicial = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Ingresar el valor final (debe ser mayor que el valor inicial");
-            valorFinal = Convert.ToInt32(Console.ReadLine());
-            if (valorInicial > valorFinal)
-            {
-                restoI = valorFinal % 2;
-                for (i = 0; n >= i; i++)
-            }
-            else Console.WriteLine("El valor final debe ser mayor que el valor inicial");
-        }
-    }
-            else Console.WriteLine("El valor de n tiene que ser mayor que cero");
-        }
-    }
+            int n;
+            Console.WriteLine("Ingrese cuantos números va a ingresar");
+            n = Convert.ToInt32(Console.ReadLine());
 
+            int[] numeros = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine($"Introduce el elemento {i + 1}");
+                numeros[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            int max = numeros[0];
+            int min = numeros[0];
+            for (int i = 0; i < n; i++)
+            {
+                if (numeros[i] > max)
+                {
+                    max = numeros[i];
+                }
+                if (numeros[i] < max)
+                {
+                    min = numeros[i];
+                }
+            }
+            Console.WriteLine($"El máximo es: {max}");
+            Console.WriteLine($"El mínimo es: {min}");
+        }
+
+    }
 }
+
 #endregion
 #endregion
