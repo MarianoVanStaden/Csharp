@@ -456,7 +456,231 @@
 //}
 
 #endregion
-#region Ejercicio Nº12 09/05/2023 
+#region Ejercicio Nº11 09/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        public static void Main()
+//        {
+//            int n, ingreso, max = 0, min = 0;
+//            Console.WriteLine("Ingrese la cantidad de ingresos");
+//            n = Convert.ToInt32(Console.ReadLine());
+//            if (n==1) {
+//                Console.WriteLine("Ingrese un valor");
+//                ingreso = Convert.ToInt32(Console.ReadLine());
+//                Console.WriteLine($"El maximo y el minimo son igual a {ingreso}");
+//            }
+//            else if (n > 0)
+//            {
+
+//                do
+//                {
+//                    Console.WriteLine("Ingrese un valor");
+//                    ingreso = Convert.ToInt32(Console.ReadLine());
+//                    max = min = ingreso;
+//                    if (ingreso < min) min = ingreso;
+//                    if (ingreso > max) max = ingreso;
+//                }
+//                while (max != min);
+//                for (int i = 1; i < n ; i++)
+//                {
+
+//                    Console.WriteLine("Ingrese otro valor");
+//                    ingreso = Convert.ToInt32(Console.ReadLine());
+//                    if (ingreso < min) min = ingreso;
+//                    if (ingreso > max) max = ingreso;
+
+//                }
+
+
+//                Console.WriteLine($"El máximo es: {max}");
+//                Console.WriteLine($"El mínimo es: {min}");
+//            }
+//            else Console.WriteLine("Ingrese un valor n>0");
+//int n;
+//Console.WriteLine("Ingrese cuantos números va a ingresar");
+//n = Convert.ToInt32(Console.ReadLine());
+
+//int[] numeros = new int[n];
+//for (int i = 0; i < n; i++)
+//{
+//    Console.WriteLine($"Introduce el elemento {i + 1}");
+//    numeros[i] = Convert.ToInt32(Console.ReadLine());
+//}
+//int max = numeros[0];
+//int min = numeros[0];
+//for (int i = 0; i < n; i++)
+//{
+//    if (numeros[i] > max)
+//    {
+//        max = numeros[i];
+//    }
+//    if (numeros[i] < max)
+//    {
+//        min = numeros[i];
+//    }
+//}
+//Console.WriteLine($"El máximo es: {max}");
+//            //Console.WriteLine($"El mínimo es: {min}");
+//        }
+
+//    }
+//}
+
+#endregion
+#region Ejercicio Nº12 13/05/2023 
+//using System;
+//using System.Linq.Expressions;
+//using System.Net.NetworkInformation;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        public static void Main()
+//        {
+//            int n, tipoLibro = 0, ficcion = 0, noFiccion = 0, sexo, hFiccion = 0, mFiccion = 0, edad, edadPromedio=0, secu=0;
+//            Console.WriteLine("Ingrese la cantidad de ingresos");
+//            n = Convert.ToInt32(Console.ReadLine());
+
+//            for (int i = 0; i < n; i++)
+//            {
+//                Console.WriteLine("Ingrese 1=ficción o 2=no ficción");
+//                tipoLibro = Convert.ToInt32(Console.ReadLine());
+//                if (tipoLibro == 1)
+//                {
+//                    ficcion++;
+//                    Console.WriteLine("Ingrese 1=masculino , 2=femenino o 3=otro");
+//                    sexo = Convert.ToInt32(Console.ReadLine());
+//                    if (sexo == 1) hFiccion++;
+//                    else if (sexo == 2) mFiccion++;
+//                    //Console.WriteLine("Ingrese 1=primaria , 2=secu incom , 3=secu comple, 4=uni incom o 5=uni comple");
+//                    //int edu = Convert.ToInt32(Console.ReadLine());
+//                }
+//                else
+//                {
+//                    noFiccion++;
+//                    Console.WriteLine("Ingrese 1=primaria , 2=secu incom , 3=secu comple, 4=uni incom o 5=uni comple");
+//                    int edu = Convert.ToInt32(Console.ReadLine());
+//                    switch (edu)
+//                    {
+//                        case 1:
+//                            Console.WriteLine("Usted eligió primaria");
+//                            break;
+//                        case 2:
+//                            Console.WriteLine("Usted eligió secu incom");
+//                            secu++;
+//                            Console.WriteLine("Ingrese su edad");
+//                            edad = Convert.ToInt32(Console.ReadLine());
+//                            edadPromedio = edadPromedio + edad;
+
+//                            break;
+//                        case 3:
+//                            Console.WriteLine("Usted eligió seco comple");
+//                            break;
+//                        case 4:
+//                            Console.WriteLine("Usted eligió uni incom");
+//                            break;
+//                        case 5:
+//                            Console.WriteLine("Usted eligió uni comple");
+//                            break;
+//                    }
+//                }
+//            }
+//            Console.WriteLine($"El porcentaje de lectores de ficcion es {100*ficcion / n} y de no ficcion es {100*noFiccion / n}");
+//            Console.WriteLine($"El porcentaje de lectores  hombres de ficcion es {100*hFiccion/ficcion} y de mujeres es {100 * mFiccion / ficcion}");
+//            Console.WriteLine($"La edad promedio de lectores de no ficcón con secundario imcompleto es {edadPromedio}");
+//        }
+//    }
+
+//}
+
+
+
+/////////////////////////SOLUCIÓN CHAT GPT/////////////////////////////////////////////////
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.Write("Ingrese la cantidad de encuestados: ");
+//        int n = int.Parse(Console.ReadLine());
+
+//        int ficcion = 0, noFiccion = 0, hombresFiccion = 0, mujeresFiccion = 0, otrosFiccion = 0, edadNoFiccionSI = 0, totalEdadNoFiccionSI = 0;
+
+//        for (int i = 1; i <= n; i++)
+//        {
+//            Console.WriteLine($"\nEncuestado {i}:");
+//            Console.Write("Tipo de libro (1=ficción, 2=no ficción): ");
+//            int tipoLibro = int.Parse(Console.ReadLine());
+
+//            if (tipoLibro == 1)
+//            {
+//                ficcion++;
+//                Console.Write("Sexo (1=masculino, 2=femenino, 3=otro): ");
+//                int sexo = int.Parse(Console.ReadLine());
+
+//                if (sexo == 1)
+//                {
+//                    hombresFiccion++;
+//                }
+//                else if (sexo == 2)
+//                {
+//                    mujeresFiccion++;
+//                }
+//                else
+//                {
+//                    otrosFiccion++;
+//                }
+//            }
+//            else
+//            {
+//                noFiccion++;
+//                Console.Write("Educación (1=primaria, 2=secundaria incompleta, 3=secundaria completa, 4=universitaria incompleta, 5=universitaria completa): ");
+//                int educacion = int.Parse(Console.ReadLine());
+
+//                if (educacion == 2)
+//                {
+//                    Console.Write("Edad en años: ");
+//                    int edad = int.Parse(Console.ReadLine());
+//                    edadNoFiccionSI++;
+//                    totalEdadNoFiccionSI += edad;
+//                }
+//            }
+//        }
+
+//        Console.WriteLine($"\nPorcentaje de lectores de ficción: {(double)ficcion / n:P}");
+//        Console.WriteLine($"Porcentaje de lectores de no ficción: {(double)noFiccion / n:P}");
+
+//        if (ficcion > 0)
+//        {
+//            Console.WriteLine($"Porcentaje de hombres que prefieren la ficción: {(double)hombresFiccion / ficcion:P}");
+//            Console.WriteLine($"Porcentaje de mujeres que prefieren la ficción: {(double)mujeresFiccion / ficcion:P}");
+//            Console.WriteLine($"Porcentaje de otros que prefieren la ficción: {(double)otrosFiccion / ficcion:P}");
+//        }
+//        else
+//        {
+//            Console.WriteLine("No se registraron lectores de ficción.");
+//        }
+
+//        if (edadNoFiccionSI > 0)
+//        {
+//            double promedioEdadNoFiccionSI = (double)totalEdadNoFiccionSI / edadNoFiccionSI;
+//            Console.WriteLine($"Edad promedio de lectores de no ficción con secundaria incompleta: {promedioEdadNoFiccionSI:N2} años.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("No se registraron lectores de no ficción con secundaria incompleta.");
+//        }
+//    }
+//}
+
+#endregion
+#region Ejercicio Nº13 13/05/2023 
 using System;
 
 namespace GuiaNumero4
@@ -465,31 +689,50 @@ namespace GuiaNumero4
     {
         public static void Main()
         {
-            int n;
-            Console.WriteLine("Ingrese cuantos números va a ingresar");
-            n = Convert.ToInt32(Console.ReadLine());
-
+            Console.WriteLine("Ingrese la cantidad de números que va a comparar");
+            int n = int.Parse(Console.ReadLine());
             int[] numeros = new int[n];
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine($"Introduce el elemento {i + 1}");
+                Console.WriteLine($"Ingrese el {i + 1}º número");
                 numeros[i] = Convert.ToInt32(Console.ReadLine());
             }
-            int max = numeros[0];
-            int min = numeros[0];
-            for (int i = 0; i < n; i++)
+            int mayorDiferencia = 0;
+            for (int i = 0; i < n-1; i++)
             {
-                if (numeros[i] > max)
-                {
-                    max = numeros[i];
-                }
-                if (numeros[i] < max)
-                {
-                    min = numeros[i];
-                }
+                int diferencia = Math.Abs(numeros[i] - numeros[i + 1]);
+                if (diferencia > mayorDiferencia) mayorDiferencia = diferencia;
             }
-            Console.WriteLine($"El máximo es: {max}");
-            Console.WriteLine($"El mínimo es: {min}");
+            Console.WriteLine($"La mayor diferencia es {mayorDiferencia}");
+            //for (int i = 0; i < numeros.Length; i++)
+            //{
+            //    Console.Write(numeros[i] + " ");
+            //}
+
+
+            ////////////////CHAT GPT///////////////////////////////////
+
+            //Console.Write("Ingrese la cantidad de números: ");
+            //int n = int.Parse(Console.ReadLine());
+
+            //int[] numeros = new int[n];
+            //for (int i = 0; i < n; i++)
+            //{
+            //    Console.Write("Ingrese el número {0}: ", i + 1);
+            //    numeros[i] = int.Parse(Console.ReadLine());
+            //}
+
+            //int mayorDiferencia = 0;
+            //for (int i = 0; i < n - 1; i++)
+            //{
+            //    int diferencia = Math.Abs(numeros[i] - numeros[i + 1]);
+            //    if (diferencia > mayorDiferencia)
+            //    {
+            //        mayorDiferencia = diferencia;
+            //    }
+            //}
+
+            //Console.WriteLine("La mayor diferencia es: " + mayorDiferencia);
         }
 
     }
