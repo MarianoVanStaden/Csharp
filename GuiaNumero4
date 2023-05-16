@@ -681,6 +681,162 @@
 
 #endregion
 #region Ejercicio Nº13 13/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        public static void Main()
+//        {
+//            Console.WriteLine("Ingrese la cantidad de números que va a comparar");
+//            int n = int.Parse(Console.ReadLine());
+//            int[] numeros = new int[n];
+//            for (int i = 0; i < n; i++)
+//            {
+//                Console.WriteLine($"Ingrese el {i + 1}º número");
+//                numeros[i] = Convert.ToInt32(Console.ReadLine());
+//            }
+//            int mayorDiferencia = 0;
+//            for (int i = 0; i < n-1; i++)
+//            {
+//                int diferencia = Math.Abs(numeros[i] - numeros[i + 1]);
+//                if (diferencia > mayorDiferencia) mayorDiferencia = diferencia;
+//            }
+//            Console.WriteLine($"La mayor diferencia es {mayorDiferencia}");
+//            //for (int i = 0; i < numeros.Length; i++)
+//            //{
+//            //    Console.Write(numeros[i] + " ");
+//            //}
+
+
+//            ////////////////CHAT GPT///////////////////////////////////
+
+//            //Console.Write("Ingrese la cantidad de números: ");
+//            //int n = int.Parse(Console.ReadLine());
+
+//            //int[] numeros = new int[n];
+//            //for (int i = 0; i < n; i++)
+//            //{
+//            //    Console.Write("Ingrese el número {0}: ", i + 1);
+//            //    numeros[i] = int.Parse(Console.ReadLine());
+//            //}
+
+//            //int mayorDiferencia = 0;
+//            //for (int i = 0; i < n - 1; i++)
+//            //{
+//            //    int diferencia = Math.Abs(numeros[i] - numeros[i + 1]);
+//            //    if (diferencia > mayorDiferencia)
+//            //    {
+//            //        mayorDiferencia = diferencia;
+//            //    }
+//            //}
+
+//            //Console.WriteLine("La mayor diferencia es: " + mayorDiferencia);
+//        }
+
+//    }
+//}
+
+#endregion
+#region Ejercicio Nº14 16/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        public static void Main()
+//        {
+//            Console.WriteLine("Ingrese una palabra");
+//            string cadena = Console.ReadLine();
+//            string subcadena= "";
+//            //for (int i=0; i<=cadena.Length; i++)
+//            //{
+//            //    Console.Write(cadena.Substring(0,i));
+//            //    Console.WriteLine();
+//            //}
+//            foreach(var letra in cadena)
+//            {
+//                subcadena += letra;
+//                Console.WriteLine(subcadena);
+//            }
+
+//        }
+
+//    }
+//}
+
+#endregion
+#region Ejercicio Nº15 16/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        public static void Main()
+//        {
+//            Console.WriteLine("Ingrese la cantidad de alumnos");
+//            int alumnos = Convert.ToInt16(Console.ReadLine());
+//            string nombre;
+//            double primerNota, segundaNota, trabajoPractico, promedio, promedioGral=0;
+//            for (int i = 0; i < alumnos; i++)
+//            {
+//                Console.Write($"Ingrese el nombre del {i+1}º alumno:");
+//                nombre = Console.ReadLine();
+//                Console.Write($"Ingrese la nota del primer examen de {nombre}:");
+//                primerNota = Convert.ToDouble(Console.ReadLine());
+//                Console.Write($"Ingrese la nota del segundo examen de {nombre}:");
+//                segundaNota = Convert.ToDouble(Console.ReadLine());
+//                Console.Write($"Ingrese la nota del trabajo práctico de {nombre}:");
+//                trabajoPractico = Convert.ToDouble(Console.ReadLine());
+//                promedio = (primerNota + segundaNota + trabajoPractico) / 3;
+//                Console.Write(promedio);
+//                promedioGral = promedioGral + promedio;
+//                Console.Write(promedioGral);
+//            }
+//            Console.Write($"Hay {alumnos} alumnos y el promedio general es de {promedioGral/alumnos} puntos");    //\r
+
+
+//        }
+
+//    }
+//}
+#endregion
+#region Ejercicio Nº16 16/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+//    {
+//        public static void Main()
+//        {
+//            Console.WriteLine("Ingrese un número entre 1 y 10");
+//            int numero = Convert.ToInt16(Console.ReadLine());
+//            if (numero > 0 && numero <=10)
+//            {
+//                for (int i = 1; i <= numero; i++)
+//                {
+//                    for (int j = 1; j <= 10; j++)
+//                    {
+//                        Console.WriteLine($"{i}*{j}={i*j}");
+//                    }
+//                    Console.ReadKey();
+//                }
+
+//            }
+//            else Console.Write("Debe ingresar un número entero que pertenezca al intervalo (0,10]");    //\r
+//            Console.WriteLine("El programa ha finalizado. ¡Muchas gracias!");
+
+
+//        }
+
+//    }
+//}
+#endregion
+#region Ejercicio Nº17 16/05/2023 
 using System;
 
 namespace GuiaNumero4
@@ -689,54 +845,46 @@ namespace GuiaNumero4
     {
         public static void Main()
         {
-            Console.WriteLine("Ingrese la cantidad de números que va a comparar");
-            int n = int.Parse(Console.ReadLine());
-            int[] numeros = new int[n];
-            for (int i = 0; i < n; i++)
+
+
+            string nombre, paciente;
+            Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
+            nombre = Console.ReadLine();
+            while (nombre != "ZZZ")
             {
-                Console.WriteLine($"Ingrese el {i + 1}º número");
-                numeros[i] = Convert.ToInt32(Console.ReadLine());
+                List <string> pacientes = new List<string>();
+                Console.WriteLine("Ingrese el nombre del paciente");
+                paciente = Console.ReadLine();
+                pacientes.Add(paciente);
+
+                foreach (string persona in pacientes)
+                {
+                    Console.WriteLine(persona);
+                }//Console.WriteLine("Ingrese su dirección:");
+                //direccion = Console.ReadLine();
+                //Console.WriteLine("Ingrese el estado actual del medidor:");
+                //estadoActual = double.Parse(Console.ReadLine());
+                //Console.WriteLine("Ingrese el estado anterior del medidor:");
+                //estadoAnterior = double.Parse(Console.ReadLine());
+                //consumo = estadoActual - estadoAnterior;
+                //if (consumo <= 100) importe = (consumo * 1.5);
+                //else if (consumo > 100 || consumo < 200) importe = (consumo * 2);
+                //else importe = (consumo * 2.5);
+                //Console.WriteLine($"Nombre:{nombre} - direccion: {direccion}");
+                //Console.WriteLine($"Estado actual del medidor: {estadoActual}");
+                //Console.WriteLine($"Estado anterior del medidor: {estadoAnterior}");
+                //Console.WriteLine($"Consumo del bimestre:{consumo}");
+                //Console.WriteLine($"Importe a pagar: {importe}$");
+                //Console.WriteLine("Ingrese el nombre del cliente o 'ZZZ' para finalizar la operación");
+                //nombre = Console.ReadLine();
+
             }
-            int mayorDiferencia = 0;
-            for (int i = 0; i < n-1; i++)
-            {
-                int diferencia = Math.Abs(numeros[i] - numeros[i + 1]);
-                if (diferencia > mayorDiferencia) mayorDiferencia = diferencia;
-            }
-            Console.WriteLine($"La mayor diferencia es {mayorDiferencia}");
-            //for (int i = 0; i < numeros.Length; i++)
-            //{
-            //    Console.Write(numeros[i] + " ");
-            //}
+            Console.WriteLine("La operación ha finalizado");
 
 
-            ////////////////CHAT GPT///////////////////////////////////
-
-            //Console.Write("Ingrese la cantidad de números: ");
-            //int n = int.Parse(Console.ReadLine());
-
-            //int[] numeros = new int[n];
-            //for (int i = 0; i < n; i++)
-            //{
-            //    Console.Write("Ingrese el número {0}: ", i + 1);
-            //    numeros[i] = int.Parse(Console.ReadLine());
-            //}
-
-            //int mayorDiferencia = 0;
-            //for (int i = 0; i < n - 1; i++)
-            //{
-            //    int diferencia = Math.Abs(numeros[i] - numeros[i + 1]);
-            //    if (diferencia > mayorDiferencia)
-            //    {
-            //        mayorDiferencia = diferencia;
-            //    }
-            //}
-
-            //Console.WriteLine("La mayor diferencia es: " + mayorDiferencia);
         }
 
     }
 }
-
 #endregion
 #endregion
