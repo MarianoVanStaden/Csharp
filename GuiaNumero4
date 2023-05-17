@@ -887,4 +887,46 @@ namespace GuiaNumero4
     }
 }
 #endregion
+
+
+    {
+        internal class Program
+        {
+        public static void Main()
+        {
+
+
+            string nombre, paciente;
+            double tempActual, tempPromedio = 0, tempMin = 0, tempMax = 0;
+            do
+            {
+                Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
+                nombre = Console.ReadLine();
+
+                {
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Console.WriteLine($"Ingrese la {i + 1}º medición");
+                        tempActual = double.Parse(Console.ReadLine());
+                        if (i == 0)
+                        {
+                            tempMax = tempMin = tempActual;
+                        }
+                        tempPromedio = tempPromedio + tempActual;
+                        if (tempActual < tempMin) tempMin = tempActual;
+
+                        tempPromedio = tempPromedio / 6;
+                        Console.WriteLine($"El paciente {nombre} tiene una temp min de {tempMin} y una temp promedio de {tempPromedio}");
+                    }
+
+                    while (nombre != "ZZZ") ;
+                }
+                Console.WriteLine("La operación ha finalizado");
+
+
+            }}
+
+        }
+    }
+    #endregion
 #endregion
