@@ -809,159 +809,82 @@
 
 //namespace GuiaNumero4
 //{
-//    internal class Program
-//    {
-//        public static void Main()
-//        {
-//            Console.WriteLine("Ingrese un número entre 1 y 10");
-//            int numero = Convert.ToInt16(Console.ReadLine());
-//            if (numero > 0 && numero <=10)
-//            {
-//                for (int i = 1; i <= numero; i++)
-//                {
-//                    for (int j = 1; j <= 10; j++)
-//                    {
-//                        Console.WriteLine($"{i}*{j}={i*j}");
-//                    }
-//                    Console.ReadKey();
-//                }
+    //    internal class Program
+    //    {
+    //        public static void Main()
+    //        {
+    //            Console.WriteLine("Ingrese un número entre 1 y 10");
+    //            int numero = Convert.ToInt16(Console.ReadLine());
+    //            if (numero > 0 && numero <=10)
+    //            {
+    //                for (int i = 1; i <= numero; i++)
+    //                {
+    //                    for (int j = 1; j <= 10; j++)
+    //                    {
+    //                        Console.WriteLine($"{i}*{j}={i*j}");
+    //                    }
+    //                    Console.ReadKey();
+    //                }
 
-//            }
-//            else Console.Write("Debe ingresar un número entero que pertenezca al intervalo (0,10]");    //\r
-//            Console.WriteLine("El programa ha finalizado. ¡Muchas gracias!");
+    //            }
+    //            else Console.Write("Debe ingresar un número entero que pertenezca al intervalo (0,10]");    //\r
+    //            Console.WriteLine("El programa ha finalizado. ¡Muchas gracias!");
 
 
-//        }
+    //        }
 
-//    }
-//}
-#endregion
-#region Ejercicio Nº17 16/05/2023 
+    //    }
+    //}
+    #endregion
+    #region Ejercicio Nº17 16/05/2023 
 using System;
 
 namespace GuiaNumero4
 {
-    internal class Program
+  internal class Program
+
+  {
+    public static void Main()
     {
-        public static void Main()
+
+
+        string nombre, paciente;
+        double tempActual, tempPromedio = 0, tempPromedioMax=0, tempMin = 0, tempMax = 0;
+
+        Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
+        nombre = Console.ReadLine();
+        if (nombre!="ZZZ")
         {
+            while (nombre != "ZZZ") 
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    Console.WriteLine($"Ingrese la {i + 1}º medición");
+                    tempActual = double.Parse(Console.ReadLine());
+                    if (i == 0)
+                    {
+                        tempMax = tempMin = tempActual;
+                    }
+                    tempPromedio = tempPromedio + tempActual;
+                    if (tempActual < tempMin) tempMin = tempActual;
+                    if (tempActual > tempMax) tempMax = tempActual;
 
+                }
 
-            string nombre, paciente;
+            tempPromedio = tempPromedio / 6;
+                if (tempPromedio>tempPromedioMax) tempPromedioMax = tempPromedio , paciente = nombre;
+            Console.WriteLine($"El paciente {nombre} tiene una temp min de: {tempMin} y una temp promedio de: {tempPromedio}");
             Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
             nombre = Console.ReadLine();
-            while (nombre != "ZZZ")
-            {
-                List <string> pacientes = new List<string>();
-                Console.WriteLine("Ingrese el nombre del paciente");
-                paciente = Console.ReadLine();
-                pacientes.Add(paciente);
-
-                foreach (string persona in pacientes)
-                {
-                    Console.WriteLine(persona);
-                }//Console.WriteLine("Ingrese su dirección:");
-                //direccion = Console.ReadLine();
-                //Console.WriteLine("Ingrese el estado actual del medidor:");
-                //estadoActual = double.Parse(Console.ReadLine());
-                //Console.WriteLine("Ingrese el estado anterior del medidor:");
-                //estadoAnterior = double.Parse(Console.ReadLine());
-                //consumo = estadoActual - estadoAnterior;
-                //if (consumo <= 100) importe = (consumo * 1.5);
-                //else if (consumo > 100 || consumo < 200) importe = (consumo * 2);
-                //else importe = (consumo * 2.5);
-                //Console.WriteLine($"Nombre:{nombre} - direccion: {direccion}");
-                //Console.WriteLine($"Estado actual del medidor: {estadoActual}");
-                //Console.WriteLine($"Estado anterior del medidor: {estadoAnterior}");
-                //Console.WriteLine($"Consumo del bimestre:{consumo}");
-                //Console.WriteLine($"Importe a pagar: {importe}$");
-                //Console.WriteLine("Ingrese el nombre del cliente o 'ZZZ' para finalizar la operación");
-                //nombre = Console.ReadLine();
-
             }
-            Console.WriteLine("La operación ha finalizado");
-
-
         }
-
+         else Console.WriteLine("La operación ha finalizado");
+        Console.WriteLine($"El paciente :{paciente} presentó una temp máx promedio de {tempPromedioMax}");
     }
+  }
+
 }
-#endregion
-
-
-    {
-        internal class Program
-        {
-        public static void Main()
-        {
-
-
-            string nombre, paciente;
-            double tempActual, tempPromedio = 0, tempMin = 0, tempMax = 0;
-            do
-            {
-                Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
-                nombre = Console.ReadLine();
-
-                {
-                    for (int i = 0; i < 6; i++)
-                    {
-                        Console.WriteLine($"Ingrese la {i + 1}º medición");
-                        tempActual = double.Parse(Console.ReadLine());
-                        if (i == 0)
-                        {
-                            tempMax = tempMin = tempActual;
-                        }
-                        tempPromedio = tempPromedio + tempActual;
-                        if (tempActual < tempMin) tempMin = tempActual;
-
-                        tempPromedio = tempPromedio / 6;
-                        Console.WriteLine($"El paciente {nombre} tiene una temp min de {tempMin} y una temp promedio de {tempPromedio}");
-                    }
-
-                    while (nombre != "ZZZ") ;
-                }
-                Console.WriteLine("La operación ha finalizado");
-
-
-            }}
-
-        }
-    }
     #endregion
 #endregion
-{
-    internal class Program
-    {
-        public static void Main()
-        {
 
 
-            string nombre, paciente;
-            double tempActual, tempPromedio = 0, tempMin = 0, tempMax = 0;
-            do
-            {
-                Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
-                nombre = Console.ReadLine();
-
-                {
-                    for (int i = 0; i < 6; i++)
-                    {
-                        Console.WriteLine($"Ingrese la {i + 1}º medición");
-                        tempActual = double.Parse(Console.ReadLine());
-                        if (i == 0)
-                        {
-                            tempMax = tempMin = tempActual;
-                        }
-                        tempPromedio = tempPromedio + tempActual;
-                        if (tempActual < tempMin) tempMin = tempActual;
-
-                        tempPromedio = tempPromedio / 6;
-                        Console.WriteLine($"El paciente {nombre} tiene una temp min de {tempMin} y una temp promedio de {tempPromedio}");
-                    }
-                }
-                while (nombre != "ZZZ") ;
-
-                Console.WriteLine("La operación ha finalizado");
-            }
-            }
