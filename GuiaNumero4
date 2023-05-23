@@ -809,82 +809,220 @@
 
 //namespace GuiaNumero4
 //{
-    //    internal class Program
-    //    {
-    //        public static void Main()
-    //        {
-    //            Console.WriteLine("Ingrese un número entre 1 y 10");
-    //            int numero = Convert.ToInt16(Console.ReadLine());
-    //            if (numero > 0 && numero <=10)
-    //            {
-    //                for (int i = 1; i <= numero; i++)
-    //                {
-    //                    for (int j = 1; j <= 10; j++)
-    //                    {
-    //                        Console.WriteLine($"{i}*{j}={i*j}");
-    //                    }
-    //                    Console.ReadKey();
-    //                }
+//    internal class Program
+//    {
+//        public static void Main()
+//        {
+//            Console.WriteLine("Ingrese un número entre 1 y 10");
+//            int numero = Convert.ToInt16(Console.ReadLine());
+//            if (numero > 0 && numero <=10)
+//            {
+//                for (int i = 1; i <= numero; i++)
+//                {
+//                    for (int j = 1; j <= 10; j++)
+//                    {
+//                        Console.WriteLine($"{i}*{j}={i*j}");
+//                    }
+//                    Console.ReadKey();
+//                }
 
-    //            }
-    //            else Console.Write("Debe ingresar un número entero que pertenezca al intervalo (0,10]");    //\r
-    //            Console.WriteLine("El programa ha finalizado. ¡Muchas gracias!");
+//            }
+//            else Console.Write("Debe ingresar un número entero que pertenezca al intervalo (0,10]");    //\r
+//            Console.WriteLine("El programa ha finalizado. ¡Muchas gracias!");
 
 
-    //        }
+//        }
 
-    //    }
-    //}
-    #endregion
-    #region Ejercicio Nº17 16/05/2023 
+//    }
+//}
+#endregion
+#region Ejercicio Nº17 16/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+
+//    {
+//        public static void Main()
+//        {
+
+
+//            string nombre, paciente="";
+//            double tempActual, tempPromedio = 0, tempPromedioMax = 0, tempMin = 0, tempMax = 0;
+
+//            Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
+//            nombre = Console.ReadLine();
+//            if (nombre != "ZZZ")
+//            {
+//                while (nombre != "ZZZ")
+//                {
+//                    tempPromedio = 0;
+//                    for (int i = 0; i < 6; i++)
+//                    {
+//                        Console.WriteLine($"Ingrese la {i + 1}º medición");
+//                        tempActual = double.Parse(Console.ReadLine());
+//                        if (i == 0)
+//                        {
+//                            tempMax = tempMin = tempActual;
+//                        }
+//                        tempPromedio = tempPromedio + tempActual;
+//                        if (tempActual < tempMin) tempMin = tempActual;
+//                        if (tempActual > tempMax) tempMax = tempActual;
+
+//                    }
+
+//                    tempPromedio = tempPromedio / 6;
+//                    if (tempPromedio > tempPromedioMax) 
+//                    { 
+//                        tempPromedioMax = tempPromedio; 
+//                        paciente = nombre;
+//                    }
+//                    Console.WriteLine($"El paciente {nombre} tiene una temp min de: {tempMin} y una temp promedio de: {tempPromedio}");
+//                    Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
+//                    nombre = Console.ReadLine();
+//                }
+//            }
+//            else Console.WriteLine("La operación ha finalizado");
+//            Console.WriteLine($"El paciente :{paciente} presentó una temp máx promedio de {tempPromedioMax}");
+//        }
+//    }
+
+//}
+#endregion
+#region Ejercicio Nº18 23/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+
+//    {
+//        public static void Main()
+//        {
+//            //Con motivo de la celebración de la final de la liga de campeones(Champions
+//            //League), se quiere obtener algunas estadísticas.Los dos equipos que disputarán la
+//            //final, cuentan con 11 jugadores titulares. Por cada equipo, se conoce una terna de
+//            //datos: nombre del jugador, su peso y su edad.Los datos correspondientes a los 2
+//            //equipos se envían a la sede central para su análisis. Las primeras 11 ternas de datos
+//            //son del equipo 1 y las otras 11 ternas de datos, del equipo 2.
+
+//            //Desarrollar un programa para leer el conjunto de datos y calcular los siguientes
+//            //valores estadísticos:
+//            //● Peso y edad promedio de los jugadores de ambos equipos.
+//            //● Peso y edad promedio de todos los jugadores.
+//            //● Nombre de los jugadores con mayor peso de cada equipo.
+
+
+//            string nombreJugadorEquipo1, nombreJugadorEquipo2, nombreJugadorPesoMaxEquipo1="", nombreJugadorPesoMaxEquipo2="";
+//            double pesoJugadorEquipo1,pesoPromedioEquipo1=0, pesoMaxJugadorEquipo1=0, pesoJugadorEquipo2, pesoMaxJugadorEquipo2=0, pesoPromedioEquipo2 = 0, pesoPromedioTotal;
+//            int edadJugadorEquipo1, edadJugadorEquipo2, edadPromedioEquipo1=0, edadPromedioEquipo2=0, edadPromedioTotal;
+//            for (int i = 0; i < 3; i++)
+//            {
+//                Console.WriteLine($"Ingrese nombre del jugador n°{i + 1} del primer equipo");
+//                nombreJugadorEquipo1 = Console.ReadLine();
+//                Console.WriteLine($"Ingrese la edad del jugador n°{i + 1} del primer equipo");
+//                edadJugadorEquipo1 = int.Parse(Console.ReadLine());
+//                Console.WriteLine($"Ingrese el peso del jugador n°{i + 1} del primer equipo");
+//                pesoJugadorEquipo1 = double.Parse(Console.ReadLine());
+//                if (i == 0)
+//                {
+//                    pesoMaxJugadorEquipo1 = pesoJugadorEquipo1;
+//                    nombreJugadorPesoMaxEquipo1 = nombreJugadorEquipo1;
+//                }
+//                if (pesoJugadorEquipo1 > pesoMaxJugadorEquipo1)
+//                {
+//                    pesoMaxJugadorEquipo1 = pesoJugadorEquipo1;
+//                    nombreJugadorPesoMaxEquipo1 = nombreJugadorEquipo1;
+//                }
+//                pesoPromedioEquipo1 = pesoPromedioEquipo1 + pesoJugadorEquipo1;
+//                edadPromedioEquipo1 = edadPromedioEquipo1 + edadJugadorEquipo1;
+//            }
+//            for (int i = 0; i < 3; i++)
+//            {
+//                Console.WriteLine($"Ingrese nombre del jugador n°{i + 1} del segundo equipo");
+//                nombreJugadorEquipo2 = Console.ReadLine();
+//                Console.WriteLine($"Ingrese la edad del jugador n°{i + 1} del segundo equipo");
+//                edadJugadorEquipo2 = int.Parse(Console.ReadLine());
+//                Console.WriteLine($"Ingrese el peso del jugador n°{i + 1} del segundo equipo");
+//                pesoJugadorEquipo2 = double.Parse(Console.ReadLine());
+//                if (i == 0)
+//                {
+//                    pesoMaxJugadorEquipo2 = pesoJugadorEquipo2;
+//                    nombreJugadorPesoMaxEquipo2 = nombreJugadorEquipo2;
+//                }
+//                if (pesoJugadorEquipo2 > pesoMaxJugadorEquipo2)
+//                {
+//                    pesoMaxJugadorEquipo2 = pesoJugadorEquipo2;
+//                    nombreJugadorPesoMaxEquipo2 = nombreJugadorEquipo2;
+//                }
+//                pesoPromedioEquipo2 = pesoPromedioEquipo2 + pesoJugadorEquipo2;
+//                edadPromedioEquipo2 = edadPromedioEquipo2 + edadJugadorEquipo2;
+//            }
+//            pesoPromedioTotal = (pesoPromedioEquipo1 + pesoPromedioEquipo2) / 6;
+//            edadPromedioTotal = (edadPromedioEquipo1 + edadPromedioEquipo2) / 6;
+//;           Console.WriteLine($"El peso promedio de los jugadores del primer equipo es {pesoPromedioEquipo1/3} y la edad promedio es: {edadPromedioEquipo1/3}");
+//            Console.WriteLine($"El peso promedio de los jugadores del primer equipo es {pesoPromedioEquipo2/3} y la edad promedio es: {edadPromedioEquipo2/3}");
+//            Console.WriteLine($"El peso promedio total de los jugadores es {pesoPromedioTotal} y la edad promedio total es: {edadPromedioTotal}");
+//            Console.WriteLine($"El peso máximo del primer equipo fue el de {nombreJugadorPesoMaxEquipo1} y del segundo equipo fue el de {nombreJugadorPesoMaxEquipo2}");
+//        }
+//    }
+
+//}
+#endregion
+#region Ejercicio Nº19 23/05/2023 
 using System;
 
 namespace GuiaNumero4
 {
-  internal class Program
+    internal class Program
 
-  {
-    public static void Main()
     {
-
-
-        string nombre, paciente;
-        double tempActual, tempPromedio = 0, tempPromedioMax=0, tempMin = 0, tempMax = 0;
-
-        Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
-        nombre = Console.ReadLine();
-        if (nombre!="ZZZ")
+        public static void Main()
         {
-            while (nombre != "ZZZ") 
+            //Se ingresan la edad y el peso de N mujeres. Dadas las siguientes categorías:
+            //● A = mujeres entre 15 y 20 años y que pesan entre 45 y 55 kilos
+            //● B = mujeres entre 21 y 40 años y que pesen entre 56 y 61 kilos
+            //● C = mujeres de más de 20 años o que pesen más de 65 kilos.
+            //Escribir el porcentaje de mujeres encontradas en cada categoría y un cartel que
+            //indique en qué categoría se encuentra el mayor número de mujeres(notar que las
+            //categorías no son excluyentes).
+
+            string cantidadMayor = "";
+            double peso;
+            int edad, cantidad, cantidadA=0, cantidadB=0, cantidadC=0;
+            Console.WriteLine("Ingrese la cantidad de mujeres a agrupar");
+            cantidad = int.Parse(Console.ReadLine());
+            for(int i=0; i<cantidad; i++)
             {
-                for (int i = 0; i < 6; i++)
-                {
-                    Console.WriteLine($"Ingrese la {i + 1}º medición");
-                    tempActual = double.Parse(Console.ReadLine());
-                    if (i == 0)
-                    {
-                        tempMax = tempMin = tempActual;
-                    }
-                    tempPromedio = tempPromedio + tempActual;
-                    if (tempActual < tempMin) tempMin = tempActual;
-                    if (tempActual > tempMax) tempMax = tempActual;
-
-                }
-
-            tempPromedio = tempPromedio / 6;
-                if (tempPromedio>tempPromedioMax) tempPromedioMax = tempPromedio , paciente = nombre;
-            Console.WriteLine($"El paciente {nombre} tiene una temp min de: {tempMin} y una temp promedio de: {tempPromedio}");
-            Console.WriteLine("Desea ingresar un nuevo paciente o 'ZZZ' para finalizar la operación");
-            nombre = Console.ReadLine();
+                Console.WriteLine($"Ingrese la edad de la {i + 1}° mujer");
+                edad = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Ingrese el peso de la {i + 1}° mujer");
+                peso = double.Parse(Console.ReadLine());
+                if (edad>=15 && edad<=20 && peso>=45 && peso<=55) cantidadA++;
+                if (edad >= 21 && edad <= 40 && peso >= 56 && peso <= 61) cantidadB++;
+                if (edad >= 20 && peso >= 65) cantidadC++;
             }
-        }
-         else Console.WriteLine("La operación ha finalizado");
-        Console.WriteLine($"El paciente :{paciente} presentó una temp máx promedio de {tempPromedioMax}");
-    }
-  }
+            Console.WriteLine($"El porcentaje de mujeres en el grupo A es de: {cantidadA * 100 / cantidad}");
+            Console.WriteLine($"El porcentaje de mujeres en el grupo B es de: {cantidadB * 100 / cantidad}");
+            Console.WriteLine($"El porcentaje de mujeres en el grupo C es de: {cantidadC * 100 / cantidad}");
 
-}
-    #endregion
+            if (cantidadB == cantidadA && cantidadA == cantidadC) cantidadMayor = "Grupo A , Grupo B y Grupo C";
+            else if (cantidadA > cantidadB && cantidadA > cantidadC) cantidadMayor = "Grupo A";
+            else if (cantidadB > cantidadC && cantidadB > cantidadA) cantidadMayor = "Grupo B";
+            else if (cantidadC > cantidadB && cantidadC > cantidadA) cantidadMayor = "Grupo C";
+            if (cantidadB == cantidadA) cantidadMayor = "Grupo A y Grupo B";
+            if (cantidadB == cantidadC) cantidadMayor = "Grupo B y Grupo C";
+            if (cantidadB == cantidadA) cantidadMayor = "Grupo A y Grupo B";
+
+            Console.WriteLine($"El grupo más grande es el {cantidadMayor}");
+        }
+        
+        }
+    }
+
 #endregion
+#endregion
+
 
 
