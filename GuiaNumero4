@@ -971,6 +971,58 @@
 //}
 #endregion
 #region Ejercicio Nº19 23/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+
+//    {
+//        public static void Main()
+//        {
+//            //Se ingresan la edad y el peso de N mujeres. Dadas las siguientes categorías:
+//            //● A = mujeres entre 15 y 20 años y que pesan entre 45 y 55 kilos
+//            //● B = mujeres entre 21 y 40 años y que pesen entre 56 y 61 kilos
+//            //● C = mujeres de más de 20 años o que pesen más de 65 kilos.
+//            //Escribir el porcentaje de mujeres encontradas en cada categoría y un cartel que
+//            //indique en qué categoría se encuentra el mayor número de mujeres(notar que las
+//            //categorías no son excluyentes).
+
+//            string cantidadMayor = "";
+//            double peso;
+//            int edad, cantidad, cantidadA = 0, cantidadB = 0, cantidadC = 0;
+//            Console.WriteLine("Ingrese la cantidad de mujeres a agrupar");
+//            cantidad = int.Parse(Console.ReadLine());
+//            for (int i = 0; i < cantidad; i++)
+//            {
+//                Console.WriteLine($"Ingrese la edad de la {i + 1}° mujer");
+//                edad = int.Parse(Console.ReadLine());
+//                Console.WriteLine($"Ingrese el peso de la {i + 1}° mujer");
+//                peso = double.Parse(Console.ReadLine());
+//                if (edad >= 15 && edad <= 20 && peso >= 45 && peso <= 55) cantidadA++;
+//                if (edad >= 21 && edad <= 40 && peso >= 56 && peso <= 61) cantidadB++;
+//                if (edad >= 20 && peso >= 65) cantidadC++;
+//            }
+//            Console.WriteLine($"El porcentaje de mujeres en el grupo A es de: {cantidadA * 100 / cantidad}");
+//            Console.WriteLine($"El porcentaje de mujeres en el grupo B es de: {cantidadB * 100 / cantidad}");
+//            Console.WriteLine($"El porcentaje de mujeres en el grupo C es de: {cantidadC * 100 / cantidad}");
+
+//            if (cantidadB == cantidadA && cantidadA == cantidadC) cantidadMayor = "Grupo A , Grupo B y Grupo C";
+//            else if (cantidadA > cantidadB && cantidadA > cantidadC) cantidadMayor = "Grupo A";
+//            else if (cantidadB > cantidadC && cantidadB > cantidadA) cantidadMayor = "Grupo B";
+//            else if (cantidadC > cantidadB && cantidadC > cantidadA) cantidadMayor = "Grupo C";
+//            if (cantidadB == cantidadA) cantidadMayor = "Grupo A y Grupo B";
+//            if (cantidadB == cantidadC) cantidadMayor = "Grupo B y Grupo C";
+//            if (cantidadB == cantidadA) cantidadMayor = "Grupo A y Grupo B";
+
+//            Console.WriteLine($"El grupo más grande es el {cantidadMayor}");
+//        }
+
+//    }
+//}
+
+#endregion 
+#region Clase método void 23/05/2023 
 using System;
 
 namespace GuiaNumero4
@@ -980,49 +1032,89 @@ namespace GuiaNumero4
     {
         public static void Main()
         {
-            //Se ingresan la edad y el peso de N mujeres. Dadas las siguientes categorías:
-            //● A = mujeres entre 15 y 20 años y que pesan entre 45 y 55 kilos
-            //● B = mujeres entre 21 y 40 años y que pesen entre 56 y 61 kilos
-            //● C = mujeres de más de 20 años o que pesen más de 65 kilos.
-            //Escribir el porcentaje de mujeres encontradas en cada categoría y un cartel que
-            //indique en qué categoría se encuentra el mayor número de mujeres(notar que las
-            //categorías no son excluyentes).
-
-            string cantidadMayor = "";
-            double peso;
-            int edad, cantidad, cantidadA=0, cantidadB=0, cantidadC=0;
-            Console.WriteLine("Ingrese la cantidad de mujeres a agrupar");
-            cantidad = int.Parse(Console.ReadLine());
-            for(int i=0; i<cantidad; i++)
-            {
-                Console.WriteLine($"Ingrese la edad de la {i + 1}° mujer");
-                edad = int.Parse(Console.ReadLine());
-                Console.WriteLine($"Ingrese el peso de la {i + 1}° mujer");
-                peso = double.Parse(Console.ReadLine());
-                if (edad>=15 && edad<=20 && peso>=45 && peso<=55) cantidadA++;
-                if (edad >= 21 && edad <= 40 && peso >= 56 && peso <= 61) cantidadB++;
-                if (edad >= 20 && peso >= 65) cantidadC++;
-            }
-            Console.WriteLine($"El porcentaje de mujeres en el grupo A es de: {cantidadA * 100 / cantidad}");
-            Console.WriteLine($"El porcentaje de mujeres en el grupo B es de: {cantidadB * 100 / cantidad}");
-            Console.WriteLine($"El porcentaje de mujeres en el grupo C es de: {cantidadC * 100 / cantidad}");
-
-            if (cantidadB == cantidadA && cantidadA == cantidadC) cantidadMayor = "Grupo A , Grupo B y Grupo C";
-            else if (cantidadA > cantidadB && cantidadA > cantidadC) cantidadMayor = "Grupo A";
-            else if (cantidadB > cantidadC && cantidadB > cantidadA) cantidadMayor = "Grupo B";
-            else if (cantidadC > cantidadB && cantidadC > cantidadA) cantidadMayor = "Grupo C";
-            if (cantidadB == cantidadA) cantidadMayor = "Grupo A y Grupo B";
-            if (cantidadB == cantidadC) cantidadMayor = "Grupo B y Grupo C";
-            if (cantidadB == cantidadA) cantidadMayor = "Grupo A y Grupo B";
-
-            Console.WriteLine($"El grupo más grande es el {cantidadMayor}");
+            SumaNumeros();
+            Console.WriteLine("El resultado que devuelve la función es " + SumaNumeros());
+            Console.ReadKey();
+            Console.WriteLine(SumaNumeros());
         }
-        
+         public static string SumaNumeros()
+        {
+            string num1 = "Ter";
+            string num2 = "mo";
+            string resultado = num1 + num2;
+            return resultado;
         }
+            //sumaNumero();
+            //MensajeriaEnPantalla();
+            //Console.WriteLine("Mensaje desde el main");
+        //    SumarNumeros(10,5);
+        //    Console.ReadKey();
+        //}
+        //static void SumarNumeros(int x, int y)
+        //{
+        //    int resultado;
+        //    resultado = x + y;
+        //    Console.WriteLine("La suma de los números es:" + resultado);
+        //}
+        //static void MensajeriaEnPantalla()
+        //{
+        //    Console.WriteLine("Mensaje desde el método en pantalla");
+        //    Console.ReadKey();
+        //}
+        //static void sumaNumero()
+        //{
+        //    int num1 = 7;
+        //    int num2 = 9;
+        //    int resultado = num1 + num2;
+        //    Console.WriteLine(resultado);
+        //    Console.ReadKey();
+        //}
+
     }
+}
 
+#endregion 
+#region Clase prueba vendedores top 23/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+
+//    {
+//        public static void Main()
+//        {
+//            int ventas1, ventas2, ventas3;
+//            string vend1 = "", vend2 = "", vend3 = "", capo1 = "", capo2 = "", capo3 = "";
+//            Console.WriteLine("Ingrese nombre del primer vendedor");
+//            vend1 = Console.ReadLine();
+//            Console.WriteLine("Ingrese cuantas ventas realizó el primer vendedor");
+//            ventas1 = int.Parse(Console.ReadLine());
+//            if (ventas1 > 10) capo1 = vend1;
+//            Console.WriteLine(capo1);
+//            Console.WriteLine("Ingrese nombre del segundo vendedor");
+//            vend2 = Console.ReadLine();
+//            Console.WriteLine("Ingrese cuantas ventas realizó el segundo vendedor");
+//            ventas2 = int.Parse(Console.ReadLine());
+//            if (ventas2 > 10) capo2 = vend2;
+//            Console.WriteLine(capo2);
+//            Console.WriteLine("Ingrese nombre del tercer vendedor");
+//            vend3 = Console.ReadLine();
+//            Console.WriteLine("Ingrese cuantas ventas realizó el tercer vendedor");
+//            ventas3 = int.Parse(Console.ReadLine());
+//            if (ventas3 > 10) capo3 = vend3;
+//            Console.WriteLine(capo3);
+
+//            Console.WriteLine("Los vendedores que superaron las 10 fueron: "+capo1+" "+capo2+" y "+capo3);
+
+//            Console.ReadKey();
+//        }
+//    }
+//}
+
+#endregion 
 #endregion
-#endregion
+
 
 
 
