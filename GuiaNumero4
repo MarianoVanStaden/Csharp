@@ -328,23 +328,23 @@
 //    {
 //        static void Main(string[] args)
 //        {
-//            int n,i;
-//            double total=0, parcial;
-//            Console.WriteLine("Ingrese el valor de n (n>0) para la ecuación : 1 + ½ + ¼ + ⅛ +....+ ½(n-1)");
-//            n=Convert.ToInt32(Console.ReadLine());
-//            if (n > 0)
-//            {
-//            for(i = 0; n>=i; i++)
-//            {
-//                parcial= 1/(Math.Pow(2, i));
-//                    Console.WriteLine(i);
-//                Console.WriteLine($"El parcial es: {parcial}");
-//                total = total + parcial;
-//                Console.WriteLine($"El subtotal es: {total}");
-//            }
-//            Console.WriteLine($"El total es: {total}");
-//            }
-//            else Console.WriteLine("El valor de n tiene que ser mayor que cero");
+//int n, i;
+//double total = 0, parcial;
+//Console.WriteLine("Ingrese el valor de n (n>0) para la ecuación : 1 + ½ + ¼ + ⅛ +....+ ½(n-1)");
+//n = Convert.ToInt32(Console.ReadLine());
+//if (n > 0)
+//{
+//    for (i = 0; n >= i; i++)
+//    {
+//        parcial = 1 / (Math.Pow(2, i));
+//        Console.WriteLine(i);
+//        Console.WriteLine($"El parcial es: {parcial}");
+//        total = total + parcial;
+//        Console.WriteLine($"El subtotal es: {total}");
+//    }
+//    Console.WriteLine($"El total es: {total}");
+//}
+//else Console.WriteLine("El valor de n tiene que ser mayor que cero");
 //        }
 //    }
 
@@ -1021,59 +1021,59 @@
 //    }
 //}
 
-#endregion 
+#endregion
 #region Clase método void 23/05/2023 
-using System;
+//using System;
 
-namespace GuiaNumero4
-{
-    internal class Program
+//namespace GuiaNumero4
+//{
+//    internal class Program
 
-    {
-        public static void Main()
-        {
-            SumaNumeros();
-            Console.WriteLine("El resultado que devuelve la función es " + SumaNumeros());
-            Console.ReadKey();
-            Console.WriteLine(SumaNumeros());
-        }
-         public static string SumaNumeros()
-        {
-            string num1 = "Ter";
-            string num2 = "mo";
-            string resultado = num1 + num2;
-            return resultado;
-        }
-            //sumaNumero();
-            //MensajeriaEnPantalla();
-            //Console.WriteLine("Mensaje desde el main");
-        //    SumarNumeros(10,5);
-        //    Console.ReadKey();
-        //}
-        //static void SumarNumeros(int x, int y)
-        //{
-        //    int resultado;
-        //    resultado = x + y;
-        //    Console.WriteLine("La suma de los números es:" + resultado);
-        //}
-        //static void MensajeriaEnPantalla()
-        //{
-        //    Console.WriteLine("Mensaje desde el método en pantalla");
-        //    Console.ReadKey();
-        //}
-        //static void sumaNumero()
-        //{
-        //    int num1 = 7;
-        //    int num2 = 9;
-        //    int resultado = num1 + num2;
-        //    Console.WriteLine(resultado);
-        //    Console.ReadKey();
-        //}
+//    {
+//        public static void Main()
+//        {
+//            SumaNumeros();
+//            Console.WriteLine("El resultado que devuelve la función es " + SumaNumeros());
+//            Console.ReadKey();
+//            Console.WriteLine(SumaNumeros());
+//        }
+//        public static string SumaNumeros()
+//        {
+//            string num1 = "Ter";
+//            string num2 = "mo";
+//            string resultado = num1 + num2;
+//            return resultado;
+//        }
+//sumaNumero();
+//MensajeriaEnPantalla();
+//Console.WriteLine("Mensaje desde el main");
+//    SumarNumeros(10,5);
+//    Console.ReadKey();
+//}
+//static void SumarNumeros(int x, int y)
+//{
+//    int resultado;
+//    resultado = x + y;
+//    Console.WriteLine("La suma de los números es:" + resultado);
+//}
+//static void MensajeriaEnPantalla()
+//{
+//    Console.WriteLine("Mensaje desde el método en pantalla");
+//    Console.ReadKey();
+//}
+//static void sumaNumero()
+//{
+//    int num1 = 7;
+//    int num2 = 9;
+//    int resultado = num1 + num2;
+//    Console.WriteLine(resultado);
+//    Console.ReadKey();
+//}
 
-    }
-}
+//    }
+//}
 
-#endregion 
+#endregion
 #region Clase prueba vendedores top 23/05/2023 
 //using System;
 
@@ -1112,8 +1112,284 @@ namespace GuiaNumero4
 //    }
 //}
 
-#endregion 
 #endregion
+#region Ejercicio N°20 (QUEDÓ EN LA PC DEL LABURO) 23/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+
+//    {
+//        public static void Main()
+//        {
+//            int ventas1, ventas2, ventas3;
+//            string vend1 = "", vend2 = "", vend3 = "", capo1 = "", capo2 = "", capo3 = "";
+//            Console.WriteLine("Ingrese nombre del primer vendedor");
+//            vend1 = Console.ReadLine();
+//            Console.WriteLine("Ingrese cuantas ventas realizó el primer vendedor");
+//            ventas1 = int.Parse(Console.ReadLine());
+//            if (ventas1 > 10) capo1 = vend1;
+//            Console.WriteLine(capo1);
+//            Console.WriteLine("Ingrese nombre del segundo vendedor");
+//            vend2 = Console.ReadLine();
+//            Console.WriteLine("Ingrese cuantas ventas realizó el segundo vendedor");
+//            ventas2 = int.Parse(Console.ReadLine());
+//            if (ventas2 > 10) capo2 = vend2;
+//            Console.WriteLine(capo2);
+//            Console.WriteLine("Ingrese nombre del tercer vendedor");
+//            vend3 = Console.ReadLine();
+//            Console.WriteLine("Ingrese cuantas ventas realizó el tercer vendedor");
+//            ventas3 = int.Parse(Console.ReadLine());
+//            if (ventas3 > 10) capo3 = vend3;
+//            Console.WriteLine(capo3);
+
+//            Console.WriteLine("Los vendedores que superaron las 10 fueron: "+capo1+" "+capo2+" y "+capo3);
+
+//            Console.ReadKey();
+//        }
+//    }
+//}
+
+#endregion
+#region Ejercicio N°21 25/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+
+//    {
+////        Escribir un programa que permita calcular y mostrar la suma de los términos de la
+////        serie: 1 + ½ +¼+⅛+....+½n-1
+////.       Considerar que la suma debe hacerse hasta que la
+////        diferencia de dos términos consecutivos sea menor que un error(valor ingresado).
+
+//        public static void Main()
+//        {
+
+//            double error=0, suma = 0, numeroAnterior=1, numeroActual=0.5;
+//            Console.WriteLine("Ingrese el valor del error (error>0) para la ecuación : 1 + ½ + ¼ + ⅛ +....+ ½(n-1)");
+//            error = Convert.ToDouble(Console.ReadLine());
+//            if (Math.Abs(numeroAnterior - numeroActual) >= error)
+//            {
+//                while (Math.Abs(numeroAnterior - numeroActual) >= error)
+//                {
+//                    suma = numeroAnterior + numeroActual;
+//                    numeroAnterior = numeroActual;
+//                    numeroActual /= 2;
+//                    Console.WriteLine($"La suma parcial es de: {suma}");
+//                }
+//                Console.WriteLine($"El total quedó en {suma}");
+//            }
+//            else Console.WriteLine($"Usted ingresó un error de {error}, por lo cual no ingresó al bucle");
+//            Console.ReadKey();
+//        }
+//    }
+//}
+
+#endregion
+#region Ejercicio N°22 25/05/2023 
+//using System;
+
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+
+//    {
+//        //Se tiene un conjunto con cantidad NO conocida a priori de datos numéricos positivos
+//        //y negativos(0 indica fin de datos).
+//        //Los datos se agrupan dentro del mismo según el siguiente criterio:
+//        //Un grupo queda determinado cuando la suma de sus elementos se hace
+//        //negativa, o cuando se llega al fin de datos.
+//        //Escribir un programa que permita visualizar por pantalla la siguiente información:
+//        //● Cantidad de elementos de cada grupo.
+//        //● Número de grupo con la menor suma de sus elementos.
+
+
+//        public static void Main()
+//        {
+//            int cantidadNumeros = 0, i = 0, numeroGrupoMenorSuma = 0;
+//            double numero, suma = 0, menorSuma = double.MaxValue;
+//            Console.WriteLine("Ingrese un número mayor a cero para comenzar la suma de elementos, \n la misma finalizará cuando la suma total sea negativa o ingrese el número 0");
+//            numero = double.Parse(Console.ReadLine());
+//            suma = numero;
+
+//            if (numero > 0)
+//            {
+//                while (numero != 0)
+//                {
+//                    while (suma >= 0 && numero != 0)
+//                    {
+
+//                        Console.WriteLine("Ingrese otro número o ingrese el número 0 para finalizar");
+//                        numero = double.Parse(Console.ReadLine());
+//                        i++;
+//                        if (suma != 0)
+//                        {
+
+//                            suma += numero;
+//                            cantidadNumeros = i;
+//                        }
+//                    }
+//                    Console.WriteLine(suma);
+//                    //if (suma < 0 || numero == 0)
+//                    //{
+//                    //    Console.WriteLine($"El grupo tuvo {cantidadNumeros} elementos");
+
+//                    //    if (menorSuma < suma)
+//                    //    {
+//                    //        menorSuma = suma;
+//                    //        numeroGrupoMenorSuma = cantidadNumeros;
+//                    //    }
+
+//                    //    i = 1;
+//                    //    suma = 0;
+//                    //    Console.WriteLine("Cerró un grupo" + i);
+//                        if (suma < 0 || numero == 0)
+//                        {
+//                            Console.WriteLine($"El grupo tuvo {cantidadNumeros} elementos");
+
+//                            if (menorSuma > suma)
+//                            {
+//                                menorSuma = suma;
+//                                numeroGrupoMenorSuma = cantidadNumeros;
+//                            }
+
+//                            i = 1;
+//                            suma = 0;
+//                            Console.WriteLine("Cerró un grupo" + i);
+//                        }
+
+//                    else Console.WriteLine("No ingresó al bucle");
+//                    Console.WriteLine("Aca va a leer a i antes del fin del bucle" + i);
+//                    i = 1;
+//                    suma = 0;
+//                    cantidadNumeros = 0;
+
+
+//                }
+
+//                Console.WriteLine($"El grupo tuvo {numeroGrupoMenorSuma} elementos y el grupo con la menor suma fue {menorSuma}");
+//            }
+//            else if (numero == 0) Console.WriteLine("Usted no ingresó ningún número para sumar (Ingresó el 0)");
+//            else Console.WriteLine($"Usted ingresó un primer número negativo {numero}, por lo cual salió del bucle");
+//        }
+//    }
+//}
+
+////using System;
+
+////namespace GuiaNumero4
+////{
+////    internal class Program
+////    {
+////        public static void Main()
+////        {
+////            int cantidadNumeros = 0;
+////            int i = 0;
+////            int numeroGrupoMenorSuma = 0;
+////            double numero, suma = 0, menorSuma = double.MaxValue;
+
+////            Console.WriteLine("Ingrese un número mayor a cero para comenzar la suma de elementos, \nla misma finalizará cuando la suma total sea negativa o ingrese el número 0");
+////            numero = double.Parse(Console.ReadLine());
+////            suma = numero;
+
+////            if (numero > 0)
+////            {
+////                while (numero != 0)
+////                {
+////                    i = 1;
+
+////                    while (suma >= 0 && numero != 0)
+////                    {
+////                        Console.WriteLine("Ingrese otro número o ingrese el número 0 para finalizar");
+////                        numero = double.Parse(Console.ReadLine());
+
+////                        if (numero != 0)
+////                        {
+////                            suma += numero;
+////                            cantidadNumeros = i;
+////                            i++;
+////                        }
+////                    }
+
+////                    Console.WriteLine($"El grupo tuvo {cantidadNumeros} elementos");
+
+////                    if (suma < menorSuma)
+////                    {
+////                        menorSuma = suma;
+////                        numeroGrupoMenorSuma = cantidadNumeros;
+////                    }
+
+////                    cantidadNumeros = 0;
+////                    suma = 0;
+
+////                    Console.WriteLine("Cerró un grupo");
+////                }
+
+////                Console.WriteLine($"El grupo tuvo {numeroGrupoMenorSuma} elementos y el grupo con la menor suma fue {menorSuma}");
+////            }
+////            else if (numero == 0)
+////            {
+////                Console.WriteLine("Usted no ingresó ningún número para sumar (Ingresó el 0)");
+////            }
+////            else
+////            {
+////                Console.WriteLine($"Usted ingresó un primer número negativo {numero}, por lo cual salió del bucle");
+////            }
+////        }
+////    }
+////}
+#endregion
+#region Ejercicio N°23 26/05/2023 
+//using System;
+
+//namespace GuiaNumero4
+//{
+//    internal class Program
+
+//    {
+////Realice un programa que pida por teclado un número(natural, menor 15) y cómo
+////salida, muestre la serie de Fibonacci.
+////Ejemplo: si ingreso el valor 13, se deberá mostrar:
+////0 1 1 2 3 5 8 13 21 34 55 89 144
+////Ayuda: partir de 2 valores iniciales(0 y 1) y a partir de ahí, generar el siguiente
+////número de la secuencia sumando los 2 números anteriores
+//        public static void Main()
+//        {
+
+//            int numeroIngresado, primerNumero=1, segundoNumero=1, resultado=0;
+//            Console.WriteLine("Ingrese un número natural menor a 15 para calcular la serie de Fibonacci");
+//            numeroIngresado = Convert.ToInt32(Console.ReadLine());
+//            if (numeroIngresado < 16 && numeroIngresado > 0)
+//            {
+                
+//                if (numeroIngresado == 1) Console.WriteLine("El resultado es 0");
+//                else if (numeroIngresado == 2) Console.WriteLine("El resultado es 1");
+//                else if (numeroIngresado == 3) Console.WriteLine("El resultado es 1");
+//                else
+//                {
+//                    for (int i=4; i <= numeroIngresado; i++)
+//                    {
+//                        resultado = primerNumero + segundoNumero;
+//                        primerNumero = segundoNumero;
+//                        segundoNumero = resultado;
+                        
+//                    }
+//                Console.WriteLine($"El resultado es {resultado}");
+//                }
+//            }
+//            else Console.WriteLine($"Usted ingresó un número incorrecto: {numeroIngresado}, lea la consigna \n Saludos!");
+//            Console.ReadKey();
+//        }
+//    }
+//}
+
+#endregion
+#endregion
+
 
 
 
