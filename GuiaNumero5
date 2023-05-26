@@ -1,1 +1,167 @@
+// See https://aka.ms/new-console-template for more information
+using System.Runtime.ConstrainedExecution;
+#region GuiaNúmero5
+#region Ejercicio N°1 26/05/2023
+//int opcion;
+//double x, y;
+//Console.WriteLine("Ingrese el valor de A");
+//x = int.Parse(Console.ReadLine());
+//Console.WriteLine("Ingrese el valor de B");
+//y = int.Parse(Console.ReadLine());
+//Console.WriteLine("Selecciones una opción para operar a y b");
+//opcion = int.Parse(Console.ReadLine());
+//switch (opcion)
+//{
+//    case 1 : CalcularAbs(x, y);Console.WriteLine(CalcularAbs(x, y));break;
+//    case 2 : CalcularPromedio(x,y);Console.WriteLine(CalcularPromedio(x, y)); break;
+//    case 3 : DevolverMayor(x,y); Console.WriteLine(DevolverMayor(x, y)); break;
+//    case 4 : DevolverMenor(x,y); Console.WriteLine(DevolverMenor(x, y)); break;
+//    case 5:  DividirAporB(x,y); Console.WriteLine(DividirAporB(x, y)); break;
 
+
+//}
+//static double CalcularAbs(double a, double b)
+//{
+//    double resultado = 0; 
+//    resultado=Math.Abs(a - b);
+//    return resultado;
+//}
+//static double CalcularPromedio(double a, double b)
+//{
+//    double resultado = 0;
+//    resultado = (a+b)/2;
+//    return resultado;
+//}
+//static double DevolverMayor(double a, double b)
+//{
+//    if (a >= b) return a;
+//    else return b;   
+//}
+//static double DevolverMenor(double a, double b)
+//{
+//    if (a >= b) return b;
+//    else return a;
+//}
+//static string DividirAporB(double a, double b)
+//{
+//    string mensajePositivo = "A es divisible por B";
+//    string mensajeNegativo = "A no es divisible por B";
+//    if ((a % b) == 0) return mensajePositivo;
+//    else return mensajeNegativo;
+//}
+////1) Realizar distintos métodos que reciba cómo parámetro dos números reales y realicen
+////lo siguiente:
+////a) Calcule la sustracción de ambos números en valor absoluto.
+////b) Calcule el promedio de dichos números.
+////c) Devuelva el máximo de dichos números.
+////d) Devuelva el mínimo de dichos números.
+////e) Devuelva un mensaje indicando si el primer número es divisible por el
+////segundo.
+#endregion
+#region Ejercicio N°2 26/05/2023
+//2) Codificar los siguientes ejercicios con métodos:
+//a) Se desea conocer el impuesto a pagar según el total ganado en el año. Leer
+//la ganancia anual (GANUAL) y mostrar el impuesto (IMPU) de acuerdo a la
+//siguiente tabla:
+//GANUAL < 100000 ……. IMPU = 0
+//100000 <= GANUAL < 150000 …. IMPU = 2 % de(GANUAL - 100000)
+//150000 <= GANUAL …. IMPU = 3000 + 5 % de(GANUAL - 150000)
+//El cálculo del impuesto debe ser realizado en un método que reciba cómo
+//parámetro la ganancia anual.
+
+//b) Leer número de libreta y tres notas (de tipo real) correspondiente a una
+//materia, mostrar nro. de libreta y dos carteles indicando si aprobó o no y el
+//concepto. Para aprobar se necesita un promedio de 5 puntos cómo mínimo.
+//Con respecto al concepto: si obtiene 9 o más le corresponde Sobresaliente
+//(S), menos de 9 y hasta 8 inclusive el concepto es Distinguido (D), menos de
+//8 y hasta 6 es Bueno (B), menos de 6 y hasta 4 en Regular (R), menos de 4
+//es Insuficiente (I).
+//Desarrollar un método que reciba el promedio y devuelva una cadena con el
+//concepto.
+//c) Se lee un conjunto de números positivos (el último es negativo). Se pide
+//evaluar y mostrar para cada valor ingresado, el valor de y siendo y = x + x/2 +
+#endregion
+#region Ejercicio N°1 26/05/2023
+//4.
+//Desarrollar un método para hallar el valor de y.
+//3)
+//a) Desarrollar un método que reciba cómo entrada las longitudes A, B, C, D
+//correspondientes a los lados de un cuadrilátero y devuelva su clasificación:
+//cuadrado: 4 lados iguales
+//rectángulo: 2 pares de lados iguales
+//trapecio: 2 lados iguales y 2 lados distintos entre sí
+//romboide: 4 lados distintos
+//Introducción a la programación
+//b) Utilizar el método definido en a) en un programa que resuelva el siguiente
+//problema: Ingresar las medidas de los 4 lados de N cuadriláteros. Hallar y
+//mostrar:
+//i) Porcentaje de cuadrados con respecto a la cantidad de cuadriláteros
+//que tienen al menos 2 lados iguales.
+//ii) Para cuál de las clases de cuadriláteros se ingresó la menor cantidad
+//de datos: rectángulo, trapecio o romboide.
+//4) Leer un conjunto de números enteros. Se deberá calcular el factorial de los números
+//no negativos. Detener el proceso cuando se hayan calculado 4 factoriales o cuando
+//el factorial calculado sea mayor a 5000.
+//(0! = 1; 1! = 1; 2! = 2 * 1; 3! = 3 * 2 * 1; … ; n! = n * (n - 1) * (n - 2) * (n - 3) * ...*1)
+//Desarrollar un método para el cálculo del Factorial
+//5) Desarrollar un método que reciba por parámetro una palabra y devuelva si la misma
+//es o no palíndromo (capicúa). No discriminar entre mayúsculas y minúsculas.
+//Ejemplo: ANa, AnaNA son palíndromos (se leen igual de izquierda a derecha).
+//6) Desarrollar un método que reciba por parámetro dos números reales positivos y
+//devuelva una cadena con la intercalación de las cifras de ambos números (si el
+//número es decimal, solo contemplar la parte entera).
+//Ejemplo: número 1 = 12.5 y numero2 = 4567 → “142567”
+//7) Codificar utilizando métodos:
+//a) Desarrollar un método que tenga dos parámetros enteros: el número base y
+//un número exponente y que devuelva la operación potenciación (no utilizar la
+//librería Math).
+//Nota: considerar que el exponente es mayo o igual a cero.
+//b) Mejorar el ejercicio anterior, permitiendo que el exponente puede ser
+//negativo.
+//c) Utilizar el método creado en b) para resolver el siguiente problema:
+//Se quiere crear un método para transformar un número binario (que se pasa
+//cómo parámetro) a decimal.
+//Ejemplo: si se ingresa el número binario “1110001” deberá devolver 113
+//8) Leer tres caracteres y mostrarlos ordenados. Desarrollar un método que reciba los
+//tres caracteres y los devuelva ordenados. El menor en el primer argumento y el
+//mayor en el último.
+//9) Hacer un programa que mediante un menú de opciones permite resolver los
+//siguientes puntos:
+//OPCIÓN 1: Calcular y escribir cada uno de los términos de la serie (i -1) / i! para i
+//(entero) desde 1 y hasta que el término calculado sea mayor que un dato k. Utilizar
+//un procedimiento para el cálculo y escritura de los términos y una función para el
+//factorial.
+//OPCIÓN 2: Calcular y escribir las raíces de una ecuación de segundo grado
+//(ax
+//2+bx+c). Los coeficientes a, b y c son datos de entrada.
+//OPCIÓN 3: Dado un círculo de centro X, punto del plano de coordenadas (x1, x2) y
+//de radio R. Determinar si el punto P de coordenadas (p1, p2) está adentro o afuera
+//del círculo.
+//Ayuda: calcular la distancia de P a X y compara el resultado con R.
+//El menú debe reiterarse hasta que el usuario decida finalizar.
+//10) Determinar cuántas veces aparece la subcadena X en un texto.
+//11) De un conjunto de palabras que ingresan por teclado (“***” fin de datos), seleccionar
+//Introducción a la programación
+//la que contenga mayor cantidad de vocales y mostrarla cambiando mayúsculas por
+//minúsculas y viceversa. Desarrollar y utilizar métodos para:
+//a) Calcular la cantidad de vocales (minúsculas o mayúsculas) de una cadena.
+//b) Modificar un texto que contiene letras cambiando mayúsculas por minúsculas
+//y viceversa.
+//12) Leer N cadenas, informar: cuántas fueron capaces y la concatenación de los digitos
+//contenidos en ellas. Desarrollar y utilizar funciones que permitan:
+//a) Determinar si una cadena es capicua.
+//b) Recorrer un texto formando un número con los caracteres que son dígitos.
+//Ejemplo: “E * 3v - 98fT ? 5” → 3985(0 si no tiene dígitos).
+//13) Escribir un método que a partir de un carácter devuelve un código numérico, según:
+//1 si es una letra
+//2 si es un dígito
+//3 si es paréntesis o corchete
+//4 si es blanco
+//0 si no es ninguno de los anteriores
+//Utilizando el método anterior, desarrollar un procedimiento que transforma una cadena de
+//caracteres (parámetro) en la cadena formada por los códigos correspondientes. Cómo la
+//función devuelve valores enteros, estos deben ser convertidos a caracteres para ser
+//reemplazado en la cadena.
+//Ejemplo “9 (k]-A” → “2431301”
+#endregion
+#endregion
