@@ -332,26 +332,31 @@ namespace GuiaNumero5
     {
         static void Main(string[] args)
         {
-            int cantidad, num;
-            Console.WriteLine("Ingrese la cantidad de números que va a ingresar");
-            cantidad = int.Parse(Console.ReadLine());
-            for (int i = 0; i < cantidad; i++)
+            int 
+                num, resultado = 0;
+            for (int i = 0; i < 4 && resultado < 5000; i++)
             {
                 Console.WriteLine("Ingrese el número para calcular su factorial");
                 num = int.Parse(Console.ReadLine());
-                Console.WriteLine($"El {i+1}° factorial fue : {CalcularFactorial(num)}");
+                resultado = CalcularFactorial(num);
+                Console.WriteLine($"El {i + 1}° factorial fue : {resultado}");
             }
             Console.ReadKey();
 
         }
         static int CalcularFactorial(int num)
         {
-            if (num == 0) return 1;
-            else return num * CalcularFactorial(num);
+            int factorial = 1;
+            for (int i = 1; i <= num; i++)
+            {
+                factorial *= i;
+            }
+            return factorial;
         }
 
     }
 }
+
 
 #endregion
 #region Ejercicio N°5 27 / 05/2023
