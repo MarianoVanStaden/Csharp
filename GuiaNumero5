@@ -446,6 +446,102 @@
 //Nota: considerar que el exponente es mayo o igual a cero.
 
 
+//using System;
+
+//namespace GuiaNumero5
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+
+//            int numeroBase;
+//            int numeroExponente;
+//            Console.WriteLine("Ingrese el nùmero base (debe ser entero)");
+//            numeroBase= Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine("Ingrese el exponente (deber ser entero y mayor o igual a cero");
+//            numeroExponente = Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine(numeroBase);
+//            Console.WriteLine(numeroExponente);
+//            Console.ReadKey();
+//            Console.WriteLine($"El resultado final es: {CalcularPotencia(numeroBase, numeroExponente)}");
+
+//        }
+//        static int CalcularPotencia(int numBase, int numExpo)
+//        {
+//            int resultado = numBase;
+//            if (numExpo == 0) resultado = 1;
+//            else for (int i = 1; i < numExpo; i++) resultado *= numBase;
+//            return resultado;
+//        }
+
+//    }
+//}
+
+
+#endregion
+#region Ejercicio N°7 B 27 / 05/2023
+//b) Mejorar el ejercicio anterior, permitiendo que el exponente puede ser
+//negativo.
+
+
+//using System;
+
+//namespace GuiaNumero5
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+
+//            int numeroBase;
+//            int numeroExponente;
+//            Console.WriteLine("Ingrese el nùmero base (debe ser entero)");
+//            numeroBase = Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine("Ingrese el exponente (deber ser entero)");
+//            numeroExponente = Convert.ToInt32(Console.ReadLine());
+//            Console.ReadKey();
+//            Console.WriteLine($"El resultado final es: {CalcularPotencia(numeroBase, numeroExponente)}");
+
+//        }
+//        static double CalcularPotencia(double numBase, double numExpo)
+//        {
+//            double resultado = numBase;
+//            if (numExpo == 0) 
+//            {
+//                resultado = 1; 
+//                return resultado; 
+//            }
+//            else if (numExpo < 0)
+//            {
+//                for (int i = 0; i > numExpo; i--)
+//                {
+//                    if (i == 0) resultado = (1 / numBase);
+//                    else resultado *= (1 / numBase);
+//                    Console.WriteLine(resultado);
+//                }
+//                return resultado;
+//            }
+//            else
+//            {
+//                for (int i = 1; i < numExpo; i++)
+//                {
+//                    resultado *= numBase;
+
+//                }
+//                return resultado;
+//            }
+//        }
+
+//    }
+//}
+#endregion
+#region Ejercicio N°7 C 27 / 05/2023
+//c) Utilizar el método creado en b) para resolver el siguiente problema:
+//Se quiere crear un método para transformar un número binario (que se pasa
+//cómo parámetro) a decimal.
+//Ejemplo: si se ingresa el número binario “1110001” deberá devolver 113
+
 using System;
 
 namespace GuiaNumero5
@@ -454,46 +550,35 @@ namespace GuiaNumero5
     {
         static void Main(string[] args)
         {
-            double numeroA, numeroB;
-            Console.WriteLine("Ingrese el primer número");
-            numeroA = (int)Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Ingrese el segundo número");
-            numeroB = (int)Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine(numeroA);
-            Console.WriteLine(numeroB);
+
+            int numeroDecimal;
+            Console.WriteLine("Ingrese el nùmero base (debe ser entero)");
+            numeroDecimal = Convert.ToInt32(Console.ReadLine());
             Console.ReadKey();
-            Console.WriteLine($"El nùmero final es: {IntercalarNumeros(numeroA, numeroB)}");
+            Console.WriteLine($"El resultado final es: {ConvertToBinary(numeroDecimal)}");
 
         }
-        static int IntercalarNumeros(double num1, double num2)
+        static string ConvertToBinary(int numDec)
         {
-            string cadena1 = num1.ToString();
-            string cadena2 = num2.ToString();
-            string intercalacion = "";
-            int longitud = Math.Max(cadena1.Length, cadena2.Length);
-            for (int i = 0; i < longitud; i++)
+            string resultado = "";
+            if (numDec == 0)
             {
-                if (i < cadena1.Length) intercalacion += cadena1[i];
-                if (i < cadena2.Length) intercalacion += cadena2[i];
+                resultado = "0";
+
             }
-            int numeroFinal = Convert.ToInt32(intercalacion);
-            return numeroFinal;
+            while (numDec > 0)
+            {
+                int resto = numDec % 2;
+
+                resultado = resto.ToString() + resultado;
+
+                numDec /= 2;
+            }
+            return resultado;
         }
 
     }
 }
-
-
-#endregion
-#region Ejercicio N°7 B 27 / 05/2023
-//b) Mejorar el ejercicio anterior, permitiendo que el exponente puede ser
-//negativo.
-#endregion
-#region Ejercicio N°7 C 27 / 05/2023
-//c) Utilizar el método creado en b) para resolver el siguiente problema:
-//Se quiere crear un método para transformar un número binario (que se pasa
-//cómo parámetro) a decimal.
-//Ejemplo: si se ingresa el número binario “1110001” deberá devolver 113
 #endregion
 #region Ejercicio N°8 27 / 05/2023
 //8) Leer tres caracteres y mostrarlos ordenados. Desarrollar un método que reciba los
