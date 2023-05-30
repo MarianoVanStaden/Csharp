@@ -1,3 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingrese el nùmero del tipo de figura que  quiere calcular (cuadrado = 1, triangulo = 2, rectangulo =3)");
+            int tipo = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"El área de la figura es: {CalcularArea(tipo)}");
+            Console.WriteLine("Fin del programa");
+            Console.ReadKey();
+        }
+
+        static double CalcularArea(int tipo)
+        {
+            Console.WriteLine("Ingrese la base de su figura");
+            double lado1 = Convert.ToDouble(Console.ReadLine());
+            double lado2 = 0;
+            if (tipo != 1)
+            {
+                Console.WriteLine("Ingrese la altura de su figura");
+                lado2 = Convert.ToDouble(Console.ReadLine());
+            }
+            switch (tipo) {
+                case 1: {
+                        return Math.Pow(lado1,2);
+                        break;
+                       }
+                case 2: {
+                        return (lado1 * lado2)/2;
+                        break;
+                    }
+                case 3: {
+                        return lado1 * lado2;
+                        break;
+                          }
+                default: return 0;
+
+            }
+    }
+    }
+}
+
 #region GuiaNúmero5
 #region Ejercicio N°1 26/05/2023
 ////1) Realizar distintos métodos que reciba cómo parámetro dos números reales y realicen
@@ -540,50 +589,81 @@
 //c) Utilizar el método creado en b) para resolver el siguiente problema:
 //Se quiere crear un método para transformar un número binario (que se pasa
 //cómo parámetro) a decimal.
-//Ejemplo: si se ingresa el número binario “1110001” deberá devolver 113
+////Ejemplo: si se ingresa el número binario “1110001” deberá devolver 113
 
-using System;
+//using System;
 
-namespace GuiaNumero5
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+//namespace GuiaNumero5
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
 
-            int numeroDecimal;
-            Console.WriteLine("Ingrese el nùmero base (debe ser entero)");
-            numeroDecimal = Convert.ToInt32(Console.ReadLine());
-            Console.ReadKey();
-            Console.WriteLine($"El resultado final es: {ConvertToBinary(numeroDecimal)}");
+//            int numeroDecimal;
+//            Console.WriteLine("Ingrese el nùmero base (debe ser entero)");
+//            numeroDecimal = Convert.ToInt32(Console.ReadLine());
+//            Console.ReadKey();
+//            Console.WriteLine($"El resultado final es: {ConvertToBinary(numeroDecimal)}");
 
-        }
-        static string ConvertToBinary(int numDec)
-        {
-            string resultado = "";
-            if (numDec == 0)
-            {
-                resultado = "0";
+//        }
+//        static string ConvertToBinary(int numDec)
+//        {
+//            string resultado = "";
+//            if (numDec == 0)
+//            {
+//                resultado = "0";
 
-            }
-            while (numDec > 0)
-            {
-                int resto = numDec % 2;
+//            }
+//            while (numDec > 0)
+//            {
+//                int resto = numDec % 2;
 
-                resultado = resto.ToString() + resultado;
+//                resultado = resto.ToString() + resultado;
 
-                numDec /= 2;
-            }
-            return resultado;
-        }
+//                numDec /= 2;
+//            }
+//            return resultado;
+//        }
 
-    }
-}
+//    }
+//}
 #endregion
 #region Ejercicio N°8 27 / 05/2023
 //8) Leer tres caracteres y mostrarlos ordenados. Desarrollar un método que reciba los
 //tres caracteres y los devuelva ordenados. El menor en el primer argumento y el
 //mayor en el último.
+
+//using System;
+
+//namespace GuiaNumero5
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+
+//            char letra1, letra2, letra3;
+//            Console.WriteLine("Ingrese la primer letra");
+//            letra1 = Console.ReadKey;
+//            Console.WriteLine("Ingrese la primer letra");
+//            letra2 = Console.ReadLine()[0];
+//            Console.WriteLine("Ingrese la primer letra");
+//            letra3 = Console.ReadLine()[0];
+//            Console.ReadKey();
+//            Console.WriteLine($"El resultado final es: {ConvertToBinary(numeroDecimal)}");
+
+//        }
+//        static string ConvertToBinary(int numDec)
+//        {
+//            string resultado = "";
+
+//            return resultado;
+//        }
+
+//    }
+//}
+
 #endregion
 #region Ejercicio N°9 27 / 05/2023
 //9) Hacer un programa que mediante un menú de opciones permite resolver los
