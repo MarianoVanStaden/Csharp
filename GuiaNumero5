@@ -324,6 +324,128 @@
 //(0! = 1; 1! = 1; 2! = 2 * 1; 3! = 3 * 2 * 1; … ; n! = n * (n - 1) * (n - 2) * (n - 3) * ...*1)
 //Desarrollar un método para el cálculo del Factorial
 
+//using System;
+
+//namespace GuiaNumero5
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int
+//                num, resultado = 0;
+//            for (int i = 0; i < 4 && resultado < 5000; i++)
+//            {
+//                Console.WriteLine("Ingrese el número para calcular su factorial");
+//                num = int.Parse(Console.ReadLine());
+//                resultado = CalcularFactorial(num);
+//                Console.WriteLine($"El {i + 1}° factorial fue : {resultado}");
+//            }
+//            Console.ReadKey();
+
+//        }
+//        static int CalcularFactorial(int num)
+//        {
+//            int factorial = 1;
+//            for (int i = 1; i <= num; i++)
+//            {
+//                factorial *= i;
+//            }
+//            return factorial;
+//        }
+
+//    }
+//}
+
+
+#endregion
+#region Ejercicio N°5 27 / 05/2023
+//5) Desarrollar un método que reciba por parámetro una palabra y devuelva si la misma
+//es o no palíndromo (capicúa). No discriminar entre mayúsculas y minúsculas.
+//Ejemplo: ANa, AnaNA son palíndromos (se leen igual de izquierda a derecha).
+
+//using System;
+
+//namespace GuiaNumero5
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            string palabra;
+//            Console.WriteLine("Ingrese una palabra para ver si es o no una palabra palíndroma");
+//            palabra = (Console.ReadLine()).ToLower();
+//            Console.WriteLine($"La palabra {CompararPalabras(palabra)}");
+
+//        }
+//        static string CompararPalabras(string palabra)
+//        {
+//            char[] chars = palabra.ToCharArray();
+//            Array.Reverse(chars);
+//            string palabraInvertida = new string(chars);
+//            Console.WriteLine(palabraInvertida);
+//            if (palabra == palabraInvertida) return "es palíndroma";
+//            else return "no es palíndroma";
+//        }
+
+//    }
+//}
+
+
+#endregion
+#region Ejercicio N°6 27 / 05/2023
+//6) Desarrollar un método que reciba por parámetro dos números reales positivos y
+//devuelva una cadena con la intercalación de las cifras de ambos números (si el
+//número es decimal, solo contemplar la parte entera).
+//Ejemplo: número 1 = 12.5 y numero2 = 4567 → “142567”
+
+//using System;
+
+//namespace GuiaNumero5
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            double numeroA, numeroB;
+//            Console.WriteLine("Ingrese el primer número");
+//            numeroA = (int)Convert.ToDouble(Console.ReadLine());
+//            Console.WriteLine("Ingrese el segundo número");
+//            numeroB = (int)Convert.ToDouble(Console.ReadLine());
+//            Console.WriteLine(numeroA);
+//            Console.WriteLine(numeroB);
+//            Console.ReadKey();
+//            Console.WriteLine($"El nùmero final es: {IntercalarNumeros(numeroA, numeroB)}");
+
+//        }
+//        static int IntercalarNumeros(double num1, double num2)
+//        {
+//            string cadena1 = num1.ToString();
+//            string cadena2 = num2.ToString();
+//            string intercalacion = "";
+//            int longitud = Math.Max(cadena1.Length, cadena2.Length);
+//            for (int i=0; i<longitud;i++)
+//            {
+//                if (i < cadena1.Length) intercalacion += cadena1[i];
+//                if (i < cadena2.Length) intercalacion += cadena2[i];
+//            }
+//            int numeroFinal = Convert.ToInt32(intercalacion);
+//            return numeroFinal;
+//        }
+
+//    }
+//}
+
+
+#endregion
+#region Ejercicio N°7 A 27 / 05/2023
+//7) Codificar utilizando métodos:
+//a) Desarrollar un método que tenga dos parámetros enteros: el número base y
+//un número exponente y que devuelva la operación potenciación (no utilizar la
+//librería Math).
+//Nota: considerar que el exponente es mayo o igual a cero.
+
+
 using System;
 
 namespace GuiaNumero5
@@ -332,50 +454,36 @@ namespace GuiaNumero5
     {
         static void Main(string[] args)
         {
-            int 
-                num, resultado = 0;
-            for (int i = 0; i < 4 && resultado < 5000; i++)
-            {
-                Console.WriteLine("Ingrese el número para calcular su factorial");
-                num = int.Parse(Console.ReadLine());
-                resultado = CalcularFactorial(num);
-                Console.WriteLine($"El {i + 1}° factorial fue : {resultado}");
-            }
+            double numeroA, numeroB;
+            Console.WriteLine("Ingrese el primer número");
+            numeroA = (int)Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Ingrese el segundo número");
+            numeroB = (int)Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine(numeroA);
+            Console.WriteLine(numeroB);
             Console.ReadKey();
+            Console.WriteLine($"El nùmero final es: {IntercalarNumeros(numeroA, numeroB)}");
 
         }
-        static int CalcularFactorial(int num)
+        static int IntercalarNumeros(double num1, double num2)
         {
-            int factorial = 1;
-            for (int i = 1; i <= num; i++)
+            string cadena1 = num1.ToString();
+            string cadena2 = num2.ToString();
+            string intercalacion = "";
+            int longitud = Math.Max(cadena1.Length, cadena2.Length);
+            for (int i = 0; i < longitud; i++)
             {
-                factorial *= i;
+                if (i < cadena1.Length) intercalacion += cadena1[i];
+                if (i < cadena2.Length) intercalacion += cadena2[i];
             }
-            return factorial;
+            int numeroFinal = Convert.ToInt32(intercalacion);
+            return numeroFinal;
         }
 
     }
 }
 
 
-#endregion
-#region Ejercicio N°5 27 / 05/2023
-//5) Desarrollar un método que reciba por parámetro una palabra y devuelva si la misma
-//es o no palíndromo (capicúa). No discriminar entre mayúsculas y minúsculas.
-//Ejemplo: ANa, AnaNA son palíndromos (se leen igual de izquierda a derecha).
-#endregion
-#region Ejercicio N°6 27 / 05/2023
-//6) Desarrollar un método que reciba por parámetro dos números reales positivos y
-//devuelva una cadena con la intercalación de las cifras de ambos números (si el
-//número es decimal, solo contemplar la parte entera).
-//Ejemplo: número 1 = 12.5 y numero2 = 4567 → “142567”
-#endregion
-#region Ejercicio N°7 A 27 / 05/2023
-//7) Codificar utilizando métodos:
-//a) Desarrollar un método que tenga dos parámetros enteros: el número base y
-//un número exponente y que devuelva la operación potenciación (no utilizar la
-//librería Math).
-//Nota: considerar que el exponente es mayo o igual a cero.
 #endregion
 #region Ejercicio N°7 B 27 / 05/2023
 //b) Mejorar el ejercicio anterior, permitiendo que el exponente puede ser
