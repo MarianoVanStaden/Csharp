@@ -1,51 +1,55 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace ConsoleApp1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Ingrese el nùmero del tipo de figura que  quiere calcular (cuadrado = 1, triangulo = 2, rectangulo =3)");
-            int tipo = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"El área de la figura es: {CalcularArea(tipo)}");
-            Console.WriteLine("Fin del programa");
-            Console.ReadKey();
-        }
+//namespace ConsoleApp1
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Console.WriteLine("Ingrese el nùmero del tipo de figura que  quiere calcular (cuadrado = 1, triangulo = 2, rectangulo =3)");
+//            int tipo = Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine($"El área de la figura es: {CalcularArea(tipo)}");
+//            Console.WriteLine("Fin del programa");
+//            Console.ReadKey();
+//        }
 
-        static double CalcularArea(int tipo)
-        {
-            Console.WriteLine("Ingrese la base de su figura");
-            double lado1 = Convert.ToDouble(Console.ReadLine());
-            double lado2 = 0;
-            if (tipo != 1)
-            {
-                Console.WriteLine("Ingrese la altura de su figura");
-                lado2 = Convert.ToDouble(Console.ReadLine());
-            }
-            switch (tipo) {
-                case 1: {
-                        return Math.Pow(lado1,2);
-                        break;
-                       }
-                case 2: {
-                        return (lado1 * lado2)/2;
-                        break;
-                    }
-                case 3: {
-                        return lado1 * lado2;
-                        break;
-                          }
-                default: return 0;
+//        static double CalcularArea(int tipo)
+//        {
+//            Console.WriteLine("Ingrese la base de su figura");
+//            double lado1 = Convert.ToDouble(Console.ReadLine());
+//            double lado2 = 0;
+//            if (tipo != 1)
+//            {
+//                Console.WriteLine("Ingrese la altura de su figura");
+//                lado2 = Convert.ToDouble(Console.ReadLine());
+//            }
+//            switch (tipo)
+//            {
+//                case 1:
+//                    {
+//                        return Math.Pow(lado1, 2);
+//                        break;
+//                    }
+//                case 2:
+//                    {
+//                        return (lado1 * lado2) / 2;
+//                        break;
+//                    }
+//                case 3:
+//                    {
+//                        return lado1 * lado2;
+//                        break;
+//                    }
+//                default: return 0;
 
-            }
-    }
-    }
-}
+//            }
+//        }
+//    }
+//}
 
 #region GuiaNúmero5
 #region Ejercicio N°1 26/05/2023
@@ -635,6 +639,10 @@ namespace ConsoleApp1
 //mayor en el último.
 
 //using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
 //namespace GuiaNumero5
 //{
@@ -645,24 +653,71 @@ namespace ConsoleApp1
 
 //            char letra1, letra2, letra3;
 //            Console.WriteLine("Ingrese la primer letra");
-//            letra1 = Console.ReadKey;
-//            Console.WriteLine("Ingrese la primer letra");
-//            letra2 = Console.ReadLine()[0];
-//            Console.WriteLine("Ingrese la primer letra");
-//            letra3 = Console.ReadLine()[0];
-//            Console.ReadKey();
-//            Console.WriteLine($"El resultado final es: {ConvertToBinary(numeroDecimal)}");
+//            letra1 = Console.ReadKey().KeyChar;
+//            Console.WriteLine();
+//            Console.WriteLine("Ingrese la segunda letra ");
+//            letra2 = Console.ReadKey().KeyChar;
+//            Console.WriteLine();
+//            Console.WriteLine("Ingrese la tercer letra");
+//            letra3 = Console.ReadKey().KeyChar;
+//            Console.WriteLine();
+//            Console.WriteLine($"El resultado final es: {OrdenarLetras(letra1, letra2, letra3)}");
 
 //        }
-//        static string ConvertToBinary(int numDec)
+//        static string OrdenarLetras(char primera, char segunda, char tercera)
 //        {
-//            string resultado = "";
+//            //var lista = new List<char> { primera, segunda, tercera };
+//            //char menor = 'a';
+//            //char medio ='a';
+//            //char mayor = 'a' ;
+//            //foreach (char elemento in lista)
+//            //{
+//            //    if (elemento == primera)
+//            //    {
+//            //        menor = primera;
+//            //        medio = primera;
+//            //        mayor = primera;
+//            //    }
+//            //    else if (elemento == segunda)
+//            //    {
+//            //        if (segunda > primera)
+//            //        {
+//            //            medio = segunda;
+//            //            medio = tercera;
+//            //        }
+//            //        else
+//            //        {
+//            //            menor = segunda;
+//            //            medio = primera;
+//            //            mayor = primera;
+//            //        }
+//            //    }
+//            //    else
+//            //    {
+//            //        if (elemento == tercera)
+//            //        {
+//            //            if (tercera < primera && tercera < segunda) menor = tercera;
+//            //            else if (tercera < primera && tercera > segunda) medio = tercera;
+//            //            else if (tercera > primera && tercera < segunda) medio = tercera;
+//            //            else if (tercera > primera && tercera > segunda) mayor = tercera;
+//            //        }
 
-//            return resultado;
+//            //    }
+//            //}
+//            //var resultado = new List<char> { menor, medio, mayor };
+//            //Console.WriteLine(resultado);
+//            //return resultado;
+//            var lista = new List<char> { primera, segunda, tercera };
+//            lista.Sort(); // Ordenar la lista de caracteres en orden ascendente
+//            string prueba = string.Join(" ", lista); // Lo transformo en un string porque no me està leyendo el listado "lista"
+//            return prueba;
+
 //        }
 
 //    }
+
 //}
+
 
 #endregion
 #region Ejercicio N°9 27 / 05/2023
@@ -673,13 +728,92 @@ namespace ConsoleApp1
 //un procedimiento para el cálculo y escritura de los términos y una función para el
 //factorial.
 //OPCIÓN 2: Calcular y escribir las raíces de una ecuación de segundo grado
-//(ax
-//2+bx+c). Los coeficientes a, b y c son datos de entrada.
+//(ax2+bx+c). Los coeficientes a, b y c son datos de entrada.
 //OPCIÓN 3: Dado un círculo de centro X, punto del plano de coordenadas (x1, x2) y
 //de radio R. Determinar si el punto P de coordenadas (p1, p2) está adentro o afuera
 //del círculo.
 //Ayuda: calcular la distancia de P a X y compara el resultado con R.
 //El menú debe reiterarse hasta que el usuario decida finalizar.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int tipo;
+            int k;
+
+            do {
+                Console.WriteLine("Ingrese el nùmero de la operación a realizar (opción = 1, opción = 2, opción =3, salir=4)");
+                tipo = int.Parse(Console.ReadLine());
+                switch (tipo)
+                    {
+                        case 1:
+                            {
+                                Console.WriteLine("Ingrese dale el dato k:");
+                                k = int.Parse(Console.ReadLine());
+                                Console.WriteLine(HacerPrimerCalculo(k));
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 2:
+                            {
+
+                                break;
+                            }
+                        case 3:
+                            {
+
+                                break;
+                            }
+                        default:
+                            {
+                                if (tipo == 4) Console.WriteLine("Usted decidió salir");
+                                else { 
+                                        Console.WriteLine("Seleccionó una opción incorrecta. \nElija nuevamente ");
+                                     }
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
+                            }
+                    }
+                } while (tipo != 4) ;
+
+            
+        }
+
+
+            static int HacerPrimerCalculo(int num)
+            {
+                int termino = (num - 1) / 1;
+                for (int i = 1; termino < num; i++)
+                {
+                    termino = (num - 1) / Factorial(num);
+                    Console.WriteLine(termino);
+                }
+                return termino;
+            }
+            static int Factorial(int num)
+            {
+                int factorial = 1;
+                for (int i = 1; i <= num; i++)
+                {
+                    factorial *= i;
+                    return factorial;
+                }
+                return factorial;
+            }
+    }
+}   
+
+#endregion
 //10) Determinar cuántas veces aparece la subcadena X en un texto.
 //11) De un conjunto de palabras que ingresan por teclado (“***” fin de datos), seleccionar
 //Introducción a la programación
@@ -1220,5 +1354,4 @@ namespace ConsoleApp1
 //        return ingreso == 'a' || ingreso == 'e' || ingreso == 'i' || ingreso == 'o' || ingreso == 'u';
 //    }
 //}
-#endregion
 #endregion
