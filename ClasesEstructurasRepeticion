@@ -1,0 +1,146 @@
+
+using System;
+
+namespace Clase_extra
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //string texto;
+            //int vocales=0, consonantes=0, espacio=0;
+            //Console.WriteLine("Ingrese un texto completo para que se le puedan contar las vocales, consonantes y espacios");
+            //texto = Console.ReadLine();
+            //for (int i=0; i < texto.Length; i++)
+            //{
+            //    //char caracter = texto[]
+            //    if ((texto[i]) == 'a' || texto[i] == 'e' || texto[i] == 'i' || texto[i] == 'o' || texto[i] == 'u') vocales++;
+            //    else if (texto[i] == ' ') espacio++;
+            //    else { 
+            //        consonantes++; 
+            //         }
+            //}
+            //Console.WriteLine($"La cantidad de vocales fue: {vocales}");
+            //Console.WriteLine($"La cantidad de consonantes fue: {consonantes}");
+            //Console.WriteLine($"La cantidad de espacios fue: {espacio}");
+            //string texto;
+            //int i = 0, vocales = 0, consonantes = 0, espacio = 0;
+            //Console.WriteLine("Ingrese un texto completo para que se le puedan contar las vocales, consonantes y espacios");
+            //texto = Console.ReadLine();
+            //while (i < texto.Length)
+            //{
+            //    if (texto[i] == 'x') {
+            //        Console.WriteLine("Se va a salir del programa porque se encontró una X");
+            //        consonantes++;
+            //        break;
+            //    }
+            //    else if ((texto[i]) == 'a' || texto[i] == 'e' || texto[i] == 'i' || texto[i] == 'o' || texto[i] == 'u') vocales++;
+            //    else if (texto[i] == ' ') espacio++;
+            //    else
+            //    {
+            //        consonantes++;
+            //    }
+            //    i++;
+            //}
+            //Console.WriteLine($"La cantidad de vocales fue: {vocales}");
+            //Console.WriteLine($"La cantidad de consonantes fue: {consonantes}");
+            //Console.WriteLine($"La cantidad de espacios fue: {espacio}");
+            //Console.WriteLine($"El porcentaje de vocales es de: {vocales * 100 / (vocales + consonantes)}");
+            //string texto;
+            //int i = 0, vocales = 0, consonantes = 0, espacio = 0;
+            //Console.WriteLine("Ingrese un texto completo para que se le puedan contar las vocales, consonantes y espacios");
+            //string texto, nuevoTexto="" ;
+            //char caracter= ' ';
+            //Console.WriteLine("Ingrese un texto completo para que se le puedan cambiar las vocales");
+            //texto = Console.ReadLine();
+            //texto.ToLower();
+            //Console.WriteLine(texto);
+            //for (int i=0; i < texto.Length; i++)
+            //{
+
+            //    if (texto[i] == 'a') caracter = 'e';
+            //    else if (texto[i] == 'e') caracter = 'i';
+            //    else if (texto[i] == 'i') caracter = 'o';
+            //    else if (texto[i] == 'o') caracter = 'u';
+            //    else if (texto[i] == 'u') caracter = 'a';
+            //    else if (texto[i] == ' ') caracter = ' ';
+            //    else caracter = texto[i];
+            //    nuevoTexto += caracter;
+
+
+            //}
+            //Console.WriteLine($"El texto es: {texto}");
+            //Console.WriteLine($"El nuevo texto es: {nuevoTexto}");
+            string texto, nuevoTexto = "";
+            char caracter = ' ';
+            int opcion;
+            Console.WriteLine("Ingrese un texto a modificar");
+            texto = Console.ReadLine();
+            texto.ToLower();
+            do
+            {
+                Console.WriteLine("Elija la opcion 1,2,3,4 o 5");
+                opcion = int.Parse(Console.ReadLine());
+                //Console.Clear();
+            } while (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5);
+            switch (opcion)
+            {
+                case 1:
+                    {
+                        for (int i = 0; i < texto.Length; i++)
+                        {
+                            if (texto[i] == 'a') caracter = 'e';
+                            else caracter = texto[i];
+                            nuevoTexto += caracter;
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        for (int i = 0; i < texto.Length; i++)
+                        {
+                            if (texto[i] == 'e') caracter = 'i';
+                            else caracter = texto[i];
+                            nuevoTexto += caracter;
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        for (int i = 0; i < texto.Length; i++)
+                        {
+                            if (texto[i] == 'e') caracter = 'o';
+                            else caracter = texto[i];
+                            nuevoTexto += caracter;
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        for (int i = 0; i < texto.Length; i++)
+                        {
+                            if (texto[i] == 'o') caracter = 'u';
+                            else caracter = texto[i];
+                            nuevoTexto += caracter;
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        for (int i = 0; i < texto.Length; i++)
+                        {
+                            if (texto[i] == 'u') caracter = 'a';
+                            else caracter = texto[i];
+                            nuevoTexto += caracter;
+                        }
+                        break;
+                    }
+
+            }
+
+            Console.WriteLine($"El texto original es: {texto}");
+            Console.WriteLine($"El texto modificado por la opción {opcion} es: {nuevoTexto}");
+
+        }
+    }
+}
