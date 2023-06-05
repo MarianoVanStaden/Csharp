@@ -750,68 +750,80 @@ namespace ConsoleApp1
             int tipo;
             int k;
 
-            do {
+            do
+            {
                 Console.WriteLine("Ingrese el nùmero de la operación a realizar (opción = 1, opción = 2, opción =3, salir=4)");
                 tipo = int.Parse(Console.ReadLine());
                 switch (tipo)
-                    {
-                        case 1:
-                            {
-                                Console.WriteLine("Ingrese dale el dato k:");
-                                k = int.Parse(Console.ReadLine());
-                                Console.WriteLine(HacerPrimerCalculo(k));
-                                Console.ReadKey();
-                                break;
-                            }
-                        case 2:
-                            {
+                {
+                    case 1:
+                        {
+                            Console.WriteLine("Ingrese dale el dato k:");
+                            k = int.Parse(Console.ReadLine());
+                            Console.WriteLine(HacerPrimerCalculo(k));
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 2:
+                        {
 
-                                break;
-                            }
-                        case 3:
-                            {
+                            break;
+                        }
+                    case 3:
+                        {
 
-                                break;
-                            }
-                        default:
+                            break;
+                        }
+                    default:
+                        {
+                            if (tipo == 4) Console.WriteLine("Usted decidió salir");
+                            else
                             {
-                                if (tipo == 4) Console.WriteLine("Usted decidió salir");
-                                else { 
-                                        Console.WriteLine("Seleccionó una opción incorrecta. \nElija nuevamente ");
-                                     }
-                                Console.ReadKey();
-                                Console.Clear();
-                                break;
+                                Console.WriteLine("Seleccionó una opción incorrecta. \nElija nuevamente ");
                             }
-                    }
-                } while (tipo != 4) ;
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+                        }
+                }
+            } while (tipo != 4);
 
-            
+
         }
 
 
-            static int HacerPrimerCalculo(int num)
+        static int HacerPrimerCalculo(int num)
+        {
+            int termino = 0, total = 0;
+            for (int i = 0; termino < num; i++)
             {
-                int termino = (num - 1) / 1;
-                for (int i = 1; termino < num; i++)
-                {
-                    termino = (num - 1) / Factorial(num);
-                    Console.WriteLine(termino);
-                }
-                return termino;
+                termino = (i - 1) / (Factorial(i));
+                Console.WriteLine((Factorial(i)));
+                Console.WriteLine($"{ termino} y el valor de i: {i}");
+                total += termino;
+                Console.WriteLine($"Este es el valor del termino: {termino}");
+                Console.WriteLine($"Este es el valor del termino: {total}");
+                if (termino>num) return termino;
             }
-            static int Factorial(int num)
+            return termino;
+        }
+        static int Factorial(int num)
+        {
+            if (num == 0) return 1;
+            else if (num == 1) return 1;
+            else
             {
                 int factorial = 1;
                 for (int i = 1; i <= num; i++)
                 {
                     factorial *= i;
-                    return factorial;
+                    Console.WriteLine($"El factorial es: {factorial}");
                 }
                 return factorial;
             }
+        }
     }
-}   
+}
 
 #endregion
 //10) Determinar cuántas veces aparece la subcadena X en un texto.
