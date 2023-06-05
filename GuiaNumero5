@@ -735,6 +735,181 @@
 //Ayuda: calcular la distancia de P a X y compara el resultado con R.
 //El menú debe reiterarse hasta que el usuario decida finalizar.
 
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//namespace ConsoleApp1
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int tipo;
+//            int k;
+
+//            do
+//            {
+//                Console.WriteLine("Ingrese el nùmero de la operación a realizar (opción = 1, opción = 2, opción =3, salir=4)");
+//                tipo = int.Parse(Console.ReadLine());
+//                switch (tipo)
+//                {
+//                    case 1:
+//                        {
+//                            Console.WriteLine("Ingrese dale el dato k:");
+//                            k = int.Parse(Console.ReadLine());
+//                            Console.WriteLine(HacerPrimerCalculo(k));
+//                            Console.ReadKey();
+//                            break;
+//                        }
+//                    case 2:
+//                        {
+//                            Console.WriteLine("Vamos resolver esta función cuadratica");
+//                            Console.WriteLine("Recuerde que su forma es: ax^2 + bx + c  = 0");
+//                            CalcularRaices();
+
+//                            break;
+//                        }
+//                    case 3:
+//                        {
+//                            DeterminarPosicion();
+//                            break;
+//                        }
+//                    default:
+//                        {
+//                            if (tipo == 4) Console.WriteLine("Usted decidió salir");
+//                            else
+//                            {
+//                                Console.WriteLine("Seleccionó una opción incorrecta. \nElija nuevamente ");
+//                            }
+//                            Console.ReadKey();
+//                            Console.Clear();
+//                            break;
+//                        }
+//                }
+//                Console.WriteLine("Presione una tecla para continuar");
+//                Console.ReadLine();            
+//                Console.Clear();
+//            } while (tipo != 4);
+
+
+//        }
+
+
+//        static double HacerPrimerCalculo(int num)
+//        {
+//            double termino = 0, total = 0;
+//            for (int i = 0; i < num+1; i++)
+//            {
+//                termino = (i - 1) / (Factorial(i));
+//                total += termino;
+//                Console.WriteLine($"El Sub valor a retornar es {total}");
+//            }
+//            Console.WriteLine($"El valor a retornar es {total}");
+//            return total;
+//        }
+//        static int Factorial(int num)
+//        {
+//            if (num == 0) return 1;
+//            else if (num == 1) return 1;
+//            else
+//            {
+//                int factorial = 1;
+//                for (int i = 1; i < num; i++)
+//                {
+//                    factorial *= i;
+//                }
+//                return factorial;
+//            }
+//        }
+//        static void CalcularRaices()
+//        {
+//            double a, b, c, d = 0, x1 = 0, x2 = 0;
+//            Console.WriteLine("Ingrese el valor del coeficiente a");
+//            a = Convert.ToDouble(Console.ReadLine());
+//            if (a == 0)
+//            {
+//                Console.WriteLine("Esta no es una función cuadratica");
+//                Console.ReadKey();
+//            }
+//            else
+//                Console.WriteLine("Ingrese el valor del coeficiente b");
+//            b = Convert.ToDouble(Console.ReadLine());
+//            Console.WriteLine("Ingrese el valor del coeficiente c");
+//            c = Convert.ToDouble(Console.ReadLine());
+//            d = b * b - 4 * a * c; //Se utiliza acá el discriminante porque antes no tendría valores para hacer el cálculo
+//            if (d < 0) Console.WriteLine("La ecuación no tiene solución real.");
+//            else if (b == 0 && c == 0) Console.WriteLine($"B=0 y C=0 por lo tanto la ecuación tiene una única solución x = 0.");
+//            else if (b == 0)
+//            {
+//                x1 = Math.Sqrt(-c / a);
+//                Console.WriteLine("B=0 por lo tanto se utilizará la formula ±√(-c / a) para resolver esta ecuación, dado que b=0");
+//                Console.WriteLine($"La ecuación tiene dos soluciones: x1 = {x1} y x2 = {-x1}");
+//            }
+//            else if (c == 0)
+//            {
+//                x1 = 0;
+//                x2 = -b / a;
+//                Console.WriteLine("C=0 por lo tanto se utilizará la formula x(x+b) por lo tanto x1=0 y x2=-b/a");
+//                Console.WriteLine($"La ecuación tiene dos soluciones: x1 = {x1} y x2 = {x2}");
+//            }
+//            else
+//            {
+//                x1 = (-b + Math.Sqrt(d)) / (2 * a);
+//                x2 = (-b - Math.Sqrt(d)) / (2 * a);
+//                Console.WriteLine($"La ecuación tiene dos soluciones: x1 = {x1} y x2 = {x2}");
+//            }
+//            Console.ReadKey(); //evita que una vez que se muestren los resultados se cierre la consola
+//        }
+
+//            static double CalcularDistancia(double x1, double x2, double p1, double p2)
+//            {
+//                double distancia = Math.Sqrt(Math.Pow(p1 - x1, 2) + Math.Pow(p2 - x2, 2));
+//                return distancia;
+//            }
+
+//            static void DeterminarPosicion()
+//            {
+//                Console.WriteLine("Ingrese la coordenada x del centro del círculo: ");
+//                double x1 = double.Parse(Console.ReadLine());
+
+//                Console.WriteLine("Ingrese la coordenada y del centro del círculo: ");
+//                double x2 = double.Parse(Console.ReadLine());
+
+//                Console.WriteLine("Ingrese el radio del círculo: ");
+//                double radio = double.Parse(Console.ReadLine());
+
+//                Console.WriteLine("Ingrese la coordenada x del punto P: ");
+//                double p1 = double.Parse(Console.ReadLine());
+
+//                Console.WriteLine("Ingrese la coordenada y del punto P: ");
+//                double p2 = double.Parse(Console.ReadLine());
+
+//                double distancia = CalcularDistancia(x1, x2, p1, p2);
+
+//                if (distancia <= radio)
+//                {
+//                    Console.WriteLine("El punto P está dentro del círculo.");
+//                }
+//                else
+//                {
+//                    Console.WriteLine("El punto P está fuera del círculo.");
+//                }
+
+
+
+
+
+//        }
+//    }
+
+//}
+
+#endregion
+//10) Determinar cuántas veces aparece la subcadena X en un texto.
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -747,86 +922,25 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int tipo;
-            int k;
-
-            do
-            {
-                Console.WriteLine("Ingrese el nùmero de la operación a realizar (opción = 1, opción = 2, opción =3, salir=4)");
-                tipo = int.Parse(Console.ReadLine());
-                switch (tipo)
-                {
-                    case 1:
-                        {
-                            Console.WriteLine("Ingrese dale el dato k:");
-                            k = int.Parse(Console.ReadLine());
-                            Console.WriteLine(HacerPrimerCalculo(k));
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 2:
-                        {
-
-                            break;
-                        }
-                    case 3:
-                        {
-
-                            break;
-                        }
-                    default:
-                        {
-                            if (tipo == 4) Console.WriteLine("Usted decidió salir");
-                            else
-                            {
-                                Console.WriteLine("Seleccionó una opción incorrecta. \nElija nuevamente ");
-                            }
-                            Console.ReadKey();
-                            Console.Clear();
-                            break;
-                        }
-                }
-            } while (tipo != 4);
-
-
+            string palabra;
+            Console.WriteLine("Ingrese una palabra para contar la cantidad de veces que aparece la letra x");
+            palabra=Console.ReadLine();
+            Console.WriteLine(ContarX(palabra));
+            Console.ReadKey();
         }
-
-
-        static int HacerPrimerCalculo(int num)
+        static string ContarX(string texto) 
         {
-            int termino = 0, total = 0;
-            for (int i = 0; termino < num; i++)
+            int x = 0;
+        for(int i=0; i<texto.Length; i++)
             {
-                termino = (i - 1) / (Factorial(i));
-                Console.WriteLine((Factorial(i)));
-                Console.WriteLine($"{ termino} y el valor de i: {i}");
-                total += termino;
-                Console.WriteLine($"Este es el valor del termino: {termino}");
-                Console.WriteLine($"Este es el valor del termino: {total}");
-                if (termino>num) return termino;
+                if (texto[i] == 'x') x++;
             }
-            return termino;
-        }
-        static int Factorial(int num)
-        {
-            if (num == 0) return 1;
-            else if (num == 1) return 1;
-            else
-            {
-                int factorial = 1;
-                for (int i = 1; i <= num; i++)
-                {
-                    factorial *= i;
-                    Console.WriteLine($"El factorial es: {factorial}");
-                }
-                return factorial;
-            }
+            return $" Se ingresó {x} veces la letra x";
         }
     }
+
 }
 
-#endregion
-//10) Determinar cuántas veces aparece la subcadena X en un texto.
 //11) De un conjunto de palabras que ingresan por teclado (“***” fin de datos), seleccionar
 //Introducción a la programación
 //la que contenga mayor cantidad de vocales y mostrarla cambiando mayúsculas por
