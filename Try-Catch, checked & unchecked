@@ -1,0 +1,120 @@
+
+// See https://aka.ms/new-console-template for more information
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        public static class TemperatureConverter
+        {
+            
+            public static double CelsiusToFahrenheit(string temperatureCelsius)
+            {
+                try {
+                    checked { 
+                    // Convert argument to double for calculations.
+                    double celsius = Double.Parse(temperatureCelsius);
+
+                    // Convert Celsius to Fahrenheit.
+                    double fahrenheit = (celsius * 9 / 5) + 32;
+
+                    return fahrenheit;
+                     }
+                }
+
+                catch (FormatException e) 
+                {
+                    Console.WriteLine("Ingresó un dato incorrecto, debe ingresar un número");
+                    return -1000;
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("Ingresó un número demasiado grande");
+                    return -1000;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Ingresó un dato incorrecto, debe ingresar un número");
+                    return -1000;
+                }
+
+            }
+
+
+            public static double FahrenheitToCelsius(string temperatureFahrenheit)
+            {
+                try
+                {
+                    // Convert argument to double for calculations.
+                    double fahrenheit = Double.Parse(temperatureFahrenheit);
+
+                    // Convert Fahrenheit to Celsius.
+                    double celsius = (fahrenheit - 32) * 5 / 9;
+
+                    return celsius;
+                }
+
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Ingresó un dato incorrecto, debe ingresar un número");
+                    return -1000;
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("Ingresó un número demasiado grande");
+                    return -1000;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Ingresó un dato incorrecto, debe ingresar un número");
+                    return -1000;
+                }
+            }
+        }
+
+        class TestTemperatureConverter
+        {
+            static void Main()
+            {
+                Console.WriteLine("Please select the convertor direction");
+                Console.WriteLine("1. From Celsius to Fahrenheit.");
+                Console.WriteLine("2. From Fahrenheit to Celsius.");
+                Console.Write(":");
+
+                string? selection = Console.ReadLine();
+                double F, C = 0;
+
+                switch (selection)
+                {
+                    case "1":
+                        do
+                        {
+                            Console.Write("Please enter the Celsius temperature: ");
+                            F = TemperatureConverter.CelsiusToFahrenheit(Console.ReadLine() ?? "0");
+                        } while (F == -1000);
+                        Console.WriteLine("Temperature in Fahrenheit: {0:F2}", F);
+                        break;
+
+                    case "2":
+                        do { 
+                        Console.Write("Please enter the Fahrenheit temperature: ");
+                        C = TemperatureConverter.FahrenheitToCelsius(Console.ReadLine() ?? "0");
+                        }while (C == -1000);
+                        Console.WriteLine("Temperature in Celsius: {0:F2}", C);
+                        break;
+
+                    default:
+                        Console.WriteLine("Please select a convertor.");
+                        Console.Clear();
+                        Main();
+                        break;
+                }
+
+                // Keep the console window open in debug mode.
+                Console.WriteLine("Press any key to exit.");
+                Console.ReadKey();
+            }
+        }
+
+    }
+}
