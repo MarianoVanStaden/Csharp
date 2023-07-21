@@ -1,0 +1,64 @@
+using System.Drawing;
+
+//Circulo miCirculo; // Creación de objeto de tipo circulo. Variable/objeto de tipo circulo
+
+//miCirculo = new Circulo(); // Iniciación de varible/objeto de tipo circulo. Intanciar una clase.
+////Intanciación o Emplarizaci{on o Creación de ejemplar de clase.
+
+
+//Circulo miCirculo2 = new Circulo();
+//Console.WriteLine($"area 1 {miCirculo.CalculoArea(5)} y area 2 {miCirculo2.CalculoArea(10)}");
+//Console.WriteLine("Ingresar un color nuevo para el circulo 1");
+//miCirculo.SetColor(Console.ReadLine());
+//Console.WriteLine("Ingresar un color nuevo para el circulo 2");
+//miCirculo2.SetColor(Console.ReadLine());
+//Console.WriteLine($"El color inicial del circulo 1 es {miCirculo.GetColor()} y el 2 es {miCirculo2.GetColor()}");
+////Console.WriteLine($"El color final del circulo es {miCirculo2.getColor()} ");
+////Console.WriteLine($"El color final del circulo 1  es {miCirculo.getColor()}  y el color final del circulo2 es {miCirculo2.getColor()}");
+
+//class Circulo 
+//{
+
+//    private  const double pi = Math.PI;  //propiedad o atributo == Campo de clase
+
+//    public string color = "naranja";
+//    public double CalculoArea(int radio)  //método de clase 
+//    {
+//        return pi * radio * radio;
+//    }
+//    public string GetColor()
+//    {
+//    return color;
+//    }
+//    public void SetColor(string color)
+//    {
+//        this.color = color;
+//    }
+
+//} 
+
+ConversorEuroDolar obj = new ConversorEuroDolar();
+Console.WriteLine("Ingrese el valor del dolar");
+obj.SetValor(double.Parse(Console.ReadLine()));
+Console.WriteLine(obj.ConvertirEuros(50));
+
+
+
+class ConversorEuroDolar
+{
+    private double Euro = 1.253;
+
+    public double ConvertirEuros(double cantidad)
+    {
+        return Euro * cantidad;
+    }
+    public double GetEuro()
+    {
+        return Euro;
+    }
+    public void SetValor(double Euro)
+    {
+        if (Euro>0)this.Euro = Euro;
+        else Euro = 1.253;
+    }
+}
