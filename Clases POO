@@ -1,0 +1,93 @@
+Coche coche1 = new Coche(); // Crear objeto / instancia del Coche
+// Dar estado inicial a nuestro coche
+
+Coche coche2 = new Coche();
+Console.WriteLine("Ingrese la cantidad de ruedas del coche número 1");
+//coche1.SetRuedas(int.Parse(Console.ReadLine()));
+Console.WriteLine(coche1.GetInfoCoche());
+Console.WriteLine(coche2.GetInfoCoche());
+
+Coche coche3 = new Coche(4500.25, 1200.35);
+Console.WriteLine(coche3.GetInfoCoche());
+
+Console.WriteLine("Ingrese parametros para climatizador y tapiceria de coche 3");
+//coche3.SetClimatizador(bool.Parse(Console.ReadLine()), Console.ReadLine());
+//coche3.SetClimatizador(true, "Cuerina y tela");
+Console.WriteLine(coche3.GetExtras());
+
+
+partial class Coche
+{
+
+    public Coche()
+    {
+        ruedas = 4;
+
+        largo = 230.5;
+
+        ancho = 0.800;
+
+        tapiceria = "tela";
+
+        climatizador = false;
+
+    }
+    public Coche(double largoCoche, double anchoCoche)
+    {
+        ruedas = 4;
+
+        largo = largoCoche;
+
+        ancho = anchoCoche;
+
+        tapiceria = "cuero";
+
+        climatizador = true;
+    }
+    public Coche(int cantRuedas, double largoCoche, double anchoCoche)
+    {
+        ruedas = cantRuedas;
+
+        largo = largoCoche;
+
+        ancho = anchoCoche;
+    }
+
+
+    private int ruedas;
+
+    private double largo;
+
+    private double ancho;
+
+    private bool climatizador;
+
+    private string tapiceria;
+
+}
+//---------------------------------------- métodos ----------------------------------------------
+partial class Coche { 
+
+    public int GetRuedas()
+    {
+        return ruedas;
+    }
+
+    public string GetInfoCoche()
+    {
+        return "Información del coche: \n" + "Ruedas:" + ruedas + " Largo:" + largo + " Ancho:" + ancho +"climatizador: "+climatizador + "tapiceria " + tapiceria;
+    }
+    public void SetClimatizador(bool climatizador, string tapiceria)
+    {
+        this.climatizador = climatizador;
+        this.tapiceria = tapiceria;
+    }
+    public bool GetClimatizador()
+    {
+        return climatizador;
+    }
+    public string GetExtras()
+    {
+        return "Extras del coche:\nclimatizador: "+climatizador + ", tapiceria: " + tapiceria;
+    }
+}
