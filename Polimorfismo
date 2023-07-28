@@ -1,0 +1,62 @@
+using Herencia;
+
+namespace Herencia
+{ 
+class Program
+{
+    static void Main(string[] args)
+    {
+            Caballo Babieca = new Caballo();
+            Humano Pedro = new Humano();
+            Gorila Copito = new Gorila();
+
+            Babieca.Respirar();
+            Babieca.CuidarCrias();
+            Babieca.Galopar();
+            Pedro.Respirar();
+            Pedro.CuidarCrias();
+            Pedro.Pensar();
+            Copito.Respirar();
+            Copito.CuidarCrias();
+            Copito.Trepar();
+
+
+        }
+    }
+
+
+
+class Mamiferos
+{
+    public void Respirar()
+        {
+            Console.WriteLine("Soy capaz de respirar");
+        }
+        public void CuidarCrias()
+        {
+            Console.WriteLine("Cuido a mis crias hasta que se valgan por sí solas");
+        }
+
+    }
+class Caballo : Mamiferos
+    {
+        public void Galopar()
+        {
+            Console.WriteLine("Soy capaz de Galopar");
+        }
+    }
+}
+class Gorila : Mamiferos
+{
+    public void Trepar()
+    {
+        Console.WriteLine("Soy capaz de trepar");
+    }
+}
+class Humano : Mamiferos
+{
+    public void Pensar()
+    {
+        Console.WriteLine("Soy capaz de pensar");
+    }
+}
