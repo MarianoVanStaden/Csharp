@@ -1,0 +1,203 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace pruebas
+{
+    interface IBanco
+    {
+        void CrearCuenta(string usuario);
+        void MostrarSaldo(string numeroCuenta);
+        void Depositar(string numeroCuenta, decimal cantidad);
+        void Retirar(string numeroCuenta, decimal cantidad);
+    }
+
+    class Banco : IBanco
+    {
+        private class Registro
+        {
+            public string NumeroCuenta;
+            public string Usuario;
+            public decimal Saldo;
+        }
+
+        private List<Registro> registros = new List<Registro>();
+        private Random random = new Random();
+
+        public void CrearCuenta(string usuario)
+        {
+            var numeroCuenta = new string(Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 12)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+            registros.Add(new Registro() { NumeroCuenta = numeroCuenta, Usuario = usuario, Saldo = 0.0m });
+            Console.WriteLine("Cuenta creada. Detalles:");
+            Console.WriteLine($"\tNúmero de cuenta: {numeroCuenta}");
+        }
+
+        public void MostrarSaldo(string numeroCuenta)
+        {
+            var cuenta = ObtenerCuenta(numeroCuenta);
+            if (cuenta != null)
+            {
+                Console.WriteLine($"Saldo: {cuenta.Saldo}");
+            }
+        }
+
+        public void Depositar(string numeroCuenta, decimal cantidad)
+        {
+            var cuenta = ObtenerCuenta(numeroCuenta);
+            if (cuenta != null)
+            {
+                cuenta.Saldo += cantidad;
+                Console.WriteLine($"Nuevo saldo: {cuenta.Saldo}");
+            }
+        }
+
+        public void Retirar(string numeroCuenta, decimal cantidad)
+        {
+            var cuenta = ObtenerCuenta(numeroCuenta);
+            if (cuenta != null)
+            {
+                if (cantidad <= cuenta.Saldo)
+                {
+                    cuenta.Saldo -= cantidad;
+                    Console.WriteLine($"Nuevo saldo: {cuenta.Saldo}");
+                }
+                else
+                {
+                    Console.WriteLine("Error: Fondos insuficientes.");
+                }
+            }
+        }
+
+        private Registro ObtenerCuenta(string numeroCuenta)
+        {
+            return registros.FirstOrDefault(cuenta => cuenta.NumeroCuenta == numeroCuenta);
+        }
+    }
+
+    class ATM
+    {
+        private IBanco banco;
+
+        public ATM(IBanco banco)
+        {
+            this.banco = banco;
+        }
+
+        public void Iniciar()
+        {
+            Console.WriteLine("Bienvenido al ejemplo de cajero automático de devsimsek, creado en C#");
+            Console.WriteLine("Opciones:");
+            Console.WriteLine("\t1. Crear una cuenta en el Banco de C#");
+            Console.WriteLine("\t2. Iniciar sesión en tu cuenta existente");
+            Console.WriteLine("\t3. Apagar el sistema");
+            Console.Write("Selecciona una operación> ");
+            var input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    CrearCuenta();
+                    break;
+                case "2":
+                    ControladorCuenta();
+                    break;
+                case "3":
+                    Console.WriteLine("Se han borrado todos los datos. Adiós.");
+                    break;
+            }
+        }
+
+        private void CrearCuenta()
+        {
+            Console.Write("Nombre y Apellido> ");
+            var usuario = Console.ReadLine();
+            banco.CrearCuenta(usuario);
+        }
+
+        private void ControladorCuenta()
+        {
+            var sistemaApagado = false;
+            while (!sistemaApagado)
+            {
+                Console.Write("Ingresa el número de cuenta bancaria: ");
+                var input = Console.ReadLine();
+                banco.MostrarSaldo(input);
+
+                var cerrarModoCajero = false;
+                while (!cerrarModoCajero)
+                {
+                    Console.WriteLine("Opciones:");
+                    Console.WriteLine("\t1. Ver saldo");
+                    Console.WriteLine("\t2. Depositar dinero");
+                    Console.WriteLine("\t3. Retirar dinero");
+                    Console.WriteLine("\t4. Cambiar de cuenta");
+                    Console.WriteLine("\t5. Salir");
+                    Console.Write("Ingresa la operación> ");
+                    input = Console.ReadLine();
+                    switch (input)
+                    {
+                        case "1":
+                            banco.MostrarSaldo(input);
+                            break;
+                        case "2":
+                            RealizarDeposito();
+                            break;
+                        case "3":
+                            RealizarRetiro();
+                            break;
+                        case "4":
+                            cerrarModoCajero = true;
+                            break;
+                        case "5":
+                            cerrarModoCajero = true;
+                            sistemaApagado = true;
+                            Console.WriteLine("Se han borrado todos los datos. Adiós.");
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void RealizarDeposito()
+        {
+            Console.Write("Ingresa el número de cuenta bancaria: ");
+            var numeroCuenta = Console.ReadLine();
+            Console.Write("Ingresa la cantidad> ");
+            var cantidadStr = Console.ReadLine();
+            if (decimal.TryParse(cantidadStr, out var cantidad))
+            {
+                banco.Depositar(numeroCuenta, cantidad);
+            }
+            else
+            {
+                Console.WriteLine("Error: Por favor, especifica la cantidad a depositar correctamente.");
+            }
+        }
+
+        private void RealizarRetiro()
+        {
+            Console.Write("Ingresa el número de cuenta bancaria: ");
+            var numeroCuenta = Console.ReadLine();
+            Console.Write("Ingresa la cantidad> ");
+            var cantidadStr = Console.ReadLine();
+            if (decimal.TryParse(cantidadStr, out var cantidad))
+            {
+                banco.Retirar(numeroCuenta, cantidad);
+            }
+            else
+            {
+                Console.WriteLine("Error: Por favor, especifica la cantidad a retirar correctamente.");
+            }
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            var banco = new Banco();
+            var atm = new ATM(banco);
+            atm.Iniciar();
+        }
+    }
+}
