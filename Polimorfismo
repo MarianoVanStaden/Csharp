@@ -1,62 +1,229 @@
+//using Herencia;
+//using System;
+
+//namespace Herencia
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Caballo Babieca = new Caballo("Felipe");
+//            Humano Pedro = new Humano("Pedro");
+//            Gorila Copito = new Gorila("Copito");
+//            Mamiferos random = new Mamiferos("Alguno");
+
+//            Mamiferos[] almacenAnimales = new Mamiferos[4];
+//            almacenAnimales[0] = Babieca;
+//            almacenAnimales[1] = Pedro;
+//            almacenAnimales[2] = Copito;
+//            almacenAnimales[3] = random;
+//            for (int i=0; i < 4; i++) { 
+//            almacenAnimales[i].Pensar();
+//            }
+//            Babieca.Respirar();
+
+//            //Babieca.Respirar();
+//            //Babieca.CuidarCrias();
+//            //Babieca.Galopar();
+//            //Pedro.Pensar();
+//            //Pedro.CuidarCrias();
+//            //Pedro.Pensar();
+//            //Copito.Respirar();
+//            //Copito.CuidarCrias();
+//            //Copito.Trepar();
+//            //Console.WriteLine();
+//            //Pedro.Pensar();
+
+//        }
+//    }
+
+
+
+//    class Mamiferos
+//    {
+//        private string nombreSerVivo;
+//        public Mamiferos()
+//        {
+
+//        }
+//        public Mamiferos(String nombre)
+//        {
+//            nombreSerVivo = nombre;
+//        }
+//        protected void Respirar()
+//        {
+//            Console.WriteLine("Soy capaz de respirar");
+//        }
+//        public virtual void Pensar()
+//        {
+//            Console.WriteLine("Pensamiento básico instintivo");
+//        }
+//        public void CuidarCrias()
+//        {
+//            Console.WriteLine("Cuido a mis crias hasta que se valgan por sí solas");
+//        }
+//        public void getNombre()
+//        {
+//            Console.WriteLine($"El nombre del ser vivo es: {nombreSerVivo}");
+//        }
+//        public void setNombre(string nombre)
+//        {
+//            this.nombreSerVivo = nombre;
+//        }
+
+//    }
+//    class Caballo : Mamiferos
+//    {
+//        private int numero;
+//        public Caballo(String nombreCaballo)
+//        {
+//           setNombre(nombreCaballo);
+//        }
+//        public Caballo()
+//        {
+
+//        }
+//        public Caballo(int numero)
+//        {
+//            numero = numero;
+            
+//        }
+//        public void Galopar()
+//        {
+//            Console.WriteLine("Soy capaz de Galopar");
+//        }
+//        public override void Pensar()
+//        {
+//            Console.WriteLine("Pensamiento básico elemental");
+//        }
+        
+//    }
+//}
+//class Gorila : Mamiferos
+//{
+//    public Gorila()
+//    {
+
+//    }
+//    public Gorila(String nombreGorila) : base(nombreGorila)
+//    {
+
+//    }
+//    public void Trepar()
+//    {
+//        Console.WriteLine("Soy capaz de trepar");
+//    }
+//    public override void Pensar()
+//    {
+//        Console.WriteLine("Pensamiento instintivo avanzado");
+//    }
+//}
+//class Humano : Mamiferos
+//{
+//    public Humano()
+//    {
+
+//    }
+//    public Humano(String nombreHumano) : base(nombreHumano)
+//    {
+    
+//    }
+
+//    public override void Pensar()
+//    {
+//        Console.WriteLine("Soy capaz de pensar");
+//    }
+//}
+
+
 using Herencia;
+using System;
 
 namespace Herencia
-{ 
-class Program
 {
-    static void Main(string[] args)
+    class Program
     {
-            Caballo Babieca = new Caballo();
-            Humano Pedro = new Humano();
-            Gorila Copito = new Gorila();
+        static void Main(string[] args)
+        {
+            Transporte random = new Transporte("Clase Padre");
+            Avion jet = new Avion("Bell-212");
+            Coche automovil = new Coche("Fiat-Palio");
 
-            Babieca.Respirar();
-            Babieca.CuidarCrias();
-            Babieca.Galopar();
-            Pedro.Respirar();
-            Pedro.CuidarCrias();
-            Pedro.Pensar();
-            Copito.Respirar();
-            Copito.CuidarCrias();
-            Copito.Trepar();
+            Transporte[] conjunto = new Transporte[3];
+            conjunto[0] = random;
+            conjunto[1] = jet;
+            conjunto[2] = automovil;
 
+            foreach(Transporte valor in conjunto)
+            {
+                valor.Conducir();
+            }
 
         }
     }
 
-
-
-class Mamiferos
-{
-    public void Respirar()
-        {
-            Console.WriteLine("Soy capaz de respirar");
-        }
-        public void CuidarCrias()
-        {
-            Console.WriteLine("Cuido a mis crias hasta que se valgan por sí solas");
-        }
-
-    }
-class Caballo : Mamiferos
+    class Transporte
     {
-        public void Galopar()
+        private string nombreTransporte;
+        public Transporte()
         {
-            Console.WriteLine("Soy capaz de Galopar");
+
         }
+        public Transporte(string nombre)
+        {
+            nombreTransporte = nombre;
+        }
+
+        public void ArrancarMotor()
+        {
+            Console.WriteLine($"El vehículo {nombreTransporte} arrancó su motor");
+        }
+        public void PararMotor()
+        {
+            Console.WriteLine($"El vehículo {nombreTransporte} paró su motor");
+        }
+        public virtual void Conducir()
+        {
+            Console.WriteLine($"El vehículo {nombreTransporte} está siendo conducido");
+        }
+        public void setNombre(string nombre)
+        {
+            this.nombreTransporte = nombre;
+        }
+        public void getNombre()
+        {
+            Console.WriteLine($"El nombre del ser vivo es: {nombreTransporte}");
+        }
+
     }
+
+    class Avion : Transporte
+    {
+    private string nombre;
+    public Avion (string nombre)
+    {
+    setNombre(nombre);
+    }
+
+    public override void Conducir()
+    {
+        Console.WriteLine($"El vehículo {nombre} vuela por los aires");
+    }
+
 }
-class Gorila : Mamiferos
+
+class Coche : Transporte
 {
-    public void Trepar()
+    private string nombre;
+    public Coche(string nombre)
     {
-        Console.WriteLine("Soy capaz de trepar");
+    setNombre(nombre);
     }
+        public override void Conducir()
+    {
+        Console.WriteLine($"El vehículo {nombre} circula por las calles");
+    }
+
 }
-class Humano : Mamiferos
-{
-    public void Pensar()
-    {
-        Console.WriteLine("Soy capaz de pensar");
-    }
+
 }
