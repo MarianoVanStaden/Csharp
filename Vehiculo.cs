@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Program;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace POO_Polimorfismo
 {
-    internal class Vehiculo : InterfaceVehiculo
+    internal class Vehiculo : Maquinas, InterfaceVehiculo
     {
             private string nombreTransporte;
             public Vehiculo() 
@@ -15,8 +16,11 @@ namespace POO_Polimorfismo
             {
                 nombreTransporte = nombre;
             }
-
-            public void ArrancarMotor(string palabra)
+            public override void Electrico()
+            {
+            Console.WriteLine($"El vehículo {nombreTransporte} es electrico");
+            }
+        public void ArrancarMotor(string palabra)
             {
                 Console.WriteLine($"El vehículo {nombreTransporte} arrancó su motor, su sonido es {palabra}");
             }
