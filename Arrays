@@ -1,0 +1,183 @@
+// See https://aka.ms/new-console-template for more information
+#region Ejercicio Nº1 16/08/2023
+//int[] notasJuan = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }; //a
+//string[] materiasJuan = new string[10];//b
+//materiasJuan[0] = "Matematica";
+//materiasJuan[1] = "Ingles";
+//materiasJuan[3] = "Filosofía";
+//materiasJuan[4] = "Cs. Ss.";
+//materiasJuan[5] = "Sistemas";
+//materiasJuan[6] = "Prog.";
+//materiasJuan[7] = "BBDD";
+//materiasJuan[8] = "Elect.";
+//materiasJuan[9] = "Redes";
+//string[] passwords = new string[5]; //c
+//passwords[0] = "MP1234";
+//passwords[1] = "Gm1234";
+//passwords[2] = "Ins1234";
+//passwords[3] = "Steam1234";
+//passwords[4] = "TikTok1234";
+//double[] temperaturasPromedio = { 30.5, 29.6, 28, 27, 25, 20, 18.2, 16, 17, 18.3, 24, 26 };//d
+//double[] consumoBimestral = new double[6]; //e
+//consumoBimestral[0] = 88.2;
+//consumoBimestral[1] = 90.6;
+//consumoBimestral[2] = 77.2;
+//consumoBimestral[3] = 55.9;
+//consumoBimestral[4] = 0;
+//consumoBimestral[5] = 77;
+//string[] desplazamiento = { "izquierda", "adelante", "derecha", "adelante", "derecha", "atras", "adelante" }; //f
+#endregion
+#region Ejercicio Nº2 16/08/2023
+////hacer un arreglo con los estados logicos posibles
+//bool[] estadoLogico = new bool[2];
+//estadoLogico[0] = true;
+//estadoLogico[1] = false;
+//// hacer un arreglo con los dias de la semana de cursada
+//string[] diasCursada = { "lunes", "martes", "miercoles", "jueves" };
+////hacer un arreglo con cuatro números enteros desordenados
+//int[] numeros = new int[4];
+//numeros[0] = 9;
+//numeros[1] = 0;
+//numeros[2] = 5;
+//numeros[3] = 2;
+
+#endregion
+#region Ejercicio Nº3 16/08/2023
+//Console.WriteLine("Ingrese una frase a transformar en un arreglo");
+//string frase = Console.ReadLine();
+//for(int i=0; i < frase.Length; i++)
+//{
+//    char[] arreglo = new char[frase.Length];
+//    arreglo[i] = frase[i];
+//    Console.WriteLine(arreglo[i]);
+//}
+
+#endregion
+#region Ejercicio Nº4 16/08/2023
+//Console.WriteLine("Ingrese cuantos números va a cargar en su arreglo de enteros");
+//int cantidad = int.Parse(Console.ReadLine());
+//int numerosPares = 0, numerosImpares = 0;
+//for (int i = 0; i < cantidad; i++)
+//{
+//    Console.WriteLine($"Ingrese el {i + 1}º número");
+//    int[] numeros = new int[cantidad];
+//    numeros[i] = int.Parse(Console.ReadLine());
+//    if (numeros[i] % 2 == 0)
+//    {
+//        numerosPares++;
+//    }
+//    else numerosImpares++;
+//}
+//Console.WriteLine($"Usted ingresó {numerosPares} números pares y {numerosImpares} números impares");
+#endregion
+#region Ejercicio Nº5 16/08/2023
+//Console.WriteLine("Ingrese cuantos números va a cargar en su arreglo de enteros");
+//int cantidad = int.Parse(Console.ReadLine());
+//int mayorNumero = int.MaxValue, menorNumero = int.MinValue;
+//for (int i = 0; i < cantidad; i++)
+//{
+//    Console.WriteLine($"Ingrese el {i + 1}º número");
+//    int[] numeros = new int[cantidad];
+//    numeros[i] = int.Parse(Console.ReadLine());
+//    if (i == 0)
+//    {
+//        mayorNumero = numeros[0];
+//        menorNumero = numeros[0];
+//    }
+//    else if (mayorNumero < numeros[i])
+//    {
+//        mayorNumero = numeros[i];
+//        if (menorNumero> numeros[i]) menorNumero = numeros[i];
+//    }
+//}
+//Console.WriteLine($"El {mayorNumero} fue el mayor número ingresado y {menorNumero} fue el menor");
+#endregion
+#region Ejercicio Nº6 16/08/2023
+//Random aleatorio = new Random();
+//int[] arreglo = new int[100];
+//int promedioPositivo = 0;
+//int promedioNegativo = 0;
+//int contadorNegativo=0;
+//int contadorPositivo = 0;
+//for (int i = 0; i < arreglo.Length; i++)
+//{
+//    arreglo[i] = aleatorio.Next(-10, 10);
+//    Console.WriteLine(arreglo[i]);
+//    if (arreglo[i] < -2)
+//    {
+//        promedioNegativo += arreglo[i];
+//        contadorNegativo++;
+//    }
+//    else if (arreglo[i] > 1)
+//    {
+//        promedioPositivo += arreglo[i];
+//        contadorPositivo++;
+//    }
+
+//}
+//Console.WriteLine($"La cantidad de nº positivos fue {contadorPositivo} y el promedio fue {promedioPositivo/contadorPositivo}");
+//Console.WriteLine($"La cantidad de nº negativos fue {contadorNegativo} y el promedio fue {promedioNegativo/contadorNegativo}");
+#endregion
+#region Ejercicio Nº7 16/08/2023
+//Random aleatorio = new Random();
+//int[] arreglo = new int[100];
+//int primerContador = 0;
+//int segundoContador = 0;
+//int tercerContador = 0;
+//int cuartoContador = 0;
+//for (int i = 0; i < arreglo.Length; i++)
+//{
+//    arreglo[i] = aleatorio.Next(1, 50);
+//    Console.WriteLine(arreglo[i]);
+//    if (arreglo[i] <= 10) primerContador++;
+//    else if (arreglo[i] > 10 && arreglo[i] <= 20) segundoContador++;
+//    else if (arreglo[i] > 20 && arreglo[i] <= 35) tercerContador++;
+//    else cuartoContador++;
+//}
+//Console.WriteLine($"La cantidad de nº entre [1,10] fue {primerContador}");
+//Console.WriteLine($"La cantidad de nº entre [11,20] fue {segundoContador}");
+//Console.WriteLine($"La cantidad de nº entre [21,35] fue {tercerContador}");
+//Console.WriteLine($"La cantidad de nº entre [36,50] fue {cuartoContador}");
+#endregion
+#region Ejercicio Nº8 16/08/2023
+Random random = new Random();
+int suma=0;
+int primerLanzamientoImpar = 0;
+int contadorIguales = 0;
+Console.WriteLine("Ingrese que cantidad de veces quiere que se lancen los dos dados");
+int cantidad = int.Parse(Console.ReadLine());
+int[] resultado = new int[cantidad];
+for(int i = 0; i < cantidad; i++)
+{
+    Console.WriteLine("Valor de i="+i);
+    int dado1 = random.Next(1, 7);
+    int dado2 = random.Next(1, 7);
+    suma = dado1 + dado2;
+    if (primerLanzamientoImpar == 0 && suma % 2 == 1) primerLanzamientoImpar = i+1; //por que incrementa el valor de i en este lugar
+    resultado[i] = suma;
+    Console.WriteLine($"El valor de la suma del primer dado: {dado1} y el segundo: {dado2} es igual a {suma}");
+    if (dado1== dado2) contadorIguales++;
+}
+Console.WriteLine($"Los resultados son: {String.Join(", ",resultado)}");
+Console.WriteLine($"Se obtuvo {contadorIguales} lanzamientos iguales y representa el {contadorIguales * 100.0 / cantidad}% de los lanzamientos");
+if (primerLanzamientoImpar == 0) Console.WriteLine("No hubo resultados impares");
+else Console.WriteLine($"En el {primerLanzamientoImpar}º se dio el primer resultado impar");
+
+
+#endregion
+#region Ejercicio Nº9 16/08/2023
+#endregion
+#region Ejercicio Nº10 16/08/2023
+#endregion
+#region Ejercicio Nº11 16/08/2023
+#endregion
+#region Ejercicio Nº12 16/08/2023
+#endregion
+#region Ejercicio Nº13 16/08/2023
+#endregion
+#region Ejercicio Nº14 16/08/2023
+#endregion
+#region Ejercicio Nº15 16/08/2023
+#endregion
+#region Ejercicio Nº16 16/08/2023
+#endregion
