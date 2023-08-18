@@ -1,3 +1,4 @@
+// See https://aka.ms/new-console-template for more information
 #region Ejercicio Nº1 16/08/2023
 //int[] notasJuan = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }; //a
 //string[] materiasJuan = new string[10];//b
@@ -267,76 +268,218 @@
 //}
 #endregion
 #region Ejercicio Nº13 17/08/2023
-using System.Linq;
+//using System.Linq;
 
-Console.WriteLine("Ingresar los tiempos en minutos de los 20 participantes de la maratón");
-double[] tiempos = new double[5]; // acá debe decir 20 pero para probarlo lo hago con 5
-int contadorLlegadas = 0;
-int contadorAbandonos = 0;
-double promedio = 0;
-double sumaTiempos = 0;
-for ( int i = 0; i < tiempos.Length; i++)
+//Console.WriteLine("Ingresar los tiempos en minutos de los 20 participantes de la maratón");
+//double[] tiempos = new double[5]; // acá debe decir 20 pero para probarlo lo hago con 5
+//int contadorLlegadas = 0;
+//int contadorAbandonos = 0;
+//double promedio;
+//double sumaTiempos = 0;
+//for ( int i = 0; i < tiempos.Length; i++)
+//{
+//    tiempos[i] = double.Parse(Console.ReadLine());
+//    if (tiempos[i] != 0)
+//    {
+//        sumaTiempos += tiempos[i];
+//        contadorLlegadas++;
+//    }
+//    else contadorAbandonos++;
+
+//}
+//promedio = sumaTiempos / contadorLlegadas;
+//Console.WriteLine($"El tiempo promedio de la carrera fue de: {promedio} minutos"); //a
+
+//Console.WriteLine($"Hubo {contadorAbandonos} abandonos en la carrera"); //b
+
+//Console.WriteLine($"El mejor tiempo fue de: {ObtenerMejorTiempo(tiempos)} minutos"); //c
+//tiempos = ObtenerListado(tiempos);
+//Console.WriteLine($"El listado ordenado de forma ascendente es el siguiente:");
+//ImprimirArray(tiempos);//d
+
+
+//static double ObtenerMejorTiempo(double[] tiempos)
+//{
+//    double aux = double.MaxValue;  //acá inicializo la variable con el mayor valor posible, para poder asegurarme que cualquier valor no nulo se seteé después
+//    foreach (double t in tiempos)
+//    {
+//        if (t != 0 && t < aux) aux = t;
+//    }
+//    return aux;
+//}
+
+//static double [] ObtenerListado (double[] tiempos)
+//{
+//    double aux = 0;
+//    for (int i = 0; i < tiempos.Length; i++)
+//    {
+//        for (int j = i+1; j < tiempos.Length; j++)
+//        {
+//            if (tiempos[i] > tiempos[j])
+//            {
+//                aux = tiempos[i];
+//                tiempos[i] = tiempos[j];
+//                tiempos[j] = aux;
+//            }
+//        }
+//    }
+//    return tiempos;
+//}
+
+//static void ImprimirArray(double[] array)
+//{
+//    foreach (double t in array)
+//    {
+//        if (t != 0) Console.Write(t+" "); //esta condición omite los abandonos
+//    }
+//}
+#endregion
+#region Ejercicio Nº14 18/08/2023
+//using System;
+//using System.Linq;
+
+//int[] codigos = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+//int[] valor = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000};
+//Console.WriteLine("Ingrese cuantas multas se labraron durante el fin de semana");
+//int cantidad = int.Parse(Console.ReadLine());
+//int[] multas = new int[cantidad];
+//int [] actasPorCodigo = new int[codigos.Length];
+//int recaudacion = 0;
+//int aux = 0;
+//int mayorCodigo = 0;
+//for (int i = 0; i < multas.Length; i++)
+//{
+//    Console.WriteLine($"Ingrese el codigo del acta realizada");
+//    multas[i] = int.Parse(Console.ReadLine())-1;
+//}
+////Determinar el monto total recaudado el fin de semana
+//for (int i = 0; i < multas.Length; i++)
+//{
+//    recaudacion += valor[multas[i]];
+//}
+//Console.WriteLine($"La recaudación fue de: {recaudacion}");
+
+////Determinar para cada código la cantidad de actas labradas
+
+//for (int i = 0; i < multas.Length; i++)
+//{
+//    actasPorCodigo[multas[i]]++;
+//}
+//for (int i = 0; i < actasPorCodigo.Length; i++)
+//{
+//    if (actasPorCodigo[i] != 0) Console.WriteLine($"La cantidad de actas del codigo {codigos[i]} fueron : {actasPorCodigo[i]}");
+//}
+
+////Determinar la cantidad mayor
+//aux = actasPorCodigo[0];
+//for (int i = 0; i < actasPorCodigo.Length; i++)
+//{
+//    if (actasPorCodigo[i] > aux) 
+//    {
+//        aux = actasPorCodigo[i];
+//        mayorCodigo = codigos[i];
+//    }
+
+//}
+//Console.WriteLine($"La cantidad maxima de multas la tuvo el codigo {mayorCodigo} con una cantidad de {aux} infracciones");
+
+
+////// Hacer ejercicio con POO
+
+////class Multa
+////{
+////    private int numeroMulta;
+////    private int monto;
+
+////    public Multa() { }
+////    public Multa(int numeroMulta, int monto)
+////    {
+////        this.numeroMulta = numeroMulta;
+////        this.monto = monto;
+////    }
+////    public void setNumeroMulta(int nuevoNumeroMulta)
+////    {
+////        this.numeroMulta = nuevoNumeroMulta;
+////    }
+////    public void setMonto(int nuevoMonto)
+////    {
+////        this.monto = nuevoMonto;
+////    }
+////    public int getNumeroMulta()
+////    {
+////        return numeroMulta;
+////    }
+////    public int getMonto()
+////    {
+////        return monto;
+////    }
+////}
+
+
+#endregion
+#region Ejercicio Nº15 18/08/2023
+//Se pide crear un programa qué permita obtener una serie de estadísticas a partir de
+//un conjunto de muestras de temperaturas. Se pide:
+
+//Ingresar N muestras de temperaturas, donde cada muestra contiene la
+//temperatura registrada.
+Console.WriteLine("Ingrese cuantas temperaturas va a ingresar");
+int cantidad = int.Parse(Console.ReadLine());
+double[] temperaturas = new double[cantidad];
+double[] orden = new double[cantidad];
+double total = 0, promedio=0;
+for (int i = 0; i < temperaturas.Length; i++)
 {
-    tiempos[i] = double.Parse(Console.ReadLine());
-    if (tiempos[i] != 0)
-    {
-        sumaTiempos += tiempos[i];
-        contadorLlegadas++;
-    }
-    else contadorAbandonos++;
-
+    Console.WriteLine($"Ingrese la {i+1}º temperatura");
+    temperaturas[i] = double.Parse(Console.ReadLine());
+    total += temperaturas[i];
 }
-promedio = sumaTiempos / contadorLlegadas;
-Console.WriteLine($"El tiempo promedio de la carrera fue de: {promedio} minutos"); //a
 
-Console.WriteLine($"Hubo {contadorAbandonos} abandonos en la carrera");
-
-Console.WriteLine($"El mejor tiempo fue de: {ObtenerMejorTiempo(tiempos)} minutos");
-tiempos = ObtenerListado(tiempos);
-Console.WriteLine($"El listado ordenado de forma ascendente es el siguiente:");
-ImprimirArray(tiempos);
+//Determinar el promedio general de temperaturas.
+promedio = total / cantidad;
+Console.WriteLine($"El promedio de temperatura es {promedio}º");
 
 
-static double ObtenerMejorTiempo(double[] tiempos)
+
+//Informar si en algunos de los días se registró una temperatura menor a 5°C.
+for (int i = 0; i < temperaturas.Length; i++)
 {
-    double aux = double.MaxValue;
-    foreach (double t in tiempos)
+    if (temperaturas[i] < 5)
     {
-        if (t != 0 && t < aux) aux = t;
+        Console.WriteLine($"La {i + 1} medición fue menor a 5ºC";
     }
-    return aux;
+}
+orden = ObtenerListado(temperaturas);
+for (int i = 0; i < temperaturas.Length; i++)
+{
+
+    Console.WriteLine(orden[i]);
 }
 
-static double [] ObtenerListado (double[] tiempos)
-{
-    double aux = 0;
-    for (int i = 0; i < tiempos.Length; i++)
+
+
+
+    //Mostrar todas las temperaturas en forma ordenada de mayor a menor
+    static double[] ObtenerListado(double[] tiempos)
     {
-        for (int j = i+1; j < tiempos.Length; j++)
+        double aux = 0;
+        double[] salida = new double[tiempos.Length];
+        for (int i = 0; i < tiempos.Length; i++)
         {
-            if (tiempos[i] > tiempos[j])
+            for (int j = i + 1; j < tiempos.Length; j++)
             {
-                aux = tiempos[i];
-                tiempos[i] = tiempos[j];
-                tiempos[j] = aux;
+                if (tiempos[i] > tiempos[j])
+                {
+                    aux = tiempos[i];
+                    tiempos[i] = tiempos[j];
+                    tiempos[j] = aux;
+                }
             }
         }
-    }
-    return tiempos;
-}
+        return salida;
+    } 
 
-static void ImprimirArray(double[] array)
-{
-    foreach (double t in array)
-    {
-        if (t != 0) Console.Write(t);
-    }
-}
-#endregion
-#region Ejercicio Nº14 16/08/2023
-#endregion
-#region Ejercicio Nº15 16/08/2023
-#endregion
-#region Ejercicio Nº16 16/08/2023
-#endregion
 
+#endregion
+#region Ejercicio Nº16 18/08/2023
+#endregion
