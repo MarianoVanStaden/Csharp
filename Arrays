@@ -446,7 +446,7 @@ for (int i = 0; i < temperaturas.Length; i++)
 {
     if (temperaturas[i] < 5)
     {
-        Console.WriteLine($"La {i + 1} medición fue menor a 5ºC";
+        Console.WriteLine($"La {i + 1} medición fue menor a 5ºC");
     }
 }
 orden = ObtenerListado(temperaturas);
