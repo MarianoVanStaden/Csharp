@@ -1,0 +1,546 @@
+#region Guia Nº 6 "Arrays" 16/08/2023 Mariano Van Staden
+#region Ejercicio Nº1 16/08/2023
+//int[] notasJuan = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }; //a
+//string[] materiasJuan = new string[10];//b
+//materiasJuan[0] = "Matematica";
+//materiasJuan[1] = "Ingles";
+//materiasJuan[3] = "Filosofía";
+//materiasJuan[4] = "Cs. Ss.";
+//materiasJuan[5] = "Sistemas";
+//materiasJuan[6] = "Prog.";
+//materiasJuan[7] = "BBDD";
+//materiasJuan[8] = "Elect.";
+//materiasJuan[9] = "Redes";
+//string[] passwords = new string[5]; //c
+//passwords[0] = "MP1234";
+//passwords[1] = "Gm1234";
+//passwords[2] = "Ins1234";
+//passwords[3] = "Steam1234";
+//passwords[4] = "TikTok1234";
+//double[] temperaturasPromedio = { 30.5, 29.6, 28, 27, 25, 20, 18.2, 16, 17, 18.3, 24, 26 };//d
+//double[] consumoBimestral = new double[6]; //e
+//consumoBimestral[0] = 88.2;
+//consumoBimestral[1] = 90.6;
+//consumoBimestral[2] = 77.2;
+//consumoBimestral[3] = 55.9;
+//consumoBimestral[4] = 0;
+//consumoBimestral[5] = 77;
+//string[] desplazamiento = { "izquierda", "adelante", "derecha", "adelante", "derecha", "atras", "adelante" }; //f
+#endregion
+#region Ejercicio Nº2 16/08/2023
+////hacer un arreglo con los estados logicos posibles
+//bool[] estadoLogico = new bool[2];
+//estadoLogico[0] = true;
+//estadoLogico[1] = false;
+//// hacer un arreglo con los dias de la semana de cursada
+//string[] diasCursada = { "lunes", "martes", "miercoles", "jueves" };
+////hacer un arreglo con cuatro números enteros desordenados
+//int[] numeros = new int[4];
+//numeros[0] = 9;
+//numeros[1] = 0;
+//numeros[2] = 5;
+//numeros[3] = 2;
+
+#endregion
+#region Ejercicio Nº3 16/08/2023
+//Console.WriteLine("Ingrese una frase a transformar en un arreglo");
+//string frase = Console.ReadLine();
+//for(int i=0; i < frase.Length; i++)
+//{
+//    char[] arreglo = new char[frase.Length];
+//    arreglo[i] = frase[i];
+//    Console.WriteLine(arreglo[i]);
+//}
+
+#endregion
+#region Ejercicio Nº4 16/08/2023
+//Console.WriteLine("Ingrese cuantos números va a cargar en su arreglo de enteros");
+//int cantidad = int.Parse(Console.ReadLine());
+//int numerosPares = 0, numerosImpares = 0;
+//for (int i = 0; i < cantidad; i++)
+//{
+//    Console.WriteLine($"Ingrese el {i + 1}º número");
+//    int[] numeros = new int[cantidad];
+//    numeros[i] = int.Parse(Console.ReadLine());
+//    if (numeros[i] % 2 == 0)
+//    {
+//        numerosPares++;
+//    }
+//    else numerosImpares++;
+//}
+//Console.WriteLine($"Usted ingresó {numerosPares} números pares y {numerosImpares} números impares");
+#endregion
+#region Ejercicio Nº5 16/08/2023
+//Console.WriteLine("Ingrese cuantos números va a cargar en su arreglo de enteros");
+//int cantidad = int.Parse(Console.ReadLine());
+//int mayorNumero = int.MaxValue, menorNumero = int.MinValue;
+//for (int i = 0; i < cantidad; i++)
+//{
+//    Console.WriteLine($"Ingrese el {i + 1}º número");
+//    int[] numeros = new int[cantidad];
+//    numeros[i] = int.Parse(Console.ReadLine());
+//    if (i == 0)
+//    {
+//        mayorNumero = numeros[0];
+//        menorNumero = numeros[0];
+//    }
+//    else if (mayorNumero < numeros[i])
+//    {
+//        mayorNumero = numeros[i];
+//        if (menorNumero> numeros[i]) menorNumero = numeros[i];
+//    }
+//}
+//Console.WriteLine($"El {mayorNumero} fue el mayor número ingresado y {menorNumero} fue el menor");
+#endregion
+#region Ejercicio Nº6 16/08/2023
+//Random aleatorio = new Random();
+//int[] arreglo = new int[100];
+//int promedioPositivo = 0;
+//int promedioNegativo = 0;
+//int contadorNegativo=0;
+//int contadorPositivo = 0;
+//for (int i = 0; i < arreglo.Length; i++)
+//{
+//    arreglo[i] = aleatorio.Next(-10, 10);
+//    Console.WriteLine(arreglo[i]);
+//    if (arreglo[i] < -2)
+//    {
+//        promedioNegativo += arreglo[i];
+//        contadorNegativo++;
+//    }
+//    else if (arreglo[i] > 1)
+//    {
+//        promedioPositivo += arreglo[i];
+//        contadorPositivo++;
+//    }
+
+//}
+//Console.WriteLine($"La cantidad de nº positivos fue {contadorPositivo} y el promedio fue {promedioPositivo/contadorPositivo}");
+//Console.WriteLine($"La cantidad de nº negativos fue {contadorNegativo} y el promedio fue {promedioNegativo/contadorNegativo}");
+#endregion
+#region Ejercicio Nº7 16/08/2023
+//Random aleatorio = new Random();
+//int[] arreglo = new int[100];
+//int primerContador = 0;
+//int segundoContador = 0;
+//int tercerContador = 0;
+//int cuartoContador = 0;
+//for (int i = 0; i < arreglo.Length; i++)
+//{
+//    arreglo[i] = aleatorio.Next(1, 50);
+//    Console.WriteLine(arreglo[i]);
+//    if (arreglo[i] <= 10) primerContador++;
+//    else if (arreglo[i] > 10 && arreglo[i] <= 20) segundoContador++;
+//    else if (arreglo[i] > 20 && arreglo[i] <= 35) tercerContador++;
+//    else cuartoContador++;
+//}
+//Console.WriteLine($"La cantidad de nº entre [1,10] fue {primerContador}");
+//Console.WriteLine($"La cantidad de nº entre [11,20] fue {segundoContador}");
+//Console.WriteLine($"La cantidad de nº entre [21,35] fue {tercerContador}");
+//Console.WriteLine($"La cantidad de nº entre [36,50] fue {cuartoContador}");
+#endregion
+#region Ejercicio Nº8 16/08/2023
+//Random random = new Random();
+//int suma=0;
+//int primerLanzamientoImpar = 0;
+//int contadorIguales = 0;
+//Console.WriteLine("Ingrese que cantidad de veces quiere que se lancen los dos dados");
+//int cantidad = int.Parse(Console.ReadLine());
+//int[] resultado = new int[cantidad];
+//for(int i = 0; i < cantidad; i++)
+//{
+//    Console.WriteLine("Valor de i="+i);
+//    int dado1 = random.Next(1, 7);
+//    int dado2 = random.Next(1, 7);
+//    suma = dado1 + dado2;
+//    if (primerLanzamientoImpar == 0 && suma % 2 == 1) primerLanzamientoImpar = i+1; //por que incrementa el valor de i en este lugar
+//    resultado[i] = suma;
+//    Console.WriteLine($"El valor de la suma del primer dado: {dado1} y el segundo: {dado2} es igual a {suma}");
+//    if (dado1== dado2) contadorIguales++;
+//}
+//Console.WriteLine($"Los resultados son: {String.Join(", ",resultado)}");
+//Console.WriteLine($"Se obtuvo {contadorIguales} lanzamientos iguales y representa el {contadorIguales * 100.0 / cantidad}% de los lanzamientos");
+//if (primerLanzamientoImpar == 0) Console.WriteLine("No hubo resultados impares");
+//else Console.WriteLine($"En el {primerLanzamientoImpar}º se dio el primer resultado impar");
+
+
+#endregion
+#region Ejercicio Nº9 17/08/2023
+//using static System.Console;
+//using static System.Convert;
+//string[] nombreMaterias = new string[5];
+//double[] notas = new double[5];
+//string[] nombres = new string[5];
+//WriteLine("Usted va a ingresar el nombre de 5 materias y sus notas");
+//for (int i = 0; i < 5; i++)
+//{
+//    WriteLine($"Ingrese el nombre de la {i+1}º materia");
+//    nombreMaterias[i] = ReadLine();
+//    WriteLine($"Ingrese la nota de {nombreMaterias[i]}");
+//    notas[i] = ToDouble(ReadLine());
+//}
+//for (int i = 0; i < 5; i++)
+//{
+//    if (notas[i] >= 6)
+//    {
+//        WriteLine($"La materia {nombreMaterias[i]} fue aprobada con 6 o más puntos");
+//    }
+//}
+
+
+#endregion
+#region Ejercicio Nº10 17/08/2023
+//string[] frutas = new string[3];
+//frutas[0] = "Manzana";
+//frutas[1] = "Peras";
+//frutas[2] = "Frutillas";
+//foreach(string s in frutas) { 
+//Console.WriteLine(s.ToString());
+//}
+//frutas[0] = "Mandarina"; //Acá le cambio un valor al string dado que no se le puede agregar otro registro
+//foreach (string s in frutas)
+//{
+//    Console.WriteLine(s.ToString());
+//}
+
+#endregion
+#region Ejercicio Nº11 17/08/2023
+//int[] numeros = new int[5];
+//Console.WriteLine("Ingrese 5 enteros");
+//for (int i = 0; i < numeros.Length; i++)
+//{
+//    numeros[i] = Convert.ToInt32(Console.ReadLine());
+//}
+//foreach (int i in numeros)
+//{
+//    Console.WriteLine(i);
+//}
+//CambiarNumero(numeros);
+//foreach(int i in numeros)
+//{
+//    Console.WriteLine(i);
+//}
+
+//static int[] CambiarNumero(int[] array)
+//{
+//    int posicion;
+//    Console.WriteLine("Ingrese que posición quiere cambiar");
+//    posicion = Convert.ToInt32(Console.ReadLine());
+//    Console.WriteLine("Ingrese un número entero");
+//    array[posicion] = Convert.ToInt32(Console.ReadLine());
+//    return array;
+//}
+
+#endregion
+#region Ejercicio Nº12 17/08/2023
+//Console.WriteLine("Ingrese cantidad de elementos del array 1");
+//int[] arreglo1 = CargarArreglo();
+//Console.WriteLine("Ingrese cantidad de elementos del array 2");
+//int[] arreglo2 = CargarArreglo();
+//int suma = SumarArreglos(arreglo1, arreglo2);
+//if (suma == int.MinValue) Console.WriteLine("La posición seleccionada fue incorrecta");
+//else Console.WriteLine($"El valor de la suma fue {suma}");
+
+//static int[] CargarArreglo()
+//{
+
+//    int cantidad1 = Convert.ToInt32(Console.ReadLine());
+//    int[] array = new int[cantidad1];
+//    for(int i=0; i<cantidad1 ; i++)
+//    {
+//        Console.WriteLine($"Ingrese el {i + 1}º valor");
+//        array[i] = Convert.ToInt32(Console.ReadLine());
+//    }
+//    return array;
+//}
+
+//static int SumarArreglos(int[]array1, int[]array2)
+//{
+//    Console.WriteLine("Seleccione la posición a sumar de los arrays");
+//    int posicion = int.Parse(Console.ReadLine());
+//    int suma = 0;
+//    if (posicion < array1.Length && posicion < array2.Length)
+//    {
+//        suma = array1[posicion] + array2[posicion];
+//        return suma;
+//    }
+//    else return int.MinValue;
+//}
+#endregion
+#region Ejercicio Nº13 17/08/2023
+//using System.Linq;
+
+//Console.WriteLine("Ingresar los tiempos en minutos de los 20 participantes de la maratón");
+//double[] tiempos = new double[5]; // acá debe decir 20 pero para probarlo lo hago con 5
+//int contadorLlegadas = 0;
+//int contadorAbandonos = 0;
+//double promedio;
+//double sumaTiempos = 0;
+//for ( int i = 0; i < tiempos.Length; i++)
+//{
+//    tiempos[i] = double.Parse(Console.ReadLine());
+//    if (tiempos[i] != 0)
+//    {
+//        sumaTiempos += tiempos[i];
+//        contadorLlegadas++;
+//    }
+//    else contadorAbandonos++;
+
+//}
+//promedio = sumaTiempos / contadorLlegadas;
+//Console.WriteLine($"El tiempo promedio de la carrera fue de: {promedio} minutos"); //a
+
+//Console.WriteLine($"Hubo {contadorAbandonos} abandonos en la carrera"); //b
+
+//Console.WriteLine($"El mejor tiempo fue de: {ObtenerMejorTiempo(tiempos)} minutos"); //c
+//tiempos = ObtenerListado(tiempos);
+//Console.WriteLine($"El listado ordenado de forma ascendente es el siguiente:");
+//ImprimirArray(tiempos);//d
+
+
+//static double ObtenerMejorTiempo(double[] tiempos)
+//{
+//    double aux = double.MaxValue;  //acá inicializo la variable con el mayor valor posible, para poder asegurarme que cualquier valor no nulo se seteé después
+//    foreach (double t in tiempos)
+//    {
+//        if (t != 0 && t < aux) aux = t;
+//    }
+//    return aux;
+//}
+
+//static double [] ObtenerListado (double[] tiempos)
+//{
+//    double aux = 0;
+//    for (int i = 0; i < tiempos.Length; i++)
+//    {
+//        for (int j = i+1; j < tiempos.Length; j++)
+//        {
+//            if (tiempos[i] > tiempos[j])
+//            {
+//                aux = tiempos[i];
+//                tiempos[i] = tiempos[j];
+//                tiempos[j] = aux;
+//            }
+//        }
+//    }
+//    return tiempos;
+//}
+
+//static void ImprimirArray(double[] array)
+//{
+//    foreach (double t in array)
+//    {
+//        if (t != 0) Console.Write(t+" "); //esta condición omite los abandonos
+//    }
+//}
+#endregion
+#region Ejercicio Nº14 19/08/2023
+//using System;
+//using System.Linq;
+
+//int[] codigos = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+//int[] valor = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000};
+//Console.WriteLine("Ingrese cuantas multas se labraron durante el fin de semana");
+//int cantidad = int.Parse(Console.ReadLine());
+//int[] multas = new int[cantidad];
+//int [] actasPorCodigo = new int[codigos.Length];
+//int recaudacion = 0;
+//int aux = 0;
+//int mayorCodigo = 0;
+//for (int i = 0; i < multas.Length; i++)
+//{
+//    Console.WriteLine($"Ingrese el codigo del acta realizada");
+//    multas[i] = int.Parse(Console.ReadLine())-1;
+//}
+////Determinar el monto total recaudado el fin de semana
+//for (int i = 0; i < multas.Length; i++)
+//{
+//    recaudacion += valor[multas[i]];
+//}
+//Console.WriteLine($"La recaudación fue de: {recaudacion}");
+
+////Determinar para cada código la cantidad de actas labradas
+
+//for (int i = 0; i < multas.Length; i++)
+//{
+//    actasPorCodigo[multas[i]]++;
+//}
+//for (int i = 0; i < actasPorCodigo.Length; i++)
+//{
+//    if (actasPorCodigo[i] != 0) Console.WriteLine($"La cantidad de actas del codigo {codigos[i]} fueron : {actasPorCodigo[i]}");
+//}
+
+////Determinar la cantidad mayor
+//aux = actasPorCodigo[0];
+//for (int i = 0; i < actasPorCodigo.Length; i++)
+//{
+//    if (actasPorCodigo[i] > aux) 
+//    {
+//        aux = actasPorCodigo[i];
+//        mayorCodigo = codigos[i];
+//    }
+
+//}
+//Console.WriteLine($"La cantidad maxima de multas la tuvo el codigo {mayorCodigo} con una cantidad de {aux} infracciones");
+
+
+////// Hacer ejercicio con POO
+
+////class Multa
+////{
+////    private int numeroMulta;
+////    private int monto;
+
+////    public Multa() { }
+////    public Multa(int numeroMulta, int monto)
+////    {
+////        this.numeroMulta = numeroMulta;
+////        this.monto = monto;
+////    }
+////    public void setNumeroMulta(int nuevoNumeroMulta)
+////    {
+////        this.numeroMulta = nuevoNumeroMulta;
+////    }
+////    public void setMonto(int nuevoMonto)
+////    {
+////        this.monto = nuevoMonto;
+////    }
+////    public int getNumeroMulta()
+////    {
+////        return numeroMulta;
+////    }
+////    public int getMonto()
+////    {
+////        return monto;
+////    }
+////}
+
+
+#endregion
+#region Ejercicio Nº15 18/08/2023
+////Se pide crear un programa qué permita obtener una serie de estadísticas a partir de
+////un conjunto de muestras de temperaturas. Se pide:
+
+////Ingresar N muestras de temperaturas, donde cada muestra contiene la
+////temperatura registrada.
+//Console.WriteLine("Ingrese cuantas temperaturas va a ingresar");
+//int cantidad = int.Parse(Console.ReadLine());
+//double[] temperaturas = new double[cantidad];
+//double[] orden = new double[cantidad];
+//double total = 0, promedio=0;
+//for (int i = 0; i < temperaturas.Length; i++)
+//{
+//    Console.WriteLine($"Ingrese la {i+1}º temperatura");
+//    temperaturas[i] = double.Parse(Console.ReadLine());
+//    total += temperaturas[i];
+//}
+
+////Determinar el promedio general de temperaturas.
+//promedio = total / cantidad;
+//Console.WriteLine($"El promedio de temperatura es {promedio}º");
+
+
+
+////Informar si en algunos de los días se registró una temperatura menor a 5°C.
+//for (int i = 0; i < temperaturas.Length; i++)
+//{
+//    if (temperaturas[i] < 5)
+//    {
+//        Console.WriteLine($"La {i + 1} medición fue menor a 5ºC");
+//    }
+//}
+//orden = ObtenerListado(temperaturas);
+
+//Console.WriteLine($"Las temperaturas ordenadas fueron: {string.Join(";", orden)}");
+
+
+
+
+////Mostrar todas las temperaturas en forma ordenada de mayor a menor
+
+
+////static double[] ObtenerListado(double[] tiempos)     //Esta es la forma más sencilla de ordenar un array
+////{
+////static double[] ObtenerListado(double[] tiempos) {
+////       Array.Sort(tiempos);
+////       return tiempos;
+////}
+//static double[] ObtenerListado(double[] tiempos)
+//{
+
+//    double[] ordenado = new double[tiempos.Length];
+//    for (int i = 0; i < tiempos.Length; i++)
+//    {
+//        ordenado[i] = tiempos[i];
+//    }
+
+//    for (int i = 1; i < ordenado.Length; i++)
+//    {
+//        double actual = ordenado[i];
+//        int j = i - 1;
+//        while (j >= 0 && ordenado[j] > actual)
+//        {
+//            ordenado[j + 1] = ordenado[j];
+//            j--;
+//        }
+//        ordenado[j + 1] = actual;
+//    }
+//    return ordenado;
+//}
+
+
+
+#endregion
+#region Ejercicio Nº16 19/08/2023
+//Modificar el valor de un arreglo en una determinada posición y devolver el arreglo actualizado
+//string[] diasSemana = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
+//Console.WriteLine($"El array original es: {string.Join(",", diasSemana)}");
+//Console.WriteLine("Elija que posición desea modificar (comienza con la posición 0 y luego ingrese el dato");
+//diasSemana[int.Parse(Console.ReadLine())] = Console.ReadLine();
+//Console.WriteLine($"El array final es: {string.Join(",", diasSemana)}");
+
+#endregion
+#region Ejercicio Nº17 19/08/2023
+//Eliminar un elemento de un arreglo
+//string[] diasSemana = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" }; //Opcion con igualar a NULL la posición
+//Console.WriteLine($"El array original es: {string.Join(",", diasSemana)}");
+//Console.WriteLine("Elija que posición desea modificar (comienza con la posición 0");
+//diasSemana[int.Parse(Console.ReadLine())] = null;
+//Console.WriteLine($"El array final es: {string.Join(" ",diasSemana)}");
+
+
+////Ver después de hacerlo más complejo con el metodo de indexof ( utilizando el valor y buscando en el array)
+
+
+#endregion
+#region Ejercicio Nº18 19/08/2023
+//Implementar el algoritmo de ordenamiento por burbujeo.
+
+
+//Ingresar N muestras de temperaturas, donde cada muestra contiene la
+//temperatura registrada.
+//Console.WriteLine("Ingrese la cantidad de números enteros a ingresar");
+//int cantidad = int.Parse(Console.ReadLine());
+//int[] numeros = new int[cantidad];
+//for(int i=0; i<numeros.Length; i++)
+//{
+//    Console.WriteLine($"Ingrese el {i + 1}º número");
+//    numeros[i] = int.Parse(Console.ReadLine());
+//}
+
+//for (int i = 1; i < numeros.Length; i++)
+//{
+//    for (int j = 0; j < numeros.Length - 1; j++)
+//    {
+//        if (numeros[j] > numeros[j+1])
+//        {
+//            int aux = numeros[j];
+//            numeros[j] = numeros[j + 1] ;
+//            numeros[j + 1] = aux;
+//        }
+//    }
+//}
+
+//Console.WriteLine($"Los números ordenados son: {string.Join(" ", numeros)}");
+#endregion
+#endregion
