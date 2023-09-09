@@ -1,0 +1,124 @@
+
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Effects;
+
+namespace ExcelDemo
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            var file = new FileInfo(fileName: @"C:\mandar\demoExcel.xlsx");
+
+            var people = GetSetupData();
+
+            await SaveExcelFile(people, file);
+
+            List<PersonModel> peopleFromExcel = await LoadExcelFile(file);
+
+            Console.WriteLine("Ejercicio 1-2:");
+            Console.WriteLine();
+
+            foreach( var p in peopleFromExcel)
+            {
+                Console.WriteLine($"{p.Id}  {p.Name}  {p.LastName}");
+            }
+        }
+
+        private static async Task<List<PersonModel>> LoadExcelFile(FileInfo file)
+        {
+            List<PersonModel> output = new List<PersonModel>();
+
+            var package = new ExcelPackage(file);
+
+            await package.LoadAsync(file);
+
+            var ws = package.Workbook.Worksheets[PositionID: 0];
+       
+            int row = 3;
+            int col = 1;
+
+            while (string.IsNullOrWhiteSpace(ws.Cells[row,col].Value?.ToString()) == false)
+            {
+                PersonModel p = new PersonModel();
+                p.Id = int.Parse(ws.Cells[row,col].Value.ToString());
+                p.Name = ws.Cells[row, col+1].Value.ToString();
+                p.LastName = ws.Cells[row, col + 2].Value.ToString();
+                output.Add(p);
+                row += 1;
+            }
+            return output;
+        }
+
+        private static async Task SaveExcelFile(List<PersonModel> people, FileInfo file)
+        {
+            DeleteIfExist(file);
+
+            ExcelPackage package = new ExcelPackage(file);
+
+            var ws = package.Workbook.Worksheets.Add(Name: "MainReport");
+
+            var range = ws.Cells[Address: "A2"].LoadFromCollection(people, PrintHeaders: true);
+            range.AutoFitColumns();
+
+            ws.Cells[Address: "A1"].Value = "Ejercicio 1-2";
+            ws.Cells[Address: "A1:C1"].Merge = true;
+            ws.Column(col:1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            ws.Row(row: 1).Style.Font.Size = 24;
+            ws.Row(row: 2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            ws.Row(row: 2).Style.Font.Bold = true;
+            ws.Column(col: 3).Width = 20;
+            await package.SaveAsync();
+        }
+
+    
+
+         private static void DeleteIfExist(FileInfo file)
+         {
+             if (file.Exists)
+             {
+                file.Delete();
+             }
+         }
+
+         private static List<PersonModel> GetSetupData()
+         {
+             List<PersonModel> output = new List<PersonModel>
+             {
+                new PersonModel {Id =1, Name="Gonzalo", LastName= "Hamilton" },
+                new PersonModel {Id =2, Name="Peter", LastName= "Parker" },
+                new PersonModel {Id =3, Name="Mary", LastName= "Jane"}
+             };
+             return output;
+         }
+
+    }
+}
+namespace ExcelDemo
+{
+    internal class PersonModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+
+        public PersonModel() { }
+
+        public PersonModel(int id, string name, string lastName)
+        {
+            Id = id;
+            Name = name;
+            LastName = lastName;
+        }
+    }
+}
+
