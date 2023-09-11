@@ -1,0 +1,577 @@
+#region Ejercicio Nº1 30/08/2023
+//Declarar, crear e inicializar matrices qué permitan:
+//a) Almacenar las temperaturas diarias de los meses de invierno.
+
+//double[,] temperaturas = new double[3,31];
+//Random rand = new Random();
+//for (int i = 0; i < temperaturas.GetLength(0); i++)
+//{
+//    for(int j = 0; j < temperaturas.GetLength(1); j++)
+//    {
+//        temperaturas[i,j] = rand.Next(-5,15);
+//        Console.WriteLine($"El valor en la posición [{i},{j}] es de:{temperaturas[i, j]}");
+//    }
+//}
+
+
+//b) Almacenar un valor numérico en una tabla de Excel.l
+
+
+//using System;
+//using System.IO;
+//using DocumentFormat.OpenXml;
+//using DocumentFormat.OpenXml.Packaging;
+//using DocumentFormat.OpenXml.Spreadsheet;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+
+//    string filePath = "C:\\mandar\\matriz.xlsx";
+//    // Create a spreadsheet document by supplying the filepath.
+//    // By default, AutoSave = true, Editable = true, and Type = xlsx.
+//    SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Create(filePath, SpreadsheetDocumentType.Workbook);
+
+//    // Add a WorkbookPart to the document.
+//    WorkbookPart workbookpart = spreadsheetDocument.AddWorkbookPart();
+//    workbookpart.Workbook = new Workbook();
+
+//    // Add a WorksheetPart to the WorkbookPart.
+//    WorksheetPart worksheetPart = workbookpart.AddNewPart<WorksheetPart>();
+//    worksheetPart.Worksheet = new Worksheet(new SheetData());
+//    SheetData sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
+//        int[,] matriz = new int[3, 3]
+//        {
+//                    {1, 2, 3},
+//                    {4, 5, 6},
+//                    {7, 8, 9}
+//        };
+//        for (int row = 0; row < 3; row++)
+//        {
+//            for (int col = 0; col < 3; col++)
+//            {
+//                Cell cell = new Cell()
+//                {
+//                    DataType = CellValues.Number,
+//                    CellValue = new CellValue(matriz[row, col].ToString())
+//                };
+
+//                Row sheetRow = new Row();
+//                sheetRow.Append(cell);
+//                sheetData.Append(sheetRow);
+//            }
+//        }
+
+
+//        // Add Sheets to the Workbook.
+//        Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
+
+//    // Append a new worksheet and associate it with the workbook.
+//    Sheet sheet = new Sheet() { Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart), SheetId = 1, Name = "mySheet" };
+//    sheets.Append(sheet);
+
+//    workbookpart.Workbook.Save();
+
+//    // Close the document.
+//    spreadsheetDocument.Close();
+//    }
+//}
+
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        try
+//        {
+//            // Crear una matriz 3x3
+//            int[,] matriz = new int[3, 3]
+//            {
+//            {1, 2, 3},
+//            {4, 5, 6},
+//            {7, 8, 9}
+//            };
+
+//            // Ruta del archivo XML
+//            string filePath = "C:\\mandar\\matriz.xlsx";
+
+//            // Crear un archivo XML
+//            using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Create(filePath, SpreadsheetDocumentType.Workbook))
+//            {
+//                // Crear una hoja de cálculo
+//                WorkbookPart workbookPart = spreadsheetDocument.AddWorkbookPart();
+//                workbookPart.Workbook = new Workbook();
+
+//                WorksheetPart worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
+//                worksheetPart.Worksheet = new Worksheet(new SheetData());
+
+//                // Recorrer la matriz y escribir los valores en la hoja de cálculo
+//                SheetData sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
+//                for (int row = 0; row < 3; row++)
+//                {
+//                    for (int col = 0; col < 3; col++)
+//                    {
+//                        Cell cell = new Cell()
+//                        {
+//                            DataType = CellValues.Number,
+//                            CellValue = new CellValue(matriz[row, col].ToString())
+//                        };
+
+//                        Row sheetRow = new Row();
+//                        sheetRow.Append(cell);
+//                        sheetData.Append(sheetRow);
+//                    }
+//                }
+
+//                // Guardar cambios
+//                worksheetPart.Worksheet.Save();
+//                workbookPart.Workbook.Save();
+//                spreadsheetDocument.Close();
+//            }
+
+
+//         Console.WriteLine("Matriz guardada en el archivo XLSX: " + filePath);
+//        }
+//        catch (Exception ex)
+
+//        {
+//            Console.WriteLine("Error: " + ex.Message);
+//        }
+//    }
+//}
+
+
+
+
+
+//Application app = new Application();
+//Workbook workbook = app.Workbooks.Add();
+//Random random = new Random();
+
+//int[,] valores = new int[2, 3];
+//Worksheet worksheet = workbook.Worksheets.Add();
+
+//for (int i = 0; i < valores.GetLength(0); i++)
+//{
+//    for (int j = 0; j < valores.GetLength(1); i++)
+//    {
+//        Console.WriteLine("Ingrese un valor para la posición");
+//        valores[i, j] = random.Next(0, 9);
+//        worksheet.Cells[i + 1, j + 1] = valores[i, j];
+//    }
+//}
+
+//workbook.SaveAs("C:\\mandar\\firstOne.xlsx");
+//string connectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=No;IMEX=1\";", "C:\\mandar\\firstOne.xlsx");
+//workbook.Close();
+//app.Quit();
+
+//using Microsoft.Office.Interop.Excel;
+
+//class MainClass
+//{
+//    public static void Main(string[] args)
+//    {
+//        // Create an Excel application
+//        Application app = new Application();
+
+//        // Create a new Excel workbook
+//        Workbook workbook = app.Workbooks.Add();
+
+//        // Create a 2x3 matrix
+//        int[,] matrix = new int[2, 3];
+
+//        matrix[0, 0] = 1;
+//        matrix[0, 1] = 2;
+//        matrix[0, 2] = 3;
+
+//        matrix[1, 0] = 4;
+//        matrix[1, 1] = 5;
+//        matrix[1, 2] = 6;
+
+//        // Save the matrix to the Excel workbook
+//        Worksheet worksheet = (Worksheet)workbook.Worksheets.Add();
+
+//        for (int i = 0; i < matrix.GetLength(0); i++)
+//        {
+//            for (int j = 0; j < matrix.GetLength(1); j++)
+//            {
+//                worksheet.Cells[i + 1, j + 1].Value2(matrix[i, j]);
+//            }
+//        }
+
+
+//        worksheet.SaveAs("matriz.xlsx");
+
+//        app.Quit();
+//    }
+//}
+//c) Almacenar la cantidad de personas por continente desde el año 2000 hasta la actualidad.
+//int[,] personasAmerica = new int[4,23];
+//Random random = new Random();
+//for (int i = 0; i < personasAmerica.GetLength(0); i++)
+//{
+//    for (int j = 0; j < personasAmerica.GetLength(1); j++)
+//    {
+//        personasAmerica[i, j] = random.Next(1,99);
+//        Console.Write(personasAmerica[i, j]+ " ");
+//    }
+//    Console.WriteLine();
+//}
+#endregion
+#region Ejercicio Nº2 08/09/2023
+//int[,] matriz1 = new int[3, 3];
+//int[,] matriz2 = new int[3, 3];
+//Console.WriteLine("Esta es la matriz número 1:");
+//matriz1 = CargarMatriz(matriz1);
+//Console.WriteLine("Esta es la matriz número 2:");
+//matriz2 = CargarMatriz(matriz2);
+//Console.WriteLine();
+//SumarElementos(matriz1, matriz2);
+
+
+//static int[,] CargarMatriz(int[,] matriz) { 
+//Random random = new Random();
+//for (int i = 0; i < matriz.GetLength(0); i++)
+//{
+//    for (int j = 0; j < matriz.GetLength(1); j++)
+//    {
+//            matriz[i, j] = random.Next(1, 99);
+//        Console.Write(matriz[i, j] + " ");
+//    }
+//    Console.WriteLine();
+//}
+//    return matriz;
+//}
+//static void SumarElementos(int[,] matriz1, int[,] matriz2)
+//{
+//    Console.WriteLine("Ingrese la posición del elemento de la matriz número 1 (fila y columa)");
+//    int[] posicion1 = { int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()) };
+//    Console.WriteLine("Ingrese la posición del elemento de la matriz número 2 (fila y columa)");
+//    int[] posicion2 = { int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()) };
+//    int resultado = matriz1[posicion1[0], posicion1[1]] + matriz2[posicion2[0], posicion2[1]];
+//    Console.WriteLine($"El resultado es: {resultado}");
+//}
+
+#endregion
+#region Ejercicio Nº3 08/09/2023
+//int[,] matriz1 = new int[3, 3];
+//int[,] matriz2 = new int[3, 3];
+//Console.WriteLine("Esta es la matriz número 1:");
+//matriz1 = CargarMatriz(matriz1);
+//Console.WriteLine("Esta es la matriz número 2:");
+//matriz2 = CargarMatriz(matriz2);
+//Console.WriteLine();
+//SumarElementos(matriz1, matriz2);
+
+
+//static int[,] CargarMatriz(int[,] matriz)
+//{
+//    Random random = new Random();
+//    for (int i = 0; i < matriz.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < matriz.GetLength(1); j++)
+//        {
+//            matriz[i, j] = random.Next(1, 99);
+//            Console.Write(matriz[i, j] + " ");
+//        }
+//        Console.WriteLine();
+//    }
+//    return matriz;
+//}
+//static void SumarElementos(int[,] matriz1, int[,] matriz2)
+//{
+//    int[,] resultado = new int[3, 3];
+//    for (int i = 0; i < matriz1.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < matriz1.GetLength(1); j++)
+//        {
+//            resultado[i, j] = matriz1[i, j]+ matriz2[i, j];
+//            Console.Write(resultado[i, j] + " ");
+//        }
+//        Console.WriteLine();
+//    }
+//}
+#endregion
+#region Ejercicio Nº4 08/09/2023
+
+//int[,] matriz1 = new int[3, 3];
+//Console.WriteLine("Esta es la matriz número 1:");
+//matriz1 = CargarMatriz(matriz1);
+//Console.WriteLine();
+//BuscarElementoMinimo(matriz1);
+
+
+
+//static int[,] CargarMatriz(int[,] matriz)
+//{
+//    Random random = new Random();
+//    for (int i = 0; i < matriz.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < matriz.GetLength(1); j++)
+//        {
+//            matriz[i, j] = random.Next(1, 99);
+//            Console.Write(matriz[i, j] + " ");
+//        }
+//        Console.WriteLine();
+//    }
+//    return matriz;
+//}
+//static void BuscarElementoMinimo(int[,] matriz)
+//{
+//    int minimo = int.MaxValue;
+
+//    for (int i = 0; i < matriz.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < matriz.GetLength(1); j++)
+//        {
+//            if (i==0 && j==0) minimo = matriz[0, 0];
+//            else if (matriz[i,j]<minimo) minimo = matriz[i,j];
+//        }
+//    }
+//    Console.WriteLine($"El mínimo es: {minimo}");
+//}
+#endregion
+#region Ejercicio Nº5 08/09/2023
+//int[,] matriz1 = new int[3, 3];
+//Console.WriteLine("Esta es la matriz número 1:");
+//matriz1 = CargarMatriz(matriz1);
+//Console.WriteLine();
+//BuscarElementoMinimo(matriz1);
+
+
+
+//static int[,] CargarMatriz(int[,] matriz)
+//{
+//    Random random = new Random();
+//    for (int i = 0; i < matriz.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < matriz.GetLength(1); j++)
+//        {
+//            matriz[i, j] = random.Next(1, 99);
+//            Console.Write(matriz[i, j] + " ");
+//        }
+//        Console.WriteLine();
+//    }
+//    return matriz;
+//}
+//static void BuscarElementoMinimo(int[,] matriz)
+//{
+//    int minimo = int.MaxValue;
+//    Console.WriteLine("Ingrese el número de fila a inspeccionar");
+//    int fila = int.Parse(Console.ReadLine());
+
+//        for (int j = 0; j < matriz.GetLength(1); j++)
+//        {
+//            if (fila == 0 && j == 0) minimo = matriz[0, 0];
+//            else if (matriz[fila, j] < minimo) minimo = matriz[fila, j];
+//        }
+//    Console.WriteLine($"El mínimo es: {minimo}");
+//}
+#endregion
+#region Ejercicio Nº6 08/09/2023
+//Crear un método qué permita obtener la cantidad de ocurrencias de la letra ‘a’ dentro
+//de una matriz de caracteres. No distingue entre minusculas y mayusculas.
+//char[,] matriz = new char[4,4]
+//{
+//    {'a','b','c','d'},
+//    {'d','a','r','f'},
+//    {'d','a','r','A'},
+//    {'a','b','A','A'}
+//};
+//Console.WriteLine($"Hay {ContadorLetras(matriz)} letras a");
+
+
+//static int ContadorLetras(char[,] matriz)
+//{
+//    int contador = 0;
+//    for (int i = 0; i < matriz.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < matriz.GetLength(1); j++)
+//        {
+//            if (matriz[i,j] == 'a' || matriz[i, j] == 'A') contador++;
+//        }
+//    }
+//    return contador;
+//}
+
+#endregion
+#region Ejercicio Nº7 08/09/2023
+////Declarar una matriz de N x N e inicializarla programáticamente para qué sea la matriz identidad
+//Console.WriteLine("Ingrese el grado de la matriz identidad");
+//int x = int.Parse(Console.ReadLine());
+//int[,] identidad = new int[x, x];
+//ImprimirMatriz(DeclararIdentidad(identidad));
+
+
+//static int[,] DeclararIdentidad (int[,] identidad)
+//{
+//    for(int i=0; i < identidad.GetLength(0); i++)
+//    {
+//        for(int j=0; j < identidad.GetLength(1); j++)
+//        {
+//            if(i == j) identidad[i, j] = 1;
+//            else identidad[i, j] = 0;
+//        }
+//    }
+//    return identidad;
+//}
+
+//static void ImprimirMatriz (int[,] matriz)
+//{
+//    for (int i = 0; i < matriz.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < matriz.GetLength(1); j++)
+//        {
+//            if (i == j) matriz[i, j] = 1;
+//            else matriz[i, j] = 0;
+//            Console.Write(matriz[i, j]);
+//        }
+//        Console.WriteLine();
+//    }
+//}
+#endregion
+#region Ejercicio Nº8 11/09/2023
+////Dada una matriz de N x M siendo N > M devolver un arreglo qué contenga el máximo valor de cada fila de la matriz.
+//try { 
+//Inicio Objeto = new Inicio();
+//Inicio.Comenzar();
+//}
+//catch (Exception e)
+//{
+//    Console.WriteLine("Usted ingresó datos no validos, el error es el siguiente:"+e.Message);
+//    Inicio.Comenzar();
+//}
+//class Inicio
+//{
+    
+//        public static void Comenzar()
+//    {
+//        Elemento elemento = new Elemento();
+//        while (!elemento.estado)
+//        {
+//            elemento = Consultar(elemento);
+//        }
+//        int[,] matriz = new int[elemento.filas, elemento.columnas];
+//        matriz = GenerarMatriz(elemento);
+//        int[] solucion = new int[matriz.GetLength(0)];
+//        solucion = GenerarArreglo(matriz);
+//        Console.WriteLine($"La solución del ejercicio es: {String.Join(", ", solucion)}");
+//    }
+//    static Elemento Consultar(Elemento objetoInicial)
+//    {
+//        Console.WriteLine("Ingrese la cantidad de filas de la matriz (debe ser mayor al número de columnas)");
+//        objetoInicial.filas = int.Parse(Console.ReadLine());
+//        Console.WriteLine("Ingrese la cantidad de columnas de la matriz (debe ser menor al número de columnas");
+//        objetoInicial.columnas = int.Parse(Console.ReadLine());
+//        int[,] identidad = new int[objetoInicial.filas, objetoInicial.columnas];
+//        if (objetoInicial.columnas >= objetoInicial.filas)
+//        {
+//            Console.WriteLine("Usted ingresó valores que no responden a la consigna n>m, vuelva a ejecutar el programa");
+//            return objetoInicial;
+//        }
+//        objetoInicial.estado = true;
+//        return objetoInicial;
+//    }
+//    static int[,] GenerarMatriz(Elemento elemento)
+//    {
+//        Random random = new Random();
+//        int[,] matriz = new int[elemento.filas, elemento.columnas];
+//        for (int i = 0; i < matriz.GetLength(0); i++)
+//        {
+//            for (int j = 0; j < matriz.GetLength(1); j++)
+//            {
+//                matriz[i, j] = random.Next(1, 9);
+//                Console.Write(matriz[i, j]);
+//            }
+//            Console.WriteLine();
+//        }
+//        return matriz;
+//    }
+//    static int[] GenerarArreglo(int[,] matriz)
+//    {
+//        int[] arreglo = new int[matriz.GetLength(0)];
+//        int maximoValor = int.MinValue;
+//        for (int i = 0; i < matriz.GetLength(0); i++)
+//        {
+//            for (int j = 0; j < matriz.GetLength(1); j++)
+//            {
+//                if (j == 0) maximoValor = matriz[i, j];
+//                else if (matriz[i, j] > maximoValor) maximoValor = matriz[i, j];
+//            }
+//            Console.WriteLine($"El maximo valor para la fila {i} es: {maximoValor}");
+//            arreglo[i] = maximoValor;
+//        }
+//        return arreglo;
+//    }
+//}
+
+//class Elemento
+//{
+//    public bool estado = false;
+//    public int filas= 0;
+//    public int columnas= 0;
+//}
+
+#endregion
+#region Ejercicio Nº9 11/09/2023
+//Dada una matriz M de números enteros:
+//a) Inicializarla con elementos aleatorios comprendidos entre [-5,5]
+//b) Obtener cuantos elementos negativos hay debajo de la diagonal principal
+Inicio.Comenzar();
+
+class Inicio
+{
+    public static void Comenzar() 
+    {
+        Console.WriteLine($"Se encontraron {AnalizarMatriz(GenerarMatriz())} elementos negativos debajo de la diagonal principal");
+        
+
+        static int[,] GenerarMatriz()
+        {
+            Random random = new Random();
+            Console.WriteLine("Ingrese el grado de la matriz");
+            int m = int.Parse(Console.ReadLine());
+            int[,] matriz = new int [m,m];
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                {
+                    matriz[i, j] = random.Next(-5, 5);
+                    Console.Write(matriz[i, j]+ "   ");
+                }
+                Console.WriteLine();
+            }
+            return matriz;
+        }
+        static int AnalizarMatriz(int[,] matriz)
+        {
+            int contador = 0;
+            for(int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for(int j = 0; j < matriz.GetLength(1); j++)
+                {
+                    if (i > j && matriz[i,j] <0)
+                    {
+                        Console.WriteLine("Los valores son:" + matriz[i, j]);
+                        contador++;
+                    }
+                }
+            }
+        return contador;
+        }
+    }
+}
+
+
+
+#endregion
+#region Ejercicio Nº10 30/08/2023
+#endregion
+#region Ejercicio Nº11 30/08/2023
+#endregion
+#region Ejercicio Nº12 30/08/2023
+#endregion
+#region Ejercicio Nº13 30/08/2023
+#endregion
