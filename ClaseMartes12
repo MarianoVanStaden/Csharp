@@ -1,0 +1,77 @@
+
+
+
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Empleados[] arreglo = new Empleados[3];
+
+            arreglo[0].nombre = "Valentin";
+            arreglo[0].edad = 33;
+            arreglo[0].legajo = 1;
+            arreglo[0].sueldo = 160000;
+
+            arreglo[1].nombre = "Jose";
+            arreglo[1].edad = 40;
+            arreglo[1].legajo = 2;
+            arreglo[1].sueldo = 120000;
+
+            arreglo[2].nombre = "Pedro";
+            arreglo[2].edad = 52;
+            arreglo[2].legajo = 3;
+            arreglo[2].sueldo = 250000;
+            Console.WriteLine("Ingrese nombre de empleado a eliminar");
+            string nombre = Console.ReadLine();
+            RecorrerArreglo(arreglo);
+            Empleados[] nuevoArreglo = EliminarEmpleado(arreglo, nombre);
+
+            RecorrerArreglo(nuevoArreglo);
+        }
+
+        public static Empleados[] EliminarEmpleado(Empleados[] arreglo, string nombre)
+        {
+            int contador = 0;
+            for (int i = 0; arreglo.Length > i; i++)
+            {
+                if (arreglo[i].nombre != nombre) contador++;
+            }
+            Empleados[] newArreglo = new Empleados[contador];
+            for (int i = 0; arreglo.Length > i; i++)
+            {
+                int cont = 0;
+                if (arreglo[i].nombre != nombre)
+                {
+                    newArreglo[cont] = arreglo[i];
+                    Console.WriteLine(newArreglo[cont].nombre);
+                    cont++;
+                }
+            }
+            Console.WriteLine("Retornando");
+            return newArreglo;
+        }
+
+        private static void RecorrerArreglo(Empleados[] arreglo)
+        {
+            for (int i = 0; i < arreglo.Length; i++)
+            {
+                Console.WriteLine($"El {i + 1}º empleado es {arreglo[i].nombre} y de legajo nº{arreglo[i].legajo} y cobra {arreglo[i].sueldo}");
+            }
+        }
+
+        public struct Empleados
+        {
+            public string nombre;
+            public int edad;
+            public int legajo;
+            public double sueldo;
+
+        }
+
+
+    }
+}
