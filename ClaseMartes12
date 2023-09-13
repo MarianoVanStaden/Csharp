@@ -1,5 +1,4 @@
-
-
+#region Clase 12/09/2023
 
 using System;
 
@@ -9,69 +8,125 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Empleados[] arreglo = new Empleados[3];
-
-            arreglo[0].nombre = "Valentin";
-            arreglo[0].edad = 33;
-            arreglo[0].legajo = 1;
-            arreglo[0].sueldo = 160000;
-
-            arreglo[1].nombre = "Jose";
-            arreglo[1].edad = 40;
-            arreglo[1].legajo = 2;
-            arreglo[1].sueldo = 120000;
-
-            arreglo[2].nombre = "Pedro";
-            arreglo[2].edad = 52;
-            arreglo[2].legajo = 3;
-            arreglo[2].sueldo = 250000;
-            Console.WriteLine("Ingrese nombre de empleado a eliminar");
-            string nombre = Console.ReadLine();
-            RecorrerArreglo(arreglo);
-            Empleados[] nuevoArreglo = EliminarEmpleado(arreglo, nombre);
-
-            RecorrerArreglo(nuevoArreglo);
+            Inicio.Comenzar(); //Solo uso el Main para inicializar el programa, después salto a las clases para trabajar en ellas
         }
 
-        public static Empleados[] EliminarEmpleado(Empleados[] arreglo, string nombre)
+
+
+        class Inicio
         {
-            int contador = 0;
-            for (int i = 0; arreglo.Length > i; i++)
+            public static void Comenzar()
             {
-                if (arreglo[i].nombre != nombre) contador++;
+
+                Empleados[] arreglo = new Empleados[4];
+
+                arreglo[0].nombre = "Valentin";
+                arreglo[0].edad = 33;
+                arreglo[0].legajo = 1;
+                arreglo[0].sueldo = 160000;
+
+                arreglo[1].nombre = "Sol";
+                arreglo[1].edad = 40;
+                arreglo[1].legajo = 2;
+                arreglo[1].sueldo = 180000;
+
+                arreglo[2].nombre = "Pedro";
+                arreglo[2].edad = 52;
+                arreglo[2].legajo = 3;
+                arreglo[2].sueldo = 250000;
+
+                arreglo[3].nombre = "Micaela";
+                arreglo[3].edad = 22;
+                arreglo[3].legajo = 4;
+                arreglo[3].sueldo = 320000;
+                Eliminar(arreglo);
             }
-            Empleados[] newArreglo = new Empleados[contador];
-            for (int i = 0; arreglo.Length > i; i++)
+
+            private static void Eliminar(Empleados[] arreglo) {
+                Console.Write("Los empleados son: ");
+                for (int i= 0; i < arreglo.Length; i++) {
+                    if (i+1 != arreglo.Length && i + 2 != arreglo.Length) Console.Write($"{arreglo[i].nombre}, ");
+                    else if (i + 2 == arreglo.Length) Console.Write($"{arreglo[i].nombre} y ");
+                    else Console.Write($"{arreglo[i].nombre}.");
+                }
+                Console.WriteLine();
+                Console.WriteLine("Ingrese nombre de empleado a eliminar");
+                string nombre = Console.ReadLine();
+                Console.WriteLine("El arreglo inicial es:");
+                RecorrerArreglo(arreglo);
+                Empleados[] nuevoArreglo = RecorrerArreglo(arreglo, nombre);
+                Console.WriteLine();
+                Console.WriteLine("El arreglo final es:");
+                RecorrerArreglo(nuevoArreglo);
+                Console.WriteLine();
+                Console.WriteLine("Quiere seguir eliminando empleados de los registros? (Elija si o no)");
+                string eleccion = Console.ReadLine().ToUpper();
+                ElegirOpcion(eleccion, nuevoArreglo);
+
+            }
+
+            private static void ElegirOpcion(string eleccion, Empleados[] arreglo)
             {
-                int cont = 0;
-                if (arreglo[i].nombre != nombre)
+                switch(eleccion)
                 {
-                    newArreglo[cont] = arreglo[i];
-                    Console.WriteLine(newArreglo[cont].nombre);
-                    cont++;
+                    case "SI":
+                        Eliminar(arreglo); //Retorna al metodo eliminar
+                        break;
+                    case "NO":
+                        Console.WriteLine("Fin del programa");
+                        Console.ReadKey(); //Despúes de esto finaliza el programa
+                        break;
+                    default:
+                        Console.WriteLine("Elegió una opción incorrecta. Intente nuevamente ingresar Si o No.");
+                        eleccion = Console.ReadLine().ToUpper();
+                        ElegirOpcion(eleccion, arreglo); //Cada vez que se equivocan con el si o no vuelve al metodo ElegirOpcion
+                        break;
+                     
+
+
                 }
             }
-            Console.WriteLine("Retornando");
-            return newArreglo;
-        }
 
-        private static void RecorrerArreglo(Empleados[] arreglo)
-        {
-            for (int i = 0; i < arreglo.Length; i++)
+            private static void RecorrerArreglo(Empleados[] arreglo)
             {
-                Console.WriteLine($"El {i + 1}º empleado es {arreglo[i].nombre} y de legajo nº{arreglo[i].legajo} y cobra {arreglo[i].sueldo}");
+                for (int i = 0; i < arreglo.Length; i++)
+                {
+                    Console.WriteLine($"El {i + 1}º empleado es {arreglo[i].nombre} y de legajo nº{arreglo[i].legajo} y cobra {arreglo[i].sueldo}");
+                }
+            }
+            private static Empleados[] RecorrerArreglo(Empleados[] arreglo, string nombre)
+            {
+                int contador = 0;
+                for (int i = 0; arreglo.Length > i; i++)
+                {
+                    if (arreglo[i].nombre.ToUpper() != nombre.ToUpper()) contador++; //De acá saco el tamaño del arreglo final 
+                }
+                Empleados[] newArreglo = new Empleados[contador];
+                int cont = 0;
+                for (int i = 0; arreglo.Length > i; i++)
+                {
+
+                    if (arreglo[i].nombre.ToUpper() != nombre.ToUpper())
+                    {
+                        newArreglo[cont] = arreglo[i]; //Acá cargo el nuevo arreglo (ya con la dimensión justa)
+                        cont++;
+                    }
+                }
+                return newArreglo;
+            }
+
+            public struct Empleados
+            {
+                public string nombre;
+                public int edad;
+                public int legajo;
+                public double sueldo;
+
             }
         }
-
-        public struct Empleados
-        {
-            public string nombre;
-            public int edad;
-            public int legajo;
-            public double sueldo;
-
-        }
-
+    }
+}
+#endregion
 
     }
 }
