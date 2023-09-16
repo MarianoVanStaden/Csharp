@@ -1,0 +1,204 @@
+#region Ejercicio Nº1
+
+//public struct Fechas 
+//{ 
+//    public int dia;
+//    public string mes;
+//    public int año;
+//}
+//public struct Hora
+//{
+//    public int horas;
+//    public int minutos;
+//    public double segundos;
+//}
+//public struct Alumnos
+//{
+//    public string nombre;
+//    public string apellido;
+//    public int legajo;
+//    public string carrera;
+//}
+// public struct Vehiculo
+//{
+//    public string marca;
+//    public string modelo;
+//    public double cilindrada;
+//}
+//public struct Facturas
+//{
+//    public string empresa;
+//    public string cuil;
+//    public string tipo;
+//    public DateTime fecha;
+//}
+
+#endregion
+#region Ejercicio Nº2
+//Inicio.Comenzar();
+
+//public class Inicio
+//{
+//    public struct Direccion
+//    {
+//        public string calle;
+//        public string piso;
+//        public string departamento;
+//        public int altura;
+//        public string codigoPostal;
+//        public string localidad;
+
+//        public Direccion(string calle, string piso, string departamento, int altura, string codigoPostal, string localidad)
+//        {
+//            this.calle = calle;
+//            this.piso = piso;
+//            this.departamento = departamento;
+//            this.altura = altura;
+//            this.codigoPostal = codigoPostal;
+//            this.localidad = localidad;
+//        }
+//    }
+
+
+
+//    public static void Comenzar()
+//    {
+//        Direccion usuario = CargarDatos();
+//        Console.WriteLine("Estamos en la clase inicio, veamos los datos que cargó...");
+//        Console.WriteLine($"{usuario.calle}{usuario.altura}, piso:{usuario.piso}, departamento:{usuario.departamento}, CP:{usuario.codigoPostal}, {usuario.localidad}");
+//    }
+
+//    public static Direccion CargarDatos()
+//    {
+//        Direccion direccion = new Direccion();
+//        Console.WriteLine("Ingrese la calle");
+//        direccion.calle = Console.ReadLine();
+//        Console.WriteLine("Ingrese el piso");
+//        direccion.piso = Console.ReadLine();
+//        Console.WriteLine("Ingrese el número de depto");
+//        direccion.departamento = Console.ReadLine();
+//        Console.WriteLine("Ingrese la altura");
+//        direccion.altura = int.Parse(Console.ReadLine());
+//        Console.WriteLine("Ingrese el código postal");
+//        direccion.codigoPostal = Console.ReadLine();
+//        Console.WriteLine("Ingrese la localidad");
+//        direccion.localidad = Console.ReadLine();
+
+//        return direccion;
+//    }
+//}
+
+#endregion
+#region Ejercicio Nº3
+try { 
+Inicio.Comenzar();
+    }
+catch (Exception e)
+{
+    Console.WriteLine("La excepción fue: "+e.Message);
+}
+
+public class Inicio
+{
+    public struct Alumnos
+    {
+        public string nombre;
+        public string apellido;
+        public double nota1;
+        public double nota2;
+        public double nota3;
+
+    }
+    public struct Arreglo
+    {
+        public string nombreCompleto;
+        public double promedio;
+
+    }
+
+
+
+
+    public static void Comenzar()
+    {
+        Console.WriteLine("Ingrese cuantos alumnos va a cargar");
+        int cantidad = int.Parse(Console.ReadLine());
+        Alumnos[] alumno = new Alumnos[cantidad];
+        alumno = CargarDatos(cantidad);
+        VerArreglo(alumno);
+        Arreglo[] arreglo = CalcularPromedios(alumno);
+        VerArreglo(arreglo);
+    }
+
+    public static Arreglo[] CalcularPromedios(Alumnos[] alumno)
+    {
+
+        int alumnoNotaMaxima = 0;
+        int alumnoNotaMinima = 0;
+        double promedio = 0;
+        double promedioAnterior = 0;
+        Arreglo[] arreglo = new Arreglo[alumno.Length];
+        for (int i = 0; i < alumno.Length; i++)
+        {
+            promedio = (alumno[i].nota1 + alumno[i].nota1 + alumno[i].nota1) / 3;
+            arreglo[i].nombreCompleto = alumno[i].nombre + " " + alumno[i].apellido;
+            arreglo[i].promedio = promedio;
+            if (i == 0)
+            {
+                promedioAnterior = promedio;
+                alumnoNotaMaxima = i;
+                alumnoNotaMinima = i;
+            }
+                if (promedio >= promedioAnterior) alumnoNotaMaxima = i;
+                if (promedio <= promedioAnterior) alumnoNotaMinima = i;
+            
+        }
+        return arreglo;
+    }
+
+    public static void VerArreglo(Alumnos[] alumno)
+    {
+        for (int i = 0; i < alumno.Length; i++)
+        {
+            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombre} {alumno[i].apellido} y sus notas fueron: {alumno[i].nota1}, {alumno[i].nota2}, {alumno[i].nota3}");
+        }
+    }
+    public static void VerArreglo(Arreglo[] alumno)
+    {
+        for (int i = 0; i < alumno.Length; i++)
+        {
+            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombreCompleto} y sus promedio de notas es: {alumno[i].promedio}");
+        }
+    }
+
+    public static Alumnos[] CargarDatos(int cantidad)
+    {
+        Alumnos[] alumno = new Alumnos[cantidad];
+        for (int i = 0; i < cantidad; i++) {
+            Console.WriteLine($"Ingrese el nombre del {i + 1}º alumno");
+            alumno[i].nombre = Console.ReadLine();
+            Console.WriteLine($"Ingrese el apellido del {i + 1}º alumno");
+            alumno[i].apellido = Console.ReadLine();
+            Console.WriteLine($"Ingrese la {i + 1}º nota alumno");
+            alumno[i].nota1 = double.Parse(Console.ReadLine());
+            Console.WriteLine($"Ingrese la {i + 1}º nota alumno");
+            alumno[i].nota2 = double.Parse(Console.ReadLine());
+            Console.WriteLine($"Ingrese la {i + 1}º nota alumno");
+            alumno[i].nota3 = double.Parse(Console.ReadLine());
+        }
+        return alumno;
+    }
+}
+
+
+#endregion
+#region Ejercicio Nº4
+#endregion
+#region Ejercicio Nº5
+#endregion
+#region Ejercicio Nº6
+#endregion
+#region Ejercicio Nº7
+#endregion
+#region Ejercicio Nº8
+#endregion
