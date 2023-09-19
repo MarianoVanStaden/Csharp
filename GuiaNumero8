@@ -90,12 +90,131 @@
 
 #endregion
 #region Ejercicio Nº3
-try { 
-Inicio.Comenzar();
-    }
+//try
+//{
+//    Inicio.Comenzar();
+//}
+//catch (Exception e)
+//{
+//    Console.WriteLine("La excepción fue: " + e.Message);
+//}
+
+//public class Inicio
+//{
+//    public struct Alumnos
+//    {
+//        public string nombre;
+//        public string apellido;
+//        public double nota1;
+//        public double nota2;
+//        public double nota3;
+
+//    }
+//    public struct Arreglo
+//    {
+//        public string nombreCompleto;
+//        public double promedio;
+
+//    }
+
+
+
+
+//    public static void Comenzar()
+//    {
+//        Console.WriteLine("Ingrese cuantos alumnos va a cargar");
+//        int cantidad = int.Parse(Console.ReadLine());
+//        Alumnos[] alumno = new Alumnos[cantidad];
+//        alumno = CargarDatos(cantidad);
+//        VerArreglo(alumno);
+//        Arreglo[] arreglo = CalcularPromedios(alumno);
+//        VerArreglo(arreglo);
+//        CalcularMaxMin(arreglo);
+//    }
+
+//    private static void CalcularMaxMin(Arreglo[] arreglo)
+//    {
+//        int auxMin=0, auxMax=0;
+//        for (int i=0; i < arreglo.Length; i++)
+//        {
+//            if (arreglo[i].promedio < arreglo[auxMin].promedio) auxMin = i;
+//            if (arreglo[i].promedio > arreglo[auxMax].promedio) auxMax = i;
+//        }
+//        Console.WriteLine($"El alumno con el promedio máximo fue {arreglo[auxMax].nombreCompleto} con un promedio de {arreglo[auxMax].promedio}");
+//        Console.WriteLine($"El alumno con el promedio máximo fue {arreglo[auxMin].nombreCompleto} con un promedio de {arreglo[auxMin].promedio}");
+//    }
+
+//    public static Arreglo[] CalcularPromedios(Alumnos[] alumno)
+//    {
+
+//        int alumnoNotaMaxima = 0;
+//        int alumnoNotaMinima = 0;
+//        double promedio = 0;
+//        double promedioAnterior = 0;
+//        Arreglo[] arreglo = new Arreglo[alumno.Length];
+//        for (int i = 0; i < alumno.Length; i++)
+//        {
+//            promedio = (alumno[i].nota1 + alumno[i].nota1 + alumno[i].nota1) / 3;
+//            arreglo[i].nombreCompleto = alumno[i].nombre + " " + alumno[i].apellido;
+//            arreglo[i].promedio = promedio;
+//            if (i == 0)
+//            {
+//                promedioAnterior = promedio;
+//                alumnoNotaMaxima = i;
+//                alumnoNotaMinima = i;
+//            }
+//            if (promedio >= promedioAnterior) alumnoNotaMaxima = i;
+//            if (promedio <= promedioAnterior) alumnoNotaMinima = i;
+
+//        }
+//        return arreglo;
+//    }
+
+//    public static void VerArreglo(Alumnos[] alumno)
+//    {
+//        for (int i = 0; i < alumno.Length; i++)
+//        {
+//            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombre} {alumno[i].apellido} y sus notas fueron: {alumno[i].nota1}, {alumno[i].nota2}, {alumno[i].nota3}");
+//        }
+//    }
+//    public static void VerArreglo(Arreglo[] alumno)
+//    {
+//        for (int i = 0; i < alumno.Length; i++)
+//        {
+//            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombreCompleto} y sus promedio de notas es: {alumno[i].promedio}");
+//        }
+//    }
+
+//    public static Alumnos[] CargarDatos(int cantidad)
+//    {
+//        Alumnos[] alumno = new Alumnos[cantidad];
+//        for (int i = 0; i < cantidad; i++)
+//        {
+//            Console.WriteLine($"Ingrese el nombre del {i + 1}º alumno");
+//            alumno[i].nombre = Console.ReadLine();
+//            Console.WriteLine($"Ingrese el apellido del {i + 1}º alumno");
+//            alumno[i].apellido = Console.ReadLine();
+//            Console.WriteLine($"Ingrese la 1º nota alumno");
+//            alumno[i].nota1 = double.Parse(Console.ReadLine());
+//            Console.WriteLine($"Ingrese la 2º nota alumno");
+//            alumno[i].nota2 = double.Parse(Console.ReadLine());
+//            Console.WriteLine($"Ingrese la 3º nota alumno");
+//            alumno[i].nota3 = double.Parse(Console.ReadLine());
+//        }
+//        return alumno;
+//    }
+//}
+
+
+#endregion
+#region Ejercicio Nº4
+try
+{
+    Inicio.Comenzar();
+}
 catch (Exception e)
 {
-    Console.WriteLine("La excepción fue: "+e.Message);
+    Console.WriteLine("La excepción fue: " + e.Message);
 }
 
 public class Inicio
@@ -103,21 +222,10 @@ public class Inicio
     public struct Alumnos
     {
         public string nombre;
-        public string apellido;
-        public double nota1;
-        public double nota2;
-        public double nota3;
+        public int edad;
+
 
     }
-    public struct Arreglo
-    {
-        public string nombreCompleto;
-        public double promedio;
-
-    }
-
-
-
 
     public static void Comenzar()
     {
@@ -125,74 +233,29 @@ public class Inicio
         int cantidad = int.Parse(Console.ReadLine());
         Alumnos[] alumno = new Alumnos[cantidad];
         alumno = CargarDatos(cantidad);
-        VerArreglo(alumno);
-        Arreglo[] arreglo = CalcularPromedios(alumno);
-        VerArreglo(arreglo);
     }
 
-    public static Arreglo[] CalcularPromedios(Alumnos[] alumno)
-    {
-
-        int alumnoNotaMaxima = 0;
-        int alumnoNotaMinima = 0;
-        double promedio = 0;
-        double promedioAnterior = 0;
-        Arreglo[] arreglo = new Arreglo[alumno.Length];
-        for (int i = 0; i < alumno.Length; i++)
-        {
-            promedio = (alumno[i].nota1 + alumno[i].nota1 + alumno[i].nota1) / 3;
-            arreglo[i].nombreCompleto = alumno[i].nombre + " " + alumno[i].apellido;
-            arreglo[i].promedio = promedio;
-            if (i == 0)
-            {
-                promedioAnterior = promedio;
-                alumnoNotaMaxima = i;
-                alumnoNotaMinima = i;
-            }
-                if (promedio >= promedioAnterior) alumnoNotaMaxima = i;
-                if (promedio <= promedioAnterior) alumnoNotaMinima = i;
-            
-        }
-        return arreglo;
-    }
 
     public static void VerArreglo(Alumnos[] alumno)
     {
         for (int i = 0; i < alumno.Length; i++)
         {
-            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombre} {alumno[i].apellido} y sus notas fueron: {alumno[i].nota1}, {alumno[i].nota2}, {alumno[i].nota3}");
-        }
-    }
-    public static void VerArreglo(Arreglo[] alumno)
-    {
-        for (int i = 0; i < alumno.Length; i++)
-        {
-            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombreCompleto} y sus promedio de notas es: {alumno[i].promedio}");
+            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombre} y tiene: {alumno[i].edad} años");
         }
     }
 
     public static Alumnos[] CargarDatos(int cantidad)
     {
         Alumnos[] alumno = new Alumnos[cantidad];
-        for (int i = 0; i < cantidad; i++) {
+        for (int i = 0; i < cantidad; i++)
+        {
             Console.WriteLine($"Ingrese el nombre del {i + 1}º alumno");
             alumno[i].nombre = Console.ReadLine();
             Console.WriteLine($"Ingrese el apellido del {i + 1}º alumno");
-            alumno[i].apellido = Console.ReadLine();
-            Console.WriteLine($"Ingrese la {i + 1}º nota alumno");
-            alumno[i].nota1 = double.Parse(Console.ReadLine());
-            Console.WriteLine($"Ingrese la {i + 1}º nota alumno");
-            alumno[i].nota2 = double.Parse(Console.ReadLine());
-            Console.WriteLine($"Ingrese la {i + 1}º nota alumno");
-            alumno[i].nota3 = double.Parse(Console.ReadLine());
-        }
+            alumno[i].edad = Convert.ToInt16(Console.ReadLine());        }
         return alumno;
     }
 }
-
-
-#endregion
-#region Ejercicio Nº4
 #endregion
 #region Ejercicio Nº5
 #endregion
