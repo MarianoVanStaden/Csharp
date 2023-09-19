@@ -224,17 +224,39 @@ public class Inicio
         public string nombre;
         public int edad;
 
-
+        public Alumnos(string nombre, int edad)
+        {
+            this.nombre = nombre;
+            this.edad = edad;
+        }
     }
 
     public static void Comenzar()
     {
         Console.WriteLine("Ingrese cuantos alumnos va a cargar");
         int cantidad = int.Parse(Console.ReadLine());
-        Alumnos[] alumno = new Alumnos[cantidad];
-        alumno = CargarDatos(cantidad);
+        Alumnos[] alumnos = new Alumnos[cantidad];
+        alumnos = CargarDatos(cantidad);
+        VerArreglo(alumnos);
+        AgregarAlumno(alumnos);
     }
 
+    private static void AgregarAlumno(Alumnos[] arreglo)
+    {
+        Alumnos[] nuevoArreglo = new Alumnos[arreglo.Length + 1];
+        for (int i = 0; i < arreglo.Length; i++)
+        {
+            nuevoArreglo[i] = arreglo[i];
+        }
+        nuevoArreglo[arreglo.Length] = new Alumnos (Console.ReadLine() , Convert.ToInt32(Console.ReadLine()));
+
+
+
+
+
+
+        //VerArreglo(nuevoArreglo.OrderBy(nuevoArreglo => nuevoArreglo.edad);
+    }
 
     public static void VerArreglo(Alumnos[] alumno)
     {
@@ -251,8 +273,9 @@ public class Inicio
         {
             Console.WriteLine($"Ingrese el nombre del {i + 1}º alumno");
             alumno[i].nombre = Console.ReadLine();
-            Console.WriteLine($"Ingrese el apellido del {i + 1}º alumno");
-            alumno[i].edad = Convert.ToInt16(Console.ReadLine());        }
+            Console.WriteLine($"Ingrese la edad del {i + 1}º alumno");
+            alumno[i].edad = Convert.ToInt16(Console.ReadLine());
+        }
         return alumno;
     }
 }
