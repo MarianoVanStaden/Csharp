@@ -208,6 +208,652 @@
 
 #endregion
 #region Ejercicio Nº4
+//using static Inicio;
+
+//try
+//{
+//    Inicio.Comenzar();
+//}
+//catch (Exception e)
+//{
+//    Console.WriteLine("La excepción fue: " + e.Message);
+//}
+
+//public class Inicio
+//{
+//    public struct Alumnos
+//    {
+//        public string nombre;
+//        public int edad;
+
+//        public Alumnos(string nombre, int edad)
+//        {
+//            this.nombre = nombre;
+//            this.edad = edad;
+//        }
+//    }
+
+//    public static void Comenzar()
+//    {
+//        Console.WriteLine("Ingrese cuantos alumnos va a cargar");
+//        int cantidad = int.Parse(Console.ReadLine());
+//        Alumnos[] alumnos = new Alumnos[cantidad];
+//        alumnos = CargarDatos(cantidad);
+//        VerArreglo(alumnos);
+//        AgregarAlumno(alumnos);
+
+//    }
+
+//    private static void AgregarAlumno(Alumnos[] arreglo)
+//    {
+//        Alumnos[] nuevoArreglo = new Alumnos[arreglo.Length + 1];
+//        for (int i = 0; i < arreglo.Length; i++)
+//        {
+//            nuevoArreglo[i] = arreglo[i];
+//        }
+//        Console.WriteLine("Ingrese el nombre y la edad del alumno a agregar");
+//        nuevoArreglo[arreglo.Length] = new Alumnos (Console.ReadLine() , Convert.ToInt32(Console.ReadLine()));
+
+//        for(int i=0; i<nuevoArreglo.Length; i++)
+//        {
+//            for(int j=i+1; j < nuevoArreglo.Length; j++)
+//            {
+//                if (nuevoArreglo[i].edad < nuevoArreglo[j].edad)
+//                {
+//                    Alumnos temp = nuevoArreglo[j];
+//                    nuevoArreglo[j] = nuevoArreglo[i];
+//                    nuevoArreglo[i] = temp;
+//                    i = 0;
+//                }
+//            }
+//        }
+
+//        VerArreglo(nuevoArreglo);
+
+
+//    }
+
+//    public static void VerArreglo(Alumnos[] alumno)
+//    {
+//        for (int i = 0; i < alumno.Length; i++)
+//        {
+//            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombre} y tiene: {alumno[i].edad} años");
+//        }
+//    }
+
+//    public static Alumnos[] CargarDatos(int cantidad)
+//    {
+//        Alumnos[] alumno = new Alumnos[cantidad];
+//        for (int i = 0; i < cantidad; i++)
+//        {
+//            Console.WriteLine($"Ingrese el nombre del {i + 1}º alumno");
+//            alumno[i].nombre = Console.ReadLine();
+//            Console.WriteLine($"Ingrese la edad del {i + 1}º alumno");
+//            alumno[i].edad = Convert.ToInt16(Console.ReadLine());
+//        }
+//        return alumno;
+//    }
+//}
+#endregion
+#region Ejercicio Nº5
+//using System.ComponentModel.Design;
+//using static Inicio;
+
+////Se tiene un arreglo qué permite almacenar datos de N canciones, simulando una
+////playlist. Por cada canción se desea guardar el nombre del autor (solista o banda),
+////nombre del tema, duración (en segundos), un flag para indicar si es un remix o no y
+////el nombre del álbum al qué pertenece la canción.
+////Implementar lo que considere correcto para realizar las siguientes operaciones:
+////● Añadir una nueva canción.
+////● Buscar y devolver un arreglo nuevo con los nombres de las canciones que
+////son remix. Luego, recorrer el arreglo y mostrar los nombres por pantalla.
+////● Buscar las canciones que contengan un cierto texto (en el autor o en el
+////nombre del tema) y devolver cuantas cumplen dicha condición.
+////● Obtener el tema de mayor duración.
+////● Mostrar el nombre del álbum qué tenga más canciones en la playlist. Además,
+////debe indicar cuantas canciones de dicho álbum había en la playlist.
+
+//try
+//{
+//    Inicio.Comenzar();
+//}
+//catch (Exception e)
+//{
+//    Console.WriteLine("La excepción fue: " + e.Message);
+//}
+
+//public class Inicio
+//{
+//    public struct Canciones
+//    {
+//        public string nombreTema;
+//        public int duracion;
+//        public bool remix;
+//        public string nombreAutor;
+//        public string album;
+
+//        public Canciones(string nombreTema, int duracion, bool remix, string nombreAutor, string album)
+//        {
+//            this.nombreTema = nombreTema;
+//            this.duracion = duracion;
+//            this.remix = remix;
+//            this.nombreAutor = nombreAutor;
+//            this.album = album;
+//        }
+//    }
+
+//    public static void Comenzar()
+//    {
+//        Console.WriteLine("Ingrese cuantas canciones va a cargar");
+//        int cantidad = int.Parse(Console.ReadLine());
+//        Canciones[] tema = new Canciones[cantidad];
+//        tema = CargarDatos(cantidad);
+//        Menu(tema);
+
+
+//    }
+
+//    public static void Menu(Canciones[] tema)
+//    {
+//        Console.WriteLine("Ingrese 0 para agregar un nuevo tema");
+//        Console.WriteLine("Ingrese 1 para devolver un arreglo de remix con los nombres");
+//        Console.WriteLine("Ingrese 2 para buscar las canciones que contengan un cierto texto (en el autor o en el nnombre del tema) y devolver cuantas cumplen dicha condición");
+//        Console.WriteLine("Ingrese 3 para obtener el tema de mayor duración");
+//        Console.WriteLine("Ingrese 4 para mostrar el nombre del álbum qué tenga más canciones en la playlist. Además, debe indicar cuantas canciones de dicho álbum había en la playlist.");
+//        Console.WriteLine("Ingrese 9 para salir.");
+//        string opcion = Console.ReadLine();
+//        switch (opcion)
+//        {
+//            case "0": 
+//                Console.WriteLine("Usted eligió agregar un nuevo tema");
+//                AgregarTema(tema);
+//                VerArreglo(tema);
+//                break;
+//            case "1":
+//                Console.WriteLine("Usted va a poder ver los arreglos de temas que son remix");
+//                Console.WriteLine("Los siguientes temas son remix:");
+//                VerArregloRemix(tema);
+//                break;
+//            case "2":
+//                Console.WriteLine("Ingrese la palabra que va a buscar");
+//                Buscarpalabra(tema);
+//                break;
+//            case "3":
+//                Console.WriteLine("El tema de más duración es el siguiente...");
+//                BuscarMayorDuracionA(tema);
+//                break;
+//            case "4":
+//                Console.WriteLine("El albún con más canciones es:");
+//                Console.WriteLine(ContarCancionesAlbum(tema).album);
+//                break;
+//            case "9":
+//                Console.WriteLine("Usted eligió salir del programa");
+//                break;
+//            default:
+//                Console.WriteLine("Usted eligió una opción incorrecta");
+//                Console.ReadKey();
+//                Console.Clear();
+//                Menu(tema);
+//                break;
+//        }
+//    }
+
+//    public static Canciones ContarCancionesAlbum(Canciones[] tema)
+//    {
+//        // Variable para almacenar el álbum con más canciones
+//        Canciones albumConMasCanciones = tema[0];
+//        int contadorCancionesAlbum = 0;
+
+//        // Recorrer el arreglo de canciones
+//        for (int i = 1; i < tema.Length; i++)
+//        {
+//            // Si el álbum actual tiene más canciones, actualizar la variable
+//            if (tema[i].album == albumConMasCanciones.album)
+//            {
+//                contadorCancionesAlbum++;
+//            }
+//            else
+//            {
+//                // Si el álbum actual tiene más canciones que el anterior,
+//                // actualizar la variable
+//                if (contadorCancionesAlbum > albumConMasCanciones.duracion)
+//                {
+//                    albumConMasCanciones = tema[i];
+//                    contadorCancionesAlbum = 1;
+//                }
+//                else
+//                {
+//                    contadorCancionesAlbum = 1;
+//                }
+//            }
+//        }
+
+//        // Devolver el álbum con más canciones
+//        return albumConMasCanciones;
+//    }
+
+//    private static void BuscarMayorDuracionA(Canciones[] tema)
+//    {
+//        Canciones mayorDuracion = tema[0];
+//        for(int i = 0; i < tema.Length; i++)
+//        {
+//            if (mayorDuracion.duracion < tema[i].duracion) mayorDuracion = tema[i];
+//        }
+//        Console.WriteLine($"El tema de mayor duración es: {mayorDuracion.nombreTema} con una duración de {mayorDuracion.duracion} segundos");
+//    }
+
+//    private static void Buscarpalabra(Canciones[] tema)
+
+//    {
+
+//        Console.WriteLine("Ingrese palabra a buscar");
+//        string palabra = Console.ReadLine().ToLower();
+//        var names = new List<string> { };
+//        foreach (Canciones cancion in tema)
+//        {
+//            if (cancion.nombreTema.Contains(palabra))
+//            {
+//                names.Add(cancion.nombreTema);
+//            }
+//        }
+//        if (names.Count > 0)
+//        {
+//            Console.WriteLine("Las canciones son las siguiente");
+//            foreach (var cancion in names)
+//            {
+//                Console.WriteLine(cancion);
+//            }
+
+//        }
+//    }
+
+
+
+//public static void VerArregloRemix(Canciones[] arreglo)
+//    {
+//        int contador = 0;
+
+//        for (int i = 0; i < arreglo.Length; i++)
+//        {
+//             if (arreglo[i].remix)contador++;
+//        }
+//        Canciones[] nuevoArreglo = new Canciones[contador];
+//        for (int i = 0; i < arreglo.Length; i++)
+//        {
+//            if (arreglo[i].remix) nuevoArreglo[i] = arreglo[i];
+//        }
+//        VerArreglo(nuevoArreglo);
+//    }
+
+//    private static void AgregarTema(Canciones[] arreglo)
+//    {
+//        Canciones[] nuevoArreglo = new Canciones[arreglo.Length + 1];
+//        for (int i = 0; i < arreglo.Length; i++)
+//        {
+//            nuevoArreglo[i] = arreglo[i];
+//        }
+//        Console.WriteLine("Ingrese el nombre del tema nuevo");
+//        nuevoArreglo[arreglo.Length].nombreTema =Console.ReadLine();
+//        Console.WriteLine("Ingrese el nombre del album del tema nuevo");
+//        nuevoArreglo[arreglo.Length].album = Console.ReadLine();
+//        Console.WriteLine("Ingrese el nombre del autor del tema nuevo");
+//        nuevoArreglo[arreglo.Length].nombreAutor = Console.ReadLine();
+//        Console.WriteLine("Ingrese la duración del tema nuevo");
+//        nuevoArreglo[arreglo.Length].duracion = int.Parse(Console.ReadLine());
+//        Console.WriteLine("Ingrese si es un remix el tema nuevo");
+//        nuevoArreglo[arreglo.Length].remix = Convert.ToBoolean(Console.ReadLine());
+
+//        for (int i = 0; i < nuevoArreglo.Length; i++)
+//        {
+//            for (int j = i + 1; j < nuevoArreglo.Length; j++)
+//            {
+//                if (nuevoArreglo[i].duracion < nuevoArreglo[j].duracion)
+//                {
+//                    Canciones temp = nuevoArreglo[j];
+//                    nuevoArreglo[j] = nuevoArreglo[i];
+//                    nuevoArreglo[i] = temp;
+//                    i = 0;
+//                }
+//            }
+//        }
+
+//        VerArreglo(nuevoArreglo);
+
+
+//    }
+
+//    public static void VerArreglo(Canciones[] tema)
+//    {
+//        for (int i = 0; i < tema.Length; i++)
+//        {
+//            Console.WriteLine($"El {i + 1}º tema es:{tema[i].nombreTema} su autor es {tema[i].nombreAutor}, su duración es de {tema[i].duracion}");
+//        }
+//    }
+
+//    public static Canciones[] CargarDatos(int cantidad)
+//    {
+//        Canciones[] tema = new Canciones[cantidad];
+//        for (int i = 0; i < cantidad; i++)
+//        {
+//            Console.WriteLine($"Ingrese el nombre del {i + 1}º tema");
+//            tema[i].nombreTema = Console.ReadLine();
+//            Console.WriteLine($"Ingrese el album del {i + 1}º tema");
+//            tema[i].album = Console.ReadLine();
+//            Console.WriteLine($"Ingrese la duración en segundos del {i + 1}º tema");
+//            tema[i].duracion = int.Parse(Console.ReadLine());
+//            Console.WriteLine($"Ingrese si es un remix el {i + 1}º tema (true o false)");
+//            tema[i].remix = bool.Parse(Console.ReadLine().ToLower());
+//            Console.WriteLine($"Ingrese el nombre del autor del {i + 1}º tema");
+//            tema[i].nombreAutor = Console.ReadLine();
+//        }
+//        return tema;
+//    }
+//}
+#endregion
+#region Ejercicio Nº6
+//using System.ComponentModel.Design;
+//using static Inicio;
+
+//Se tiene un arreglo qué permite almacenar datos de N canciones, simulando una
+//playlist. Por cada canción se desea guardar el nombre del autor (solista o banda),
+//nombre del tema, duración (en segundos), un flag para indicar si es un remix o no y
+//el nombre del álbum al qué pertenece la canción.
+//Implementar lo que considere correcto para realizar las siguientes operaciones:
+//● Añadir una nueva canción.
+//● Buscar y devolver un arreglo nuevo con los nombres de las canciones que
+//son remix. Luego, recorrer el arreglo y mostrar los nombres por pantalla.
+//● Buscar las canciones que contengan un cierto texto (en el autor o en el
+//nombre del tema) y devolver cuantas cumplen dicha condición.
+//● Obtener el tema de mayor duración.
+//● Mostrar el nombre del álbum qué tenga más canciones en la playlist. Además,
+//debe indicar cuantas canciones de dicho álbum había en la playlist.
+
+//try
+//{
+//    Inicio.Comenzar();
+//}
+//catch (Exception e)
+//{
+//    Console.WriteLine("La excepción fue: " + e.Message);
+//}
+
+//public class Inicio
+//{
+//    public struct Canciones
+//    {
+//        public string nombreTema;
+//        public int duracion;
+//        public bool remix;
+//        public string nombreAutor;
+//        public string album;
+//        public string[] feat;
+
+//        public Canciones(string nombreTema, int duracion, bool remix, string nombreAutor, string album, string[] feat)
+//        {
+//            this.nombreTema = nombreTema;
+//            this.duracion = duracion;
+//            this.remix = remix;
+//            this.nombreAutor = nombreAutor;
+//            this.album = album;
+//            this.feat = feat;
+//        }
+//    }
+
+
+//    public static void Comenzar()
+//    {
+//        Console.WriteLine("Ingrese cuantas canciones va a cargar");
+//        int cantidad = int.Parse(Console.ReadLine());
+//        Canciones[] tema = new Canciones[cantidad];
+//        tema = CargarDatos(cantidad);
+//        Menu(tema);
+
+
+//    }
+
+//    public static void Menu(Canciones[] tema)
+//    {
+//        Console.WriteLine("Ingrese 0 para agregar un nuevo tema");
+//        Console.WriteLine("Ingrese 1 para devolver un arreglo de remix con los nombres");
+//        Console.WriteLine("Ingrese 2 para buscar las canciones que contengan un cierto texto (en el autor o en el nnombre del tema) y devolver cuantas cumplen dicha condición");
+//        Console.WriteLine("Ingrese 3 para obtener el tema de mayor duración");
+//        Console.WriteLine("Ingrese 4 para mostrar el nombre del álbum qué tenga más canciones en la playlist. Además, debe indicar cuantas canciones de dicho álbum había en la playlist.");
+//        Console.WriteLine("Ingrese 6 para ingresar colaboradores de temas");
+//        Console.WriteLine("Ingrese 9 para salir.");
+//        string opcion = Console.ReadLine();
+//        switch (opcion)
+//        {
+//            case "0":
+//                Console.WriteLine("Usted eligió agregar un nuevo tema");
+//                AgregarTema(tema);
+//                VerArreglo(tema);
+//                break;
+//            case "1":
+//                Console.WriteLine("Usted va a poder ver los arreglos de temas que son remix");
+//                Console.WriteLine("Los siguientes temas son remix:");
+//                VerArregloRemix(tema);
+//                break;
+//            case "2":
+//                Console.WriteLine("Ingrese la palabra que va a buscar");
+//                Buscarpalabra(tema);
+//                break;
+//            case "3":
+//                Console.WriteLine("El tema de más duración es el siguiente...");
+//                BuscarMayorDuracionA(tema);
+//                break;
+//            case "4":
+//                Console.WriteLine("El albún con más canciones es:");
+//                Console.WriteLine(ContarCancionesAlbum(tema).album);
+//                break;
+//            case "6":
+//                Console.WriteLine("Ingresar artista para ver sus participaciones");
+//                string nombreArtista = Console.ReadLine();
+//                BuscarColaboraciones(nombreArtista, tema);
+//                break;
+//            case "9":
+//                Console.WriteLine("Usted eligió salir del programa");
+//                break;
+//            default:
+//                Console.WriteLine("Usted eligió una opción incorrecta");
+//                Console.ReadKey();
+//                Console.Clear();
+//                Menu(tema);
+//                break;
+//        }
+//    }
+
+//    private static void BuscarColaboraciones(string? nombreArtista, Canciones[] tema)
+//    {
+//        int contador = 0;
+//        int compositor = 0;
+//        for (int k=0; k<tema.Length; k++)
+//        {
+//            if (tema[k].nombreAutor == nombreArtista) compositor++;
+//            Console.WriteLine(tema[k].nombreAutor);
+//            for (int i=0; i < tema[k].feat.Length; i++)
+//                {
+
+//                if (tema[k].feat[i] == nombreArtista) contador++;
+
+//                }
+//        }
+//        Console.WriteLine($"El artista {nombreArtista} participó en {contador} canciones");
+//        Console.WriteLine($"El artista {nombreArtista} fue el compositor en {compositor} canciones");
+//    }
+
+//    public static Canciones ContarCancionesAlbum(Canciones[] tema)
+//    {
+//        // Variable para almacenar el álbum con más canciones
+//        Canciones albumConMasCanciones = tema[0];
+//        int contadorCancionesAlbum = 0;
+
+//        // Recorrer el arreglo de canciones
+//        for (int i = 1; i < tema.Length; i++)
+//        {
+//            // Si el álbum actual tiene más canciones, actualizar la variable
+//            if (tema[i].album == albumConMasCanciones.album)
+//            {
+//                contadorCancionesAlbum++;
+//            }
+//            else
+//            {
+//                // Si el álbum actual tiene más canciones que el anterior,
+//                // actualizar la variable
+//                if (contadorCancionesAlbum > albumConMasCanciones.duracion)
+//                {
+//                    albumConMasCanciones = tema[i];
+//                    contadorCancionesAlbum = 1;
+//                }
+//                else
+//                {
+//                    contadorCancionesAlbum = 1;
+//                }
+//            }
+//        }
+
+//        // Devolver el álbum con más canciones
+//        return albumConMasCanciones;
+//    }
+
+//    private static void BuscarMayorDuracionA(Canciones[] tema)
+//    {
+//        Canciones mayorDuracion = tema[0];
+//        for (int i = 0; i < tema.Length; i++)
+//        {
+//            if (mayorDuracion.duracion < tema[i].duracion) mayorDuracion = tema[i];
+//        }
+//        Console.WriteLine($"El tema de mayor duración es: {mayorDuracion.nombreTema} con una duración de {mayorDuracion.duracion} segundos");
+//    }
+
+//    private static void Buscarpalabra(Canciones[] tema)
+
+//    {
+
+//        Console.WriteLine("Ingrese palabra a buscar");
+//        string palabra = Console.ReadLine().ToLower();
+//        var names = new List<string> { };
+//        foreach (Canciones cancion in tema)
+//        {
+//            if (cancion.nombreTema.Contains(palabra))
+//            {
+//                names.Add(cancion.nombreTema);
+//            }
+//        }
+//        if (names.Count > 0)
+//        {
+//            Console.WriteLine("Las canciones son las siguiente");
+//            foreach (var cancion in names)
+//            {
+//                Console.WriteLine(cancion);
+//            }
+
+//        }
+//    }
+
+
+
+//    public static void VerArregloRemix(Canciones[] arreglo)
+//    {
+//        int contador = 0;
+
+//        for (int i = 0; i < arreglo.Length; i++)
+//        {
+//            if (arreglo[i].remix) contador++;
+//        }
+//        Canciones[] nuevoArreglo = new Canciones[contador];
+//        for (int i = 0; i < arreglo.Length; i++)
+//        {
+//            if (arreglo[i].remix) nuevoArreglo[i] = arreglo[i];
+//        }
+//        VerArreglo(nuevoArreglo);
+//    }
+
+//    private static void AgregarTema(Canciones[] arreglo)
+//    {
+//        Canciones[] nuevoArreglo = new Canciones[arreglo.Length + 1];
+//        for (int i = 0; i < arreglo.Length; i++)
+//        {
+//            nuevoArreglo[i] = arreglo[i];
+//        }
+//        Console.WriteLine("Ingrese el nombre del tema nuevo");
+//        nuevoArreglo[arreglo.Length].nombreTema = Console.ReadLine();
+//        Console.WriteLine("Ingrese el nombre de los colaboradores");
+//        nuevoArreglo[arreglo.Length].feat = CargarArreglo();
+//        //Console.WriteLine("Ingrese el nombre del album del tema nuevo");
+//        //nuevoArreglo[arreglo.Length].album = Console.ReadLine();
+//        Console.WriteLine("Ingrese el nombre del autor del tema nuevo");
+//        nuevoArreglo[arreglo.Length].nombreAutor = Console.ReadLine();
+//        //Console.WriteLine("Ingrese la duración del tema nuevo");
+//        //nuevoArreglo[arreglo.Length].duracion = int.Parse(Console.ReadLine());
+//        //Console.WriteLine("Ingrese si es un remix el tema nuevo");
+//        //nuevoArreglo[arreglo.Length].remix = Convert.ToBoolean(Console.ReadLine());
+
+//        for (int i = 0; i < nuevoArreglo.Length; i++)
+//        {
+//            for (int j = i + 1; j < nuevoArreglo.Length; j++)
+//            {
+//                if (nuevoArreglo[i].duracion < nuevoArreglo[j].duracion)
+//                {
+//                    Canciones temp = nuevoArreglo[j];
+//                    nuevoArreglo[j] = nuevoArreglo[i];
+//                    nuevoArreglo[i] = temp;
+//                    i = 0;
+//                }
+//            }
+//        }
+
+//        VerArreglo(nuevoArreglo);
+
+
+//    }
+
+//    private static string[] CargarArreglo()
+//    {
+//        Console.WriteLine("Ingrese la cantidad de colaboradores");
+//        int cantidad = int.Parse(Console.ReadLine());
+//        string[] arreglo = new string[cantidad];
+//        for(int i=0; i < cantidad; i++)
+//        {
+//            Console.WriteLine($"Ingrese el nombre del {i + 1}º colaborador");
+//            arreglo[i] = Console.ReadLine();
+//        }
+//        return arreglo; 
+//    }
+
+//    public static void VerArreglo(Canciones[] tema)
+//    {
+//        for (int i = 0; i < tema.Length; i++)
+//        {
+//            Console.WriteLine($"El {i + 1}º tema es:{tema[i].nombreTema} su autor es {tema[i].nombreAutor}, su duración es de {tema[i].duracion}");
+//        }
+//    }
+
+//    public static Canciones[] CargarDatos(int cantidad)
+//    {
+//        Canciones[] tema = new Canciones[cantidad];
+//        for (int i = 0; i < cantidad; i++)
+//        {
+//            Console.WriteLine($"Ingrese el nombre del {i + 1}º tema");
+//            tema[i].nombreTema = Console.ReadLine();
+//            Console.WriteLine($"Ingrese el nombre del autor del {i + 1}º tema");
+//            tema[i].nombreAutor = Console.ReadLine();
+//            //Console.WriteLine($"Ingrese el colaborador del {i + 1}º tema");
+//            tema[i].feat = CargarArreglo();
+//            //Console.WriteLine($"Ingrese el album del {i + 1}º tema");
+//            //tema[i].album = Console.ReadLine();
+//            //Console.WriteLine($"Ingrese la duración en segundos del {i + 1}º tema");
+//            //tema[i].duracion = int.Parse(Console.ReadLine());
+//            //Console.WriteLine($"Ingrese si es un remix el {i + 1}º tema (true o false)");
+//            //tema[i].remix = bool.Parse(Console.ReadLine().ToLower());
+
+//        }
+//        return tema;
+//    }
+//}
+#endregion
+#region Ejercicio Nº7
+using System.Numerics;
+
 try
 {
     Inicio.Comenzar();
@@ -219,72 +865,98 @@ catch (Exception e)
 
 public class Inicio
 {
-    public struct Alumnos
+    public struct Mediciones
     {
-        public string nombre;
-        public int edad;
+        public int fila;
+        public int columna;
+        public int contenido;
 
-        public Alumnos(string nombre, int edad)
+        public Mediciones(int fila, int columna, int contenido)
         {
-            this.nombre = nombre;
-            this.edad = edad;
+            this.fila = fila;
+            this.columna = columna;
+            this.contenido = contenido;
         }
     }
+
 
     public static void Comenzar()
     {
-        Console.WriteLine("Ingrese cuantos alumnos va a cargar");
-        int cantidad = int.Parse(Console.ReadLine());
-        Alumnos[] alumnos = new Alumnos[cantidad];
-        alumnos = CargarDatos(cantidad);
-        VerArreglo(alumnos);
-        AgregarAlumno(alumnos);
-    }
-
-    private static void AgregarAlumno(Alumnos[] arreglo)
-    {
-        Alumnos[] nuevoArreglo = new Alumnos[arreglo.Length + 1];
-        for (int i = 0; i < arreglo.Length; i++)
+        Random random = new Random();
+        int[,] matriz = { 
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            };
+        for (int k = 0; k < 50; k++)
         {
-            nuevoArreglo[i] = arreglo[i];
+            int valor = random.Next(0, 9);
+            matriz[random.Next(0, 11), random.Next(0, 30)] = valor;
         }
-        nuevoArreglo[arreglo.Length] = new Alumnos (Console.ReadLine() , Convert.ToInt32(Console.ReadLine()));
+        Menu(matriz);
 
 
-
-
-
-
-        //VerArreglo(nuevoArreglo.OrderBy(nuevoArreglo => nuevoArreglo.edad);
     }
 
-    public static void VerArreglo(Alumnos[] alumno)
+    public static void Menu(int[,]matriz)
     {
-        for (int i = 0; i < alumno.Length; i++)
+        Console.WriteLine("Ingrese 0 para ver la matriz");
+        Console.WriteLine("Ingrese 1 para ver el arreglo de estructura");
+
+        string opcion = Console.ReadLine();
+        switch (opcion)
         {
-            Console.WriteLine($"El {i + 1}º alumno es:{alumno[i].nombre} y tiene: {alumno[i].edad} años");
+            case "0":
+                Console.WriteLine("Usted eligió ver la matriz");
+                VerMatriz(matriz);
+                break;
+            case "1":
+                Console.WriteLine("Usted eligió ver un arreglo del tipo struct");
+                VerArreglo(matriz);
+                break;
         }
     }
 
-    public static Alumnos[] CargarDatos(int cantidad)
+    private static void VerArreglo(int[,] matriz)
     {
-        Alumnos[] alumno = new Alumnos[cantidad];
-        for (int i = 0; i < cantidad; i++)
+        Mediciones[] arreglo = new Mediciones[12];
+        for(int i = 0; i < 11; i++)
         {
-            Console.WriteLine($"Ingrese el nombre del {i + 1}º alumno");
-            alumno[i].nombre = Console.ReadLine();
-            Console.WriteLine($"Ingrese la edad del {i + 1}º alumno");
-            alumno[i].edad = Convert.ToInt16(Console.ReadLine());
+            for(int j = 0; j < 30; j++)
+            {
+                arreglo[i].columna = i;
+                arreglo[i].fila = j;
+                arreglo[i].contenido = matriz[i, j];
+                Console.Write(arreglo[i].contenido+ " ");
+            }
+            Console.WriteLine();
         }
-        return alumno;
+        Menu(matriz);
     }
+
+    private static void VerMatriz(int[,] matriz)
+    {
+        for(int i = 0; i<matriz.GetLength(0); i++)
+        {
+            for(int j = 0; j < matriz.GetLength(1); j++)
+            {
+                Console.Write(matriz[i, j]);
+                Console.Write("-");
+            }
+            Console.WriteLine();
+        }
+        Menu(matriz);
+    }
+
 }
 #endregion
-#region Ejercicio Nº5
-#endregion
-#region Ejercicio Nº6
-#endregion
-#region Ejercicio Nº7
-#endregion
-#region Ejercicio Nº8
-#endregion
+
