@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
@@ -20,9 +21,27 @@ namespace ConsoleApp1
             HacerListado(CargarMatriz(matriz));
         }
 
-        private static void HacerListado(char[,] matriz)
+        public static void HacerListado(char[,] matriz)
         {
-            
+            List<string[,]> lista= new List<string[,]>();
+            lista = ContarVocales(matriz, lista);
+        }
+
+        private static List<string[,]> ContarVocales(char[,] matriz, List<string[,]> lista)
+        {
+            int contadorVocales = 0;
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int j = 0; i < matriz.GetLength(1); j++)
+                {
+                    if (matriz[i, j] == 'a' || matriz[i, j] == 'e' || matriz[i, j] == 'i' || matriz[i, j] == 'o' || matriz[i, j] == 'u')
+                    {
+                        contadorVocales++;
+                    }
+                }
+                
+                lista.Insert(i, { Convert.ToString(contadorVocales), Convert.ToString(matriz.GetLength(0))});
+            }
         }
 
         private static char[,] CargarMatriz(char[,] matriz)
