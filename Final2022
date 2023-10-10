@@ -1,0 +1,61 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Inicio variable = new Inicio();
+            Inicio.Comenzar();
+
+        }
+    }
+    public class Inicio
+    {
+        public static void Comenzar()
+        {
+            char[,] matriz = new char[5, 5];
+
+            HacerListado(CargarMatriz(matriz));
+        }
+
+        private static void HacerListado(char[,] matriz)
+        {
+            
+        }
+
+        private static char[,] CargarMatriz(char[,] matriz)
+        {
+            string [] arreglo = CargarPalabras();
+            string aux;
+            for (int i=0; i < matriz.GetLength(0); i++)
+            {
+                for(int j=0; j< matriz.GetLength(1); j++)
+                {
+                   
+                    aux = arreglo[i];
+                    if (j < arreglo[i].Length)
+                    {
+                        matriz[i, j] = aux[j];
+                        Console.Write($"- {matriz[i, j]} -");
+                    }
+                }
+                Console.WriteLine();
+            }
+            return matriz;
+        }
+        private static string[] CargarPalabras()
+        {
+            Console.WriteLine("Ingrese la cantidad de palabras que va a ingresar");
+            int cantidad = int.Parse(Console.ReadLine());
+            string[] arreglo = new string[cantidad];
+            for(int i=0; i< arreglo.Length; i++)
+            {
+                Console.WriteLine($"Ingrese la palabra nº {i + 1}");
+                arreglo[i] = Console.ReadLine();
+            }
+            return arreglo;
+        }
+    }
+}
