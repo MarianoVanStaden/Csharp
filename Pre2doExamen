@@ -1,0 +1,136 @@
+using System;
+using System.Collections.Generic;
+//Una plataforma de aprendizaje en línea desea implementar una solución que permita al usuario inscribirse a los cursos que la misma ofrece.
+//Para ello, la solución deberá contar con un menú con las siguientes opciones: Ver cursos disponibles, Inscribirse a un curso, Pagar y Salir.
+//La opción Ver cursos disponibles, debe mostrar el listado completo de cursos activos que la plataforma ofrece.
+//Para ello, se implementa a través de un arreglo arrCursos el cual almacena el código de identificación del curso (alfanumérico), el nombre, la descripción,
+//un campo que indica si el curso está activo o no y el precio.
+//La opción Inscribirse a curso, debe permitir al usuario ingresar el código del curso al cual quiere anotarse. Las inscripciones a los cursos se guardan en una lista
+//listCurso que inicialmente estará vacía y que se irá llenando a medida que el usuario vaya inscribiéndose a los cursos. Dicha lista almacena el código del curso y
+//el valor del mismo. El fin del proceso de carga del arreglo y de inscripción está dado por un código de curso "000".
+//La opción Pagar deberá informar el monto total que el usuario debe abonar por los cursos anotados.
+//La opción Salir, sale de la aplicación. 
+
+//Se pide:
+//1.Implementar la funcionalidad para llenar el arreglo arrCursos.
+//2.	Implementar la funcionalidad correspondiente a cada una de las opciones del menú de la aplicación.
+//3.	La opción Inscribirse a curso debe validar que el curso exista antes de intentar agregarlo a listCurso.
+
+namespace PreExamen
+{
+    public struct Cursos
+    {
+        public string codigo;
+        public string nombreCurso;
+        public double precioCurso;
+
+    }
+
+    public class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            Cursos[] arrCursos = Inicio.CargarArreglo();
+            VerArreglo(arrCursos);
+            Console.ReadKey();
+            Inicio.Menu(arrCursos);
+
+
+            static void VerArreglo(Cursos[] arrCursos)
+            {
+
+                for (int i = 0; i < arrCursos.Length; i++)
+                {
+                    Console.WriteLine($"El valor en la posición i = {i} es código ={arrCursos[i].codigo} nombre= {arrCursos[i].nombreCurso} y {arrCursos[i].precioCurso}");
+                }
+            }
+        }
+
+    }
+
+
+
+
+
+    public class Inicio
+    {
+        public static Cursos[] CargarArreglo()
+        {
+            Console.WriteLine("Ingrese cuantos cursos va a ingresar");
+            int cantidad = int.Parse(Console.ReadLine());
+            Cursos[] arreglo = new Cursos[cantidad];
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.WriteLine($"Ingrese el código del {i + 1}º curso");
+                arreglo[i].codigo = Console.ReadLine();
+                Console.WriteLine($"Ingrese el nombre del {i + 1}º curso");
+                arreglo[i].nombreCurso = Console.ReadLine();
+                Console.WriteLine($"Ingrese el precio del {i + 1}º curso");
+                arreglo[i].precioCurso = double.Parse(Console.ReadLine());
+            }
+            return arreglo;
+        }
+
+        public static void Menu(Cursos[] arreglo)
+        {
+            Console.WriteLine("Bienvenido al sistema");
+            Console.WriteLine("Presione 1 para ver cursos disponibles");
+            Console.WriteLine("Presione 2 para inscribirse a un curso");
+            Console.WriteLine("Presione 3 para pagar");
+            Console.WriteLine("Presione 0 para salir");
+            int eleccion = int.Parse(Console.ReadLine());
+            switch (eleccion)
+            {
+                case 1:
+                    Console.WriteLine("Los cursos disponibles son: ");
+                    VerCursosDisponibles(arreglo);
+                    Console.Clear();
+                    Menu(arreglo);
+                    break;
+                case 2:
+                    Console.WriteLine("Ingrese el còdigo del curso al que se quiere inscribir");
+                    string codigo = Console.ReadLine();
+                    InscribirCurso(codigo);
+                    Console.Clear();
+                    Menu(arreglo);
+                    break;
+                case 3:
+                    Console.WriteLine("Usted eligió ir a pagar");
+                    PagarCursos();
+                    Console.Clear();
+                    break;
+                default:
+                    Console.WriteLine("Usted eligió una opción no valida");
+                    Console.WriteLine("Presione cualquier tecla e intentelo nuevamente");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Menu(arreglo);
+                    break;
+            }
+        }
+
+        public static void PagarCursos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void InscribirCurso(string codigo)
+        {
+            List<Cursos> lista = new List<Cursos> { };
+            Cursos primerElemento = new Cursos;
+
+            lista.Add();
+
+        }
+
+        public static void VerCursosDisponibles(Cursos[] arrCursos)
+        {
+            for (int i = 0; i < arrCursos.Length; i++)
+            {
+                Console.WriteLine($"Código{arrCursos[i].codigo} Nombre= {arrCursos[i].nombreCurso} y Precio{arrCursos[i].precioCurso}");
+            }
+        }
+    }
+}
