@@ -1,0 +1,111 @@
+//Segundo Parcial 11/11/2022
+
+//Teória 
+//int[] arreglo = new int[8];
+//arreglo[0] = 8;
+//arreglo[1] = 23;
+//arreglo[2] = 32;
+//arreglo[3] = 9;
+//arreglo[4] = 32;
+//arreglo[5] = 9;
+//arreglo[6] = 108;
+//arreglo[7] = 47;
+////arreglo = [8,23,32,9,32,9,108,47]
+////valor a eliminar = 32
+////arreglo = [8,23,9,9,108,47,0,0]
+//LinkedList<int> lista = new LinkedList<int>();
+//foreach(int i in arreglo)
+//{
+//    lista.AddLast(i);
+//}
+//foreach (int i in lista)
+//{
+
+//    Console.WriteLine(i);
+//}
+//Console.WriteLine("Ingrese el valor a eliminar del listado");
+//int valorEliminar = int.Parse(Console.ReadLine());
+//int contador = 0;
+//foreach(int i in lista)
+//{
+//    if (i == valorEliminar) contador++;
+//}
+//for (int i=0; i<contador; i++)
+//{
+//    lista.Remove(valorEliminar);
+//    lista.AddLast(0);
+//    Console.WriteLine($"Elimino {i + 1} veces el {valorEliminar}");
+//}
+//foreach (int i in lista)
+//{
+//    Console.WriteLine(i);
+//}
+
+//Práctica
+
+using System.Collections.Generic;
+
+Console.WriteLine("Ingrese el valor de n, para darle dimensión la matriz matPalabras[n,n]");
+int n = int.Parse(Console.ReadLine());
+char[,] matPalabras = new char[n, n];
+matPalabras = CargarMatriz(matPalabras);
+LinkedList<Lista> lista = new LinkedList<Lista>();
+lista = GenerarLista(lista, matPalabras);
+foreach (Lista valor in lista.OrderBy(valor => valor.cantidad))
+{
+    Console.WriteLine($"En la fila: {valor.fila} la cantidad es: {valor.cantidad}");
+}
+LinkedList<Lista> GenerarLista(LinkedList<Lista> lista, char[,] matPalabras)
+{
+    int contadorVocales = 0;
+    int posiciónFila = 1;
+    for (int i = 0; i < matPalabras.GetLength(0); i++)
+    {
+        for (int j = 0; j < matPalabras.GetLength(1); j++)
+        {
+            if (matPalabras[i, j] == 'a' || matPalabras[i, j] == 'e' || matPalabras[i, j] == 'i' || matPalabras[i, j] == 'o' || matPalabras[i, j] == 'u')
+            {
+                contadorVocales++;
+            }
+        }
+        posiciónFila++;
+        lista.AddLast(new Lista { fila = i, cantidad = contadorVocales });
+
+        contadorVocales = 0;
+    }
+    return lista;
+}
+
+char[,] CargarMatriz(char[,] matPalabras)
+{
+    Console.WriteLine($"Ingrese {matPalabras.GetLength(0)} palabras para cargar el array");
+    string[] array = new string[matPalabras.GetLength(0)];
+    for(int k=0; k<matPalabras.GetLength(0); k++)
+    {
+        Console.WriteLine($"Ingrese la {k+1}º palabra");
+        array[k] = Console.ReadLine().ToLower();
+    }
+    for(int i = 0; i < matPalabras.GetLength(1); i++)
+    {
+        for(int j = 0; j < array[i].Length; j++)
+        {
+           
+            matPalabras[i, j] = array[i][j];
+        }
+    }
+    for (int i = 0; i < matPalabras.GetLength(0); i++)
+    {
+        for (int j = 0; j < matPalabras.GetLength(1); j++)
+        {
+            Console.Write(matPalabras[i, j]);
+        }
+        Console.WriteLine();
+    }
+    return matPalabras;
+}
+
+public class Lista
+{
+    public int fila;
+    public int cantidad;
+}
