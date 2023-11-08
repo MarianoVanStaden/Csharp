@@ -1,0 +1,197 @@
+using System;
+using System.Collections.Generic;
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            LinkedList<Lista> listTurnos = new LinkedList<Lista>();
+            Turnos[] arrTurnos = new Turnos[4];
+            arrTurnos[0].id = "100";
+            arrTurnos[1].id = "101";
+            arrTurnos[2].id = "102";
+            arrTurnos[3].id = "103";
+            arrTurnos[0].fecha = "07/11/2023";
+            arrTurnos[1].fecha = "07/11/2023";
+            arrTurnos[2].fecha = "07/11/2023";
+            arrTurnos[3].fecha = "07/11/2023";
+            arrTurnos[0].hora = "07:00hs";
+            arrTurnos[1].hora = "08:00hs";
+            arrTurnos[2].hora = "09:00hs";
+            arrTurnos[3].hora = "10:30hs";
+            arrTurnos[0].descrip = "Dr. Perez";
+            arrTurnos[1].descrip = "Dr. Perez";
+            arrTurnos[2].descrip = "Dr. Perez";
+            arrTurnos[3].descrip = "Dr. Perez en sobreturno";
+            arrTurnos[0].disp = true;
+            arrTurnos[1].disp = true;
+            arrTurnos[2].disp = false;
+            arrTurnos[3].disp = true;
+            Console.WriteLine("Ingrese su dni");
+            string dni = Console.ReadLine();
+            Menu(arrTurnos, listTurnos, dni);
+        }
+
+        public static void Menu(Turnos[] arrTurnos, LinkedList<Lista> listTurnos, string dni)
+        {
+
+
+            Console.WriteLine("Bienvenido al Menú Principal");
+            Console.WriteLine("Ingrese 1 para ver los turnos disponibles");
+            Console.WriteLine("Ingrese 2 para agendarse un turno");
+            Console.WriteLine("Ingrese 3 para eliminar uno o más turnos");
+            Console.WriteLine("Ingrese 4 para ver sus turnos");
+            Console.WriteLine("Ingrese 0 para salir del programa");
+            string opcion = Console.ReadLine();
+            switch (opcion)
+            {
+                case "1":
+                    VerTurnosDisponibles(arrTurnos, listTurnos, dni);
+                    break;
+                case "2":
+                    AgendarTurnos(arrTurnos, listTurnos, dni);
+                    break;
+                case "3":
+                    EliminarTurnos(arrTurnos, listTurnos, dni);
+                    break;
+                case "4":
+                    VerTurnosAgendados(arrTurnos, listTurnos, dni);
+                    break;
+                case "0":
+                    Salir();
+                    break;
+                default:
+                    Console.WriteLine("Usted ingresó una opción incorrecta, pruebe nuevamente");
+                    Console.ReadKey();
+                    break;
+            }
+        }
+
+        static void VerTurnosAgendados(Turnos[] arrTurnos, LinkedList<Lista> listTurnos, string dni)
+        {
+            if (listTurnos.Count == 0) Console.WriteLine("Usted no posee turnos agendados.");
+            else
+            {
+                Console.WriteLine("Sus turnos agendados son los siguientes:");
+                foreach (Lista valor in listTurnos)
+                {
+                    Console.WriteLine($"Para el dni {valor.dni} el turno de id: {valor.id}");
+                }
+
+            }
+            Console.WriteLine();
+            Console.WriteLine("Presione enter para continuar");
+            Console.ReadKey();
+            Menu(arrTurnos, listTurnos, dni);
+        }
+
+        static void Salir()
+        {
+            Console.WriteLine("Gracias por usar nuestro programa");
+            Console.ReadKey();
+        }
+
+        static void EliminarTurnos(Turnos[] arrTurnos, LinkedList<Lista> listTurnos, string dni)
+        {
+            Console.WriteLine("Estos son los turnos agendados");
+            int dniPaciente = 0;
+            foreach (Lista valor in listTurnos)
+            {
+                Console.WriteLine($" {valor.id} {valor.dni}");
+            }
+            Console.WriteLine("Ingrese 1 para borrar un turno en particular o 2 para borrar todos");
+            string opcion = Console.ReadLine();
+            if (opcion == "2")
+            {
+                Console.WriteLine("Ingrese su dni, para validar la eliminación de todos los turnos");
+                dniPaciente = int.Parse(Console.ReadLine());
+                if (int.Parse(dni) == dniPaciente)
+                {
+                    Console.WriteLine("Se eliminarán todos los turnos agendados");
+                    listTurnos.Clear();
+                }
+                else Console.WriteLine("El dni ingresado fue incorrecto");
+            }
+            else if (opcion == "1")
+            {
+                Console.WriteLine("Ingrese el id del turno a eliminar");
+                string id = Console.ReadLine();
+                int enumerador = -1;
+                foreach (Lista valor in listTurnos)
+                {
+                    if (valor.id == id)
+                    {
+                        listTurnos.Remove(valor);
+                        Console.WriteLine($"Se eliminó el turno de id: {id}");
+                        break;
+                    }
+                    else Console.WriteLine("Ese id no es valido");
+                }
+            }
+            Menu(arrTurnos, listTurnos, dni);
+        }
+        static void AgendarTurnos(Turnos[] arrTurnos, LinkedList<Lista> listTurnos, string dni)
+        {
+            Console.WriteLine("Ingrese el id del turno que desee agendar");
+            string id = Console.ReadLine();
+            int index = -1;
+            for (int i = 0; i < arrTurnos.Length; i++)
+            {
+                if (arrTurnos[i].id == id && arrTurnos[i].disp == true)
+                {
+                    index = int.Parse(id);
+                    Lista turno = new Lista();
+                    turno.id = arrTurnos[i].id;
+                    turno.dni = dni;
+                    listTurnos.AddLast(turno);
+                    Console.WriteLine("Turno agendado!");
+                    Console.WriteLine();
+                    Menu(arrTurnos, listTurnos, dni);
+
+                }
+                else if (arrTurnos[i].id == id && arrTurnos[i].disp == false)
+                {
+                    Console.WriteLine("El turno existe, pero no está disponible");
+                    Console.WriteLine();
+                    AgendarTurnos(arrTurnos, listTurnos, dni);
+                    Menu(arrTurnos, listTurnos, dni);
+
+                }
+
+            }
+            Console.WriteLine("El turno no está en existencia");
+            Console.WriteLine();
+            Menu(arrTurnos, listTurnos, dni);
+        }
+
+
+        static void VerTurnosDisponibles(Turnos[] arrTurnos, LinkedList<Lista> listTurnos, string dni)
+        {
+            foreach (Turnos valor in arrTurnos)
+            {
+                if (valor.disp) Console.WriteLine($"{valor.id} {valor.fecha} {valor.hora} {valor.descrip} está disponible");
+                else Console.WriteLine($"{valor.id} {valor.fecha} {valor.hora} {valor.descrip} no está disponible");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Presione enter para volver al menú principal");
+            Console.ReadKey();
+            Menu(arrTurnos, listTurnos, dni);
+        }
+    }
+
+    public struct Turnos
+    {
+        public string id;
+        public string fecha;
+        public string hora;
+        public string descrip;
+        public bool disp;
+    }
+    public struct Lista
+    {
+        public string dni;
+        public string id;
+    }
+}
